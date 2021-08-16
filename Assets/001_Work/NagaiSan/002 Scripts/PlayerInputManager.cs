@@ -16,7 +16,7 @@ public class PlayerInputManager : MonoBehaviour
     public LineRenderer rayObject;
     #endregion
 
-    public Animator deskAnimation;
+    public Animator tableAnimation;
 
     public bool iamCat = false;
     #endregion
@@ -66,7 +66,7 @@ public class PlayerInputManager : MonoBehaviour
     public void InitApp()
     {
         #region Open Desk Capacity when Start 
-        deskAnimation.SetBool("Touch", true);
+        tableAnimation.SetBool("Touch", true);
         #endregion
         
         #region Initialize UIs
@@ -80,7 +80,7 @@ public class PlayerInputManager : MonoBehaviour
     public void CatMode()
     {
         #region Close Desk
-        deskAnimation.SetBool("Touch", false);
+        tableAnimation.SetBool("Touch", false);
         #endregion
 
         catInputManager.CatMode();
@@ -224,12 +224,23 @@ public class PlayerInputManager : MonoBehaviour
 
                     if (tagName == "Remove")
                     {
-                        #region Remove LightStand when STAGE01
-                        if (SceneManager.GetActiveScene().name == "003 TestEnvStage1_Ver1.0") // Need to fix "scene.name" when Finalize
+                        #region Remove LightStand when STAGE 1
+                        if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
                         {
                             GameObject _LS001 = GameObject.Find("LightStand001");
 
                             _LS001.SetActive(false);
+                            removeB.SetActive(false);
+                        }
+                        #endregion
+                        #region Remove Items when STAGE 2
+                        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
+                        {
+                            GameObject _001 = GameObject.Find("****");
+                            GameObject _002 = GameObject.Find("****");
+                            GameObject _003 = GameObject.Find("****");
+
+                            _001.SetActive(false);
                             removeB.SetActive(false);
                         }
                         #endregion
@@ -313,16 +324,16 @@ public class PlayerInputManager : MonoBehaviour
     public void PointingDeskCapacity()
     {
         // Get Status in "Touch" (True or False)
-        bool nowTransDeskCap = deskAnimation.GetBool("Touch");
+        bool nowTransDeskCap = tableAnimation.GetBool("Touch");
 
         #region Open / Close Desk (with Decision Area)
         if (!nowTransDeskCap)
         {
-            deskAnimation.SetBool("Touch", true);
+            tableAnimation.SetBool("Touch", true);
         }
         else
         {
-            deskAnimation.SetBool("Touch", false);
+            tableAnimation.SetBool("Touch", false);
         }
         #endregion
     }
