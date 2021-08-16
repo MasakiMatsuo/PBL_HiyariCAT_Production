@@ -9,7 +9,7 @@ public class SwitchViewManager : MonoBehaviour
     public GameObject catOVRC_PB;
     public GameObject catOVRC_Scissors;
 
-    public PlayerInputManager playerInputManager;
+    public PlayerInputManager_Stage1_3 playerInputManagerS13;
     public CatInputManager catInputManager;
     #endregion
 
@@ -21,7 +21,7 @@ public class SwitchViewManager : MonoBehaviour
         if (ovrc)
         {
             ovrc.SetActive(false);
-            playerInputManager.iamCat = true;
+            playerInputManagerS13.iamCat = true;
             catOVRC_LS.SetActive(true);
         }
     }

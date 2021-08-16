@@ -5509,6 +5509,10 @@ PrefabInstance:
       propertyPath: catOVRC_Scissors
       value: 
       objectReference: {fileID: 526381458}
+    - target: {fileID: 8442551286070085485, guid: 1c875ceaeb29d5b4b9d79f7d87050746, type: 3}
+      propertyPath: playerInputManagerS13
+      value: 
+      objectReference: {fileID: 8442551288067431981}
     - target: {fileID: 8442551286170403496, guid: 1c875ceaeb29d5b4b9d79f7d87050746, type: 3}
       propertyPath: CameraRig
       value: 
@@ -5594,6 +5598,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7878710845444596073}
     - target: {fileID: 8442551286963159358, guid: 1c875ceaeb29d5b4b9d79f7d87050746, type: 3}
+      propertyPath: capacityAnimation
+      value: 
+      objectReference: {fileID: 7878710845444596073}
+    - target: {fileID: 8442551286963159358, guid: 1c875ceaeb29d5b4b9d79f7d87050746, type: 3}
       propertyPath: playerRightController
       value: 
       objectReference: {fileID: 489846532}
@@ -5610,6 +5618,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 388173445}
     - target: {fileID: 8442551286963159359, guid: 1c875ceaeb29d5b4b9d79f7d87050746, type: 3}
+      propertyPath: playerInputManagerS13
+      value: 
+      objectReference: {fileID: 8442551288067431981}
+    - target: {fileID: 8442551286963159359, guid: 1c875ceaeb29d5b4b9d79f7d87050746, type: 3}
       propertyPath: catMemoStage1_LS_delight
       value: 
       objectReference: {fileID: 573653858}
@@ -5625,8 +5637,23 @@ PrefabInstance:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 2020946142}
+    - target: {fileID: 8442551287113745589, guid: 1c875ceaeb29d5b4b9d79f7d87050746, type: 3}
+      propertyPath: playerInputManagerS13
+      value: 
+      objectReference: {fileID: 8442551288067431981}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c875ceaeb29d5b4b9d79f7d87050746, type: 3}
+--- !u!114 &8442551288067431981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8442551286963159358, guid: 1c875ceaeb29d5b4b9d79f7d87050746, type: 3}
+  m_PrefabInstance: {fileID: 8442551288067431980}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0be13d8f5a469489d901f77d9e534d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8508689128533139619
 GameObject:
   m_ObjectHideFlags: 0

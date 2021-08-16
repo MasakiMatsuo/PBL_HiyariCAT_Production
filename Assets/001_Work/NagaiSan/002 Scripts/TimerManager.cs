@@ -7,7 +7,7 @@ public class TimerManager : MonoBehaviour
 {
     #region Require Values
     public Text timerText;
-    public PlayerInputManager playerInputManager;
+    public PlayerInputManager_Stage1_3 playerInputManagerS13;
     public CatInputManager catInputManager;
 
     // This value is the time limit.
@@ -20,7 +20,7 @@ public class TimerManager : MonoBehaviour
     void Update()
     {
         // Cat Mode
-        if (playerInputManager.iamCat == true)
+        if (playerInputManagerS13.iamCat == true)
         {
             RemoveTimer();
         }

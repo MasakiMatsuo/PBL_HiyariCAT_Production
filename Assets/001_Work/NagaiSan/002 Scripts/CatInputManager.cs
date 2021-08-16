@@ -30,7 +30,7 @@ public class CatInputManager : MonoBehaviour
 
     #region Other Scripts
     public SwitchViewManager switchViewManager;
-    public PlayerInputManager playerInputManager;
+    public PlayerInputManager_Stage1_3 playerInputManagerS13;
     #endregion
 
     #region Flags
@@ -57,7 +57,7 @@ public class CatInputManager : MonoBehaviour
 
     public void InitMyCatRay()
     {
-        if (playerInputManager.iamCat)
+        if (playerInputManagerS13.iamCat)
         {
             #region Create Start Point of Ray (Cat)
             // Create Vertex(0:Start, 1:End point)
@@ -216,7 +216,7 @@ public class CatInputManager : MonoBehaviour
                     {
                         SceneManager.LoadScene("006 EndScene");// Need to fix "scene.name" when Finalize
                     }
-                    playerInputManager.iamCat = false;
+                    playerInputManagerS13.iamCat = false;
                 }
             }
         }

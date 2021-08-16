@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerInputManager : MonoBehaviour
+public class TourPlayerInputManager : MonoBehaviour
 {
     /// CAUTION !!! /////////////////////////////////////////////////
     /// You shold search "Need to fix" before Finalize.
@@ -19,13 +19,13 @@ public class PlayerInputManager : MonoBehaviour
     public Animator tableAnimation;
 
     public bool iamCat = false;
-    #endregion
 
     #region UIs
-    public GameObject removeB;
     public GameObject pauseMenu;
+    public GameObject sitOnBedB;
+    //public GameObject sitOnChairB;
     #endregion
-    
+
     #region Other Scripts
     public CatInputManager catInputManager;
     public SwitchViewManager switchViewManager;
@@ -38,6 +38,7 @@ public class PlayerInputManager : MonoBehaviour
     public bool Stage1_LS_Check = default;
     public bool Stage1_PB_Check = default;
     public bool Stage1_Scissors_Check = default;
+    #endregion
     #endregion
 
     void Start()
@@ -70,10 +71,10 @@ public class PlayerInputManager : MonoBehaviour
         #endregion
         
         #region Initialize UIs
-        removeB.SetActive(false);
         pauseMenu.SetActive(false);
+        sitOnBedB.SetActive(false);
         #endregion
-        
+
         iamCat = false;
     }
 
@@ -121,7 +122,6 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
-
     public void PointingInteraction()
     {
         // Launch Ray
@@ -149,7 +149,6 @@ public class PlayerInputManager : MonoBehaviour
 
                     #region Menu Pointing
                     #region Scene Transition
-
                     if (tagName == "Next00")
                     {
                         SceneManager.LoadScene("003 Stage1");// Need to fix "scene.name" when Finalize
@@ -188,16 +187,7 @@ public class PlayerInputManager : MonoBehaviour
                         }
                     }
                     #endregion
-                    #endregion
-
-                    #region Checking dangerous items & Debug Cat Mode
-                    else if (tagName == "Debug_CatMode")
-                    {
-                        CheckRemoving();
-                        switchViewManager.SwitchViewer();
-                    }
-                    #endregion
-                    #endregion
+                    #endregion // Scene Transition
 
                     #region Interaction of Capacity
                     if (tagName == "Capacity")
@@ -206,56 +196,24 @@ public class PlayerInputManager : MonoBehaviour
                         break;
                     }
                     #endregion
-
-                    #region Interaction of Target
-                    if (tagName == "Target")
+                    
+                    #region Tour Mode Interaction
+                    if (tagName == "Bed_Stage1")
                     {
-                        hit.collider.transform.parent = playerRightController.transform;
-                        break;
-                    }
-                    #endregion
-                    #region Interaction of HeavyTarget
-                    #region Print "Remove" Button for tag.name == "HeavyTarget"
-                    if (tagName == "HeavyTarget")
-                    {
-                        removeB.SetActive(true);
-                    }
-                    #endregion
-
-                    if (tagName == "Remove")
-                    {
-                        #region Remove LightStand when STAGE 1
-                        if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
+                        if (!sitOnBedB)
                         {
-                            GameObject _LS001 = GameObject.Find("LightStand001");
-
-                            _LS001.SetActive(false);
-                            removeB.SetActive(false);
+                            sitOnBedB.SetActive(true);
                         }
-                        #endregion
-                        #region Remove Items when STAGE 2
-                        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
+                        else
                         {
-                            GameObject _001 = GameObject.Find("****");
-                            GameObject _002 = GameObject.Find("****");
-                            GameObject _003 = GameObject.Find("****");
-
-                            _001.SetActive(false);
-                            removeB.SetActive(false);
+                            sitOnBedB.SetActive(false);
                         }
-                        #endregion
+                        
+                    
                     }
-                    #endregion
+                    #endregion // Tour Mode Interaction
+                    #endregion // Menu Pointing
                 }
-                #region Catching Object's gravity is false;
-                GameObject go = playerRightController.transform.GetChild(3).gameObject;
-                go.GetComponent<Rigidbody>().useGravity = false;
-                #endregion
-            }
-            // Release Object
-            if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
-            {
-                MyReleaseObject();
             }
         }
         // When the RHandTrigger is released
@@ -263,61 +221,6 @@ public class PlayerInputManager : MonoBehaviour
         {
             // Remove the Echo of Ray (Player)
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
-
-            #region Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
-            int checkNG = 3;
-            int childCheck = playerRightController.transform.childCount - 1;
-
-            if (childCheck != checkNG)
-            {
-                return;
-            }
-            else
-            {
-                MyReleaseObject();
-            }
-            #endregion
-        }
-    }
-
-
-    public void CheckRemoving()
-    {
-        if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
-        {
-            #region ÅyStage 1ÅzChecking that dangerous items have been removed.
-            GameObject LS = GameObject.Find("LightStand001");
-            GameObject PB = GameObject.Find("Bag001");
-            GameObject Scissors = GameObject.Find("Scissors001");
-
-            #region Checking
-            if (LS)
-            {
-                Stage1_LS_Check = false;
-            }
-            else
-            {
-                Stage1_LS_Check = true;
-            }
-            if (PB)
-            {
-                Stage1_PB_Check = false;
-            }
-            else
-            {
-                Stage1_PB_Check = true;
-            }
-            if (Scissors)
-            {
-                Stage1_Scissors_Check = false;
-            }
-            else
-            {
-                Stage1_Scissors_Check = true;
-            }
-            #endregion
-            #endregion
-
         }
     }
 
@@ -337,25 +240,5 @@ public class PlayerInputManager : MonoBehaviour
         }
         #endregion
     }
-
-    public void MyReleaseObject()
-    {
-        #region Deselect Object's gravity is true;
-        GameObject go = playerRightController.transform.GetChild(3).gameObject;
-        go.GetComponent<Rigidbody>().useGravity = true;
-        #endregion
-
-        #region Child Objects relased
-        for (int i = 0; i < playerRightController.transform.childCount; i++)
-        {
-            var child = playerRightController.transform.GetChild(i);
-            if (child.tag == "Target")
-            {
-                child.parent = null;
-            }
-        }
-        #endregion
-    }
-
 
 }
