@@ -215,7 +215,7 @@ public class TourOVRPlayerController : MonoBehaviour
 	void Update()
 	{
         /*MN_Changed_Start*/
-        if (!tourSVM.player_SitOnBedFlag)
+        if (!tourSVM.player_SitOnPos1Flag)
         {
 			EnableLinearMovement = true;
         }
@@ -223,6 +223,14 @@ public class TourOVRPlayerController : MonoBehaviour
         {
 			EnableLinearMovement = false;
         }
+		if (!tourSVM.player_SitOnPos2Flag)
+		{
+			EnableLinearMovement = true;
+		}
+		else
+		{
+			EnableLinearMovement = false;
+		}
 		/*MN_Changed_End*/
 		if (!playerControllerEnabled)
 		{

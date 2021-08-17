@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TourPlayerInputManager : MonoBehaviour
+public class TourCatInputManager : MonoBehaviour
 {
     /// CAUTION !!! /////////////////////////////////////////////////
     /// You shold search "Need to fix" before Finalize.
     /// If you can find it, we still have some things to fix 
     /// CAUTION !!! /////////////////////////////////////////////////
-    
+
     #region Require Values
     #region Player Values
     public GameObject playerRightController;
@@ -27,7 +27,7 @@ public class TourPlayerInputManager : MonoBehaviour
     #region Other Scripts
     public TourSwitchViewManager tourSVM;
     #endregion
-    
+
     #region Flags
     private bool pFlg = false;
     private bool sobFlg = false;
@@ -63,11 +63,11 @@ public class TourPlayerInputManager : MonoBehaviour
 
     public void InitApp()
     {
-        
+
         #region Close Desk Capacity when Start 
         capacityAnimation.SetBool("Touch", false);
         #endregion
-        
+
         #region Initialize UIs
         pauseMenu.SetActive(false);
         sitOnPos1B.SetActive(false);
@@ -206,11 +206,11 @@ public class TourPlayerInputManager : MonoBehaviour
                     {
                         sitOnPos1B.SetActive(false);
                         sobFlg = false;
-                        tourSVM.TourSwitchViewerOnStage1_Player_SitOnBed();
+                        tourSVM.TourSwitchViewerOnStage1_Cat_SitOnBed();
                     }
                     #endregion // SitOnBed
                     #region SitOnChair
-                    if (tagName == "Chair_Stage1")
+                    if (tagName == "Table_Stage1")
                     {
                         if (!socFlg)
                         {
@@ -223,13 +223,15 @@ public class TourPlayerInputManager : MonoBehaviour
                             socFlg = false;
                         }
                     }
-                    if (tagName == "SitOnChair")
+                    if (tagName == "SitOnTable")
                     {
                         sitOnPos2B.SetActive(false);
                         socFlg = false;
-                        tourSVM.TourSwitchViewerOnStage1_Player_SitOnChair();
+                        tourSVM.TourSwitchViewerOnStage1_Cat_SitOnTable();
                     }
                     #endregion // SitOnChair
+
+
 
                     #endregion // Tour Mode Interaction
                 }
