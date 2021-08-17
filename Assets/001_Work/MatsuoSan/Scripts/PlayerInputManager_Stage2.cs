@@ -22,12 +22,14 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
 
     #region UIs
     public GameObject removeB;
+    public GameObject removeB_Vase;
+    public GameObject removeB_Chemical;
     public GameObject pauseMenu;
     #endregion
 
     #region Other Scripts
-    public CatInputManager catInputManager;
-    public SwitchViewManager switchViewManager;
+    public CatInputManager_Stage2 catInputManager;
+    public SwitchViewManager_Stage2 switchViewManager;
     #endregion
 
     #region Flags
@@ -70,6 +72,8 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
 
         #region Initialize UIs
         removeB.SetActive(false);
+        removeB_Vase.SetActive(false);
+        removeB_Chemical.SetActive(false);
         pauseMenu.SetActive(false);
         #endregion
 
@@ -218,6 +222,14 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                     {
                         removeB.SetActive(true);
                     }
+                    if (tagName == "HeavyTarget_Vase")
+                    {
+                        removeB_Vase.SetActive(true);
+                    }
+                    if (tagName == "HeavyTarget_Chemical")
+                    {
+                        removeB_Chemical.SetActive(true);
+                    }
                     #endregion
 
                     if (tagName == "Remove")
@@ -231,19 +243,34 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                             removeB.SetActive(false);
                         }
                         #endregion
+                    }
+                    #endregion
+
+                    if (tagName == "Remove_Vase")
+                    {
                         #region Remove Items when STAGE 2
                         if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
                         {
                             GameObject _Vase001 = GameObject.Find("Vase001");
-                            GameObject _Chemical002 = GameObject.Find("Chemicals001v2");
 
                             _Vase001.SetActive(false);
-                            _Chemical002.SetActive(false);
-                            removeB.SetActive(false);
+                            removeB_Vase.SetActive(false);
                         }
                         #endregion
                     }
-                    #endregion
+                    if (tagName == "Remove_Chemical")
+                    {
+                        #region Remove Items when STAGE 2
+                        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
+                        {
+                            GameObject _Chemical002 = GameObject.Find("Chemicals001v2");
+
+                            _Chemical002.SetActive(false);
+                            removeB_Chemical.SetActive(false);
+                        }
+                        #endregion
+                    }
+
                 }
                 #region Catching Object's gravity is false;
                 GameObject go = playerRightController.transform.GetChild(3).gameObject;

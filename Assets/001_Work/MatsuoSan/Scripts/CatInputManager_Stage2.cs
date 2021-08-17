@@ -29,7 +29,7 @@ public class CatInputManager_Stage2 : MonoBehaviour
     #endregion
 
     #region Other Scripts
-    public SwitchViewManager switchViewManager;
+    public SwitchViewManager_Stage2 switchViewManager;
     public PlayerInputManager_Stage2 playerInputManagerS2;
     #endregion
 

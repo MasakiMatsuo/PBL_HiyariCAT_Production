@@ -1552,7 +1552,7 @@ GameObject:
   - component: {fileID: 938132075}
   m_Layer: 5
   m_Name: RemoveButton_Chemical
-  m_TagString: Remove
+  m_TagString: Remove_Chemical
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4147,7 +4147,7 @@ GameObject:
   - component: {fileID: 305557786466674624}
   m_Layer: 5
   m_Name: RemoveButton_Vase
-  m_TagString: Remove
+  m_TagString: Remove_Vase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9677,7 +9677,7 @@ GameObject:
   - component: {fileID: 2682014620575927979}
   m_Layer: 0
   m_Name: Chemicals001v2
-  m_TagString: HeavyTarget
+  m_TagString: HeavyTarget_Chemical
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23591,7 +23591,7 @@ GameObject:
   - component: {fileID: 5923293090134651831}
   m_Layer: 0
   m_Name: Vase001
-  m_TagString: HeavyTarget
+  m_TagString: HeavyTarget_Vase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24508,7 +24508,7 @@ MonoBehaviour:
   catMemoStage2_Chemical_delight: {fileID: 3921269142432752154}
   catMemoStage2_Door_delight: {fileID: 3921269142857672370}
   resultMenu: {fileID: 3921269141554094592}
-  switchViewManager: {fileID: 0}
+  switchViewManager: {fileID: 8506171100300318614}
   playerInputManagerS2: {fileID: 8506171100790870471}
   stage1_LS_Point: 0
   stage1_PB_Point: 0
@@ -24530,9 +24530,11 @@ MonoBehaviour:
   doorAnimation: {fileID: 7329012744503112454}
   iamCat: 0
   removeB: {fileID: 305557786466674629}
+  removeB_Vase: {fileID: 305557786466674629}
+  removeB_Chemical: {fileID: 938132073}
   pauseMenu: {fileID: 598812653285655541}
-  catInputManager: {fileID: 0}
-  switchViewManager: {fileID: 0}
+  catInputManager: {fileID: 8506171100790870470}
+  switchViewManager: {fileID: 8506171100300318614}
   Stage2_Vase_Check: 0
   Stage2_Chemical_Check: 0
   Stage3_Door_Check: 0
