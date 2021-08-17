@@ -26,9 +26,9 @@ public class CleanUpMenu : MonoBehaviour
         
 
         for ( int i = 0; i <=targetScript.Length ; i++) {
-            bool cFlg = targetScript[i].cleanFlg;
+            //bool cFlg = targetScript[i].cleanFlg;
 
-            if (targetScript[i].name == "Bag001")
+            /*if (targetScript[i].name == "Bag001")
             {
                 //score_text.text = "Clean up completed\n    (Plastic bag)";
                 
@@ -40,7 +40,7 @@ public class CleanUpMenu : MonoBehaviour
                     time += Time.deltaTime;
                     if (time >= life_time)
                     {
-                        targetScript[i].cleanFlg = false;
+                        //targetScript[i].cleanFlg = false;
                         time = 0.0f;
                         //cleanMenu.SetActive(false);
                         // Debug.LogWarning(time);
@@ -75,7 +75,7 @@ public class CleanUpMenu : MonoBehaviour
             }
 
             
-            /*if (cFlg == true)
+            if (cFlg == true)
             {
                 cleanMenu1.SetActive(true);
 
