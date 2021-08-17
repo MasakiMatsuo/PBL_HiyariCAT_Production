@@ -163,6 +163,8 @@ public class TourOVRPlayerController : MonoBehaviour
 	private bool ReadyToSnapTurn; // Set to true when a snap turn has occurred, code requires one frame of centered thumbstick to enable another snap turn.
 	private bool playerControllerEnabled = false;
 
+	public TourSwitchViewManager tourSVM;
+
 	void Start()
 	{
 		// Add eye-depth as a camera offset from the player controller
@@ -191,11 +193,11 @@ public class TourOVRPlayerController : MonoBehaviour
 
 		InitialYRotation = transform.rotation.eulerAngles.y;
 	}
-
+	
 	void OnEnable()
 	{
 	}
-
+	
 	void OnDisable()
 	{
 		if (playerControllerEnabled)
@@ -212,6 +214,16 @@ public class TourOVRPlayerController : MonoBehaviour
 
 	void Update()
 	{
+        /*MN_Changed_Start*/
+        if (!tourSVM.player_SitOnBedFlag)
+        {
+			EnableLinearMovement = true;
+        }
+        else
+        {
+			EnableLinearMovement = false;
+        }
+		/*MN_Changed_End*/
 		if (!playerControllerEnabled)
 		{
 			if (OVRManager.OVRManagerinitialized)

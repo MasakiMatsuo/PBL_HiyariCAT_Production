@@ -28,16 +28,14 @@ public class TourPlayerInputManager : MonoBehaviour
 
     #region Other Scripts
     public CatInputManager catInputManager;
-    public SwitchViewManager switchViewManager;
+    public TourSwitchViewManager tourSVM;
     //public TimerManager timerManager;
     #endregion
     
     #region Flags
     private bool pFlg = false;
+    private bool sobFlg = false;
 
-    public bool Stage1_LS_Check = default;
-    public bool Stage1_PB_Check = default;
-    public bool Stage1_Scissors_Check = default;
     #endregion
     #endregion
 
@@ -61,6 +59,14 @@ public class TourPlayerInputManager : MonoBehaviour
             CatMode();
         }
 
+        if (tourSVM.player_SitOnBedFlag)
+        {
+            if (OVRInput.GetDown(OVRInput.RawButton.Y))
+            {
+                Debug.Log("Press Y");
+                tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
+            }
+        }
 
     }
 
@@ -188,6 +194,7 @@ public class TourPlayerInputManager : MonoBehaviour
                     }
                     #endregion
                     #endregion // Scene Transition
+                    #endregion // Menu Pointing
 
                     #region Interaction of Capacity
                     if (tagName == "Capacity")
@@ -196,23 +203,30 @@ public class TourPlayerInputManager : MonoBehaviour
                         break;
                     }
                     #endregion
-                    
+
                     #region Tour Mode Interaction
+
+                    #region SitOnBed
                     if (tagName == "Bed_Stage1")
                     {
-                        if (!sitOnBedB)
+                        if (!sobFlg)
                         {
                             sitOnBedB.SetActive(true);
+                            sobFlg = true;
                         }
                         else
                         {
                             sitOnBedB.SetActive(false);
+                            sobFlg = false;
                         }
-                        
-                    
                     }
+                    if (tagName == "SitOnBed")
+                    {
+                        tourSVM.TourSwitchViewerOnStage1_Player_SitOnBed();
+                    }
+                    #endregion // SitOnBed
                     #endregion // Tour Mode Interaction
-                    #endregion // Menu Pointing
+                    
                 }
             }
         }
