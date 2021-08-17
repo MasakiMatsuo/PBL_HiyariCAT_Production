@@ -234,11 +234,11 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         #region Remove Items when STAGE 2
                         if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
                         {
-                            GameObject _001 = GameObject.Find("****");
-                            GameObject _002 = GameObject.Find("****");
-                            GameObject _003 = GameObject.Find("****");
+                            GameObject _Vase001 = GameObject.Find("Vase001");
+                            GameObject _Chemical002 = GameObject.Find("Chemicals001v2");
 
-                            _001.SetActive(false);
+                            _Vase001.SetActive(false);
+                            _Chemical002.SetActive(false);
                             removeB.SetActive(false);
                         }
                         #endregion
