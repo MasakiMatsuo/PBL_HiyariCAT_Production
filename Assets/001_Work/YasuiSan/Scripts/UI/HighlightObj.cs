@@ -5,10 +5,7 @@ using UnityEngine;
 public class HighlightObj : MonoBehaviour
 {    
     public Animator animator;
-
-    public InputManager inputManager;
-
-    bool hFlg = false;
+    public PlayerInputManager_Stage1_3 inputManager;
 
     // Start is called before the first frame update
     void Start()
@@ -19,31 +16,42 @@ public class HighlightObj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool hFlg = inputManager.hitFlg;
+        bool hFlg1_1 = inputManager.hitFlg1_1;
+        bool hFlg1_2 = inputManager.hitFlg1_2;
+        bool hFlg1_3 = inputManager.hitFlg1_3;
 
-        if (hFlg == true)
+
+        //Stage1
+        if (hFlg1_1 == true)
         {
-            if (gameObject.layer == 11)
-            {
-                animator.SetBool("highlightFlg", true);
-            }
-
-            if (gameObject.layer == 12)
-            {
-                animator.SetBool("ScissorsFlg", true);
-            }
-
-        }else
-        {
-            if (gameObject.layer == 11)
-            {
-                animator.SetBool("highlightFlg", false);
-            }
-
-            if (gameObject.layer == 12)
-            {
-                animator.SetBool("ScissorsFlg", false);
-            }
+            animator.SetBool("highlightFlg", true);
         }
+        else
+        {
+            animator.SetBool("highlightFlg", false);
+        }
+
+        if (hFlg1_2 == true)
+        {
+            animator.SetBool("ScissorsFlg", true);
+        }
+        else
+        {
+            animator.SetBool("ScissorsFlg", false);
+        }
+
+        if (hFlg1_3 == true)
+        {
+            animator.SetBool("LightFlg", true);
+        }
+        else
+        {
+            animator.SetBool("LightFlg", false);
+        }
+
+        //Stage2
+
+
+        //Stage3
     }
 }
