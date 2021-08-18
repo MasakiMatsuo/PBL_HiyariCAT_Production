@@ -28,7 +28,6 @@ public class TourSwitchViewManager : MonoBehaviour
         if (playerOVRC_Walk)
         {
             playerOVRC_Walk.SetActive(false);
-
             playerOVRC_Pos1.SetActive(true);
 
             player_SitOnPos1Flag = true;
@@ -41,7 +40,6 @@ public class TourSwitchViewManager : MonoBehaviour
         if (playerOVRC_Walk)
         {
             playerOVRC_Walk.SetActive(false);
-
             playerOVRC_Pos2.SetActive(true);
 
             player_SitOnPos2Flag = true;
@@ -71,29 +69,28 @@ public class TourSwitchViewManager : MonoBehaviour
         #endregion
     }
 
-
-    // Player sits on Bed.
+    // Cat sits on Bed.
     public void TourSwitchViewerOnStage1_Cat_SitOnBed()
     {
         if (playerOVRC_Walk)
         {
             playerOVRC_Walk.SetActive(false);
-
             playerOVRC_Pos1.SetActive(true);
 
             player_SitOnPos1Flag = true;
         }
     }
 
+    // Cat sits on Table.
     public void TourSwitchViewerOnStage1_Cat_SitOnTable()
     {
         if (playerOVRC_Walk)
         {
             playerOVRC_Walk.SetActive(false);
-
             playerOVRC_Pos2.SetActive(true);
 
             player_SitOnPos2Flag = true;
+            Debug.Log($"playerOVRC_Pos2 is {playerOVRC_Pos2}");
         }
     }
 

@@ -43,7 +43,6 @@ public class TourCatInputManager : MonoBehaviour
 
     void Update()
     {
-
         InitMyPlayerRay();
         TourMode();
 
@@ -51,11 +50,7 @@ public class TourCatInputManager : MonoBehaviour
         {
             if (OVRInput.GetDown(OVRInput.RawButton.Y))
             {
-                sitOnPos1B.SetActive(false);
-                sobFlg = false;
-                sitOnPos2B.SetActive(false);
-                socFlg = false;
-                tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
+                ReturnToPosition();
             }
         }
 
@@ -63,7 +58,6 @@ public class TourCatInputManager : MonoBehaviour
 
     public void InitApp()
     {
-
         #region Close Desk Capacity when Start 
         capacityAnimation.SetBool("Touch", false);
         #endregion
@@ -260,6 +254,15 @@ public class TourCatInputManager : MonoBehaviour
             capacityAnimation.SetBool("Touch", false);
         }
         #endregion
+    }
+
+    public void ReturnToPosition()
+    {
+        sitOnPos1B.SetActive(false);
+        sobFlg = false;
+        sitOnPos2B.SetActive(false);
+        socFlg = false;
+        tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
     }
 
 }

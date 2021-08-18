@@ -43,7 +43,6 @@ public class TourPlayerInputManager : MonoBehaviour
 
     void Update()
     {
-
         InitMyPlayerRay();
         TourMode();
 
@@ -51,11 +50,7 @@ public class TourPlayerInputManager : MonoBehaviour
         {
             if (OVRInput.GetDown(OVRInput.RawButton.Y))
             {
-                sitOnPos1B.SetActive(false);
-                sobFlg = false;
-                sitOnPos2B.SetActive(false);
-                socFlg = false;
-                tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
+                ReturnToPosition();
             }
         }
 
@@ -258,6 +253,16 @@ public class TourPlayerInputManager : MonoBehaviour
             capacityAnimation.SetBool("Touch", false);
         }
         #endregion
+    }
+
+    public void ReturnToPosition()
+    {
+        sitOnPos1B.SetActive(false);
+        sobFlg = false;
+        sitOnPos2B.SetActive(false);
+        socFlg = false;
+        tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
+            
     }
 
 }

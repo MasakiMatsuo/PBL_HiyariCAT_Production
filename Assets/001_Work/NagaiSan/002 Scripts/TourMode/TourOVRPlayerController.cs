@@ -163,7 +163,10 @@ public class TourOVRPlayerController : MonoBehaviour
 	private bool ReadyToSnapTurn; // Set to true when a snap turn has occurred, code requires one frame of centered thumbstick to enable another snap turn.
 	private bool playerControllerEnabled = false;
 
+	/*MN_Changed_Start*/
 	public TourSwitchViewManager tourSVM;
+
+	/*MN_Changed_End*/
 
 	void Start()
 	{
@@ -217,21 +220,29 @@ public class TourOVRPlayerController : MonoBehaviour
         /*MN_Changed_Start*/
         if (!tourSVM.player_SitOnPos1Flag)
         {
-			EnableLinearMovement = true;
+            if (!tourSVM.player_SitOnPos2Flag)
+            {
+				EnableLinearMovement = true;
+			}
         }
         else
         {
 			EnableLinearMovement = false;
         }
+
 		if (!tourSVM.player_SitOnPos2Flag)
 		{
-			EnableLinearMovement = true;
+			if (!tourSVM.player_SitOnPos1Flag)
+            {
+				EnableLinearMovement = true;
+			}
 		}
 		else
 		{
 			EnableLinearMovement = false;
 		}
 		/*MN_Changed_End*/
+
 		if (!playerControllerEnabled)
 		{
 			if (OVRManager.OVRManagerinitialized)
