@@ -278,10 +278,12 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                 #endregion
             }
             // Release Object
+            /*
             if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
             {
                 MyReleaseObject();
             }
+            */
         }
         // When the RHandTrigger is released
         else
@@ -289,6 +291,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             // Remove the Echo of Ray (Player)
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
 
+            /*
             #region Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
             int checkNG = 3;
             int childCheck = playerRightController.transform.childCount - 1;
@@ -302,6 +305,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                 MyReleaseObject();
             }
             #endregion
+            */
         }
     }
 
@@ -363,6 +367,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
         #endregion
     }
 
+    /*
     public void MyReleaseObject()
     {
         #region Deselect Object's gravity is true;
@@ -381,6 +386,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
         }
         #endregion
     }
+    */
 
 
 }

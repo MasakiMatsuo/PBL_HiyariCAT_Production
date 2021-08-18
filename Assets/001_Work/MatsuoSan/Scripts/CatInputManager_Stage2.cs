@@ -73,7 +73,7 @@ public class CatInputManager_Stage2 : MonoBehaviour
     {
         #region Patrol Dangerous Points
         #region On Stage 1
-        if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
+        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
         {
             switch (hasSeenPoints)
             {
