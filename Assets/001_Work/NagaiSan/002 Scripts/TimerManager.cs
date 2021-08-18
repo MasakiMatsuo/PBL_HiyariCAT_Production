@@ -10,6 +10,11 @@ public class TimerManager : MonoBehaviour
     public PlayerInputManager_Stage1_3 playerInputManagerS13;
     public CatInputManager catInputManager;
 
+    //¦UI Display text
+    public GameObject timeLimitImage1;
+    public GameObject timeLimitImage2;
+    public GameObject timeLimitImage3;
+
     // This value is the time limit.
     public float totalTime = 120f;
 
@@ -55,10 +60,43 @@ public class TimerManager : MonoBehaviour
         }
         else
         {
+            
             totalTime -= Time.deltaTime;
 
             seconds = (int)totalTime;
-            timerText.text = seconds.ToString();
+            //timerText.text = seconds.ToString();
+
+            //*UI
+            // Time limit 2:00
+            if (seconds >= 115)
+            {
+                timeLimitImage1.SetActive(true);
+            }
+            else
+            {
+                timeLimitImage1.SetActive(false);
+            }
+
+            // Time limit 1:00
+            if (60 >= seconds && seconds >= 55)
+            {
+                timeLimitImage2.SetActive(true);
+            }
+            else
+            {
+                timeLimitImage2.SetActive(false);
+            }
+
+            // Time limit 0:30
+            if (30 >= seconds && seconds >= 25)
+            {
+                timeLimitImage3.SetActive(true);
+            }
+            else
+            {
+                timeLimitImage3.SetActive(false);
+            }
+
         }
         #endregion
     }
