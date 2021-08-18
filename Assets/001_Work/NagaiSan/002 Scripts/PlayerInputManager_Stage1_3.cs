@@ -36,6 +36,12 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     public bool Stage1_LS_Check = default;
     public bool Stage1_PB_Check = default;
     public bool Stage1_Scissors_Check = default;
+
+    //Å¶UI
+    public bool hitFlg1_1 = false;
+    public bool hitFlg1_2 = false;
+    public bool hitFlg1_3 = false;
+
     #endregion
     #endregion
 
@@ -255,12 +261,44 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             {
                 MyReleaseObject();
             }
+
+            //Å¶UI Highlight Object
+            foreach (var hit in hits)
+            {
+                string lightTagName = hit.collider.tag;
+                string lightObjNam = hit.collider.name;
+                if (lightTagName == "Target")
+                {
+                    if (lightObjNam == "Bag001")
+                    {
+                        hitFlg1_1 = true;
+                    }
+                    else if (lightObjNam == "Scissors001")
+                    {
+                        hitFlg1_2 = true;
+                    }
+                }
+                else if (lightTagName == "HeavyTarget")
+                {
+                    hitFlg1_3 = true;
+                    if (lightObjNam == "LightStand001")
+                    {
+                        hitFlg1_3 = true;
+                    }
+                }
+
+            }
         }
         // When the RHandTrigger is released
         else
         {
             // Remove the Echo of Ray (Player)
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
+
+            //Å¶UI Flae all highlight false
+            hitFlg1_1 = false;
+            hitFlg1_2 = false;
+            hitFlg1_3 = false;
 
             #region Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
             int checkNG = 3;
