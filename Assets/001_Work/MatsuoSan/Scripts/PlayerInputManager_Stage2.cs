@@ -38,6 +38,11 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     public bool Stage2_Vase_Check = default;
     public bool Stage2_Chemical_Check = default;
     public bool Stage3_Door_Check = default;
+
+    public bool hitFlg2_1 = false;
+    public bool hitFlg2_2 = false;
+    public bool hitFlg2_3 = false;
+
     #endregion
     #endregion
 
@@ -284,6 +289,52 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                 MyReleaseObject();
             }
             */
+
+            //UI Highlight Object
+            foreach (var hit in hits)
+            {
+                string lightTagName = hit.collider.tag;
+                string lightObjNam = hit.collider.name;
+                /*
+                if (lightTagName == "Target")
+                {
+                    if (lightObjNam == "Bag001")
+                    {
+                        hitFlg2_1 = true;
+                    }
+                    else if (lightObjNam == "Scissors001")
+                    {
+                        hitFlg2_2 = true;
+                    }
+                }*/
+                if (lightTagName == "HeavyTarget_Vase")
+                {
+                    //hitFlg2_3 = true;
+                    if (lightObjNam == "Vase001")
+                    {
+                        hitFlg2_1 = true;
+                    }
+                }
+                if (lightTagName == "HeavyTarget_Chemical")
+                {
+                    //hitFlg2_3 = true;
+                    if (lightObjNam == "Chemicals001v2")
+                    {
+                        hitFlg2_2 = true;
+                    }
+                }
+                if (lightTagName == "Capacity")
+                {
+                    //hitFlg2_3 = true;
+                    if (lightObjNam == "Door003")
+                    {
+                        hitFlg2_3 = true;
+                    }
+                }
+
+            }
+
+
         }
         // When the RHandTrigger is released
         else
@@ -306,6 +357,11 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             }
             #endregion
             */
+
+            //Å¶UI Flae all highlight false
+            hitFlg2_1 = false;
+            hitFlg2_2 = false;
+            hitFlg2_3 = false;
         }
     }
 
@@ -315,9 +371,9 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
         {
             #region ÅyStage 1ÅzChecking that dangerous items have been removed.
-            GameObject LS = GameObject.Find("LightStand001");
-            GameObject PB = GameObject.Find("Bag001");
-            GameObject Scissors = GameObject.Find("Scissors001");
+            GameObject LS = GameObject.Find("Vase001");
+            GameObject PB = GameObject.Find("Chemicals001v2");
+            GameObject Scissors = GameObject.Find("Door003");
 
             #region Checking
             if (LS)

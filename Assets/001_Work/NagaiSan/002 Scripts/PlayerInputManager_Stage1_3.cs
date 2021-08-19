@@ -38,6 +38,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     public bool Stage1_Scissors_Check = default;
 
     //※UI
+    //ステージ1
     public bool hitFlg1_1 = false;
     public bool hitFlg1_2 = false;
     public bool hitFlg1_3 = false;
@@ -269,6 +270,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             {
                 string lightTagName = hit.collider.tag;
                 string lightObjNam = hit.collider.name;
+
                 if (lightTagName == "Target")
                 {
                     if (lightObjNam == "Bag001")

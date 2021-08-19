@@ -7,8 +7,6 @@ public class TimerManager : MonoBehaviour
 {
     #region Require Values
     public Text timerText;
-    public PlayerInputManager_Stage1_3 playerInputManagerS13;
-    public CatInputManager catInputManager;
 
     //Å¶UI Display text
     public GameObject timeLimitImage1;
@@ -21,6 +19,14 @@ public class TimerManager : MonoBehaviour
     // This Value is Initial. This number can be any non-negative number.
     int seconds = 99999;
     #endregion
+
+    #region Other Scripts
+    public CatInputManager catInputManager;
+    public SwitchViewManager switchViewManager;
+    public PlayerInputManager_Stage1_3 playerInputManagerS13;
+    
+    #endregion
+
 
     void Update()
     {
@@ -95,6 +101,12 @@ public class TimerManager : MonoBehaviour
             else
             {
                 timeLimitImage3.SetActive(false);
+            }
+
+            if (seconds <= 0)
+            {
+                playerInputManagerS13.CheckRemoving();
+                switchViewManager.SwitchViewer();
             }
 
         }
