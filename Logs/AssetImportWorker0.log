@@ -15,12 +15,12 @@ C:/Users/Administrator/Desktop/Unity/PBL_HiyariCAT_Production
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-65163
+64641
 Successfully changed project path to: C:/Users/Administrator/Desktop/Unity/PBL_HiyariCAT_Production
 C:/Users/Administrator/Desktop/Unity/PBL_HiyariCAT_Production
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 62.16 ms, found 6 plugins.
-Preloading 1 native plugins for Editor in 0.68 ms.
+Refreshing native plugins compatible for Editor in 73.16 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 1.15 ms.
 Initialize engine version: 2020.3.14f1 (d0d1bb862f9d)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path C:/Users/Administrator/Desktop/Unity/PBL_HiyariCAT_Production/Assets
@@ -36,82 +36,82 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56484
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56816
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.14f1/Editor/Data/PlaybackEngines/LuminSupport/UnityEditor.Lumin.Extensions.dll
-Registered in 0.001771 seconds.
+Registered in 0.003670 seconds.
 Native extension for Lumin target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 50.58 ms, found 6 plugins.
-Preloading 1 native plugins for Editor in 0.07 ms.
+Refreshing native plugins compatible for Editor in 56.05 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.607 seconds
+- Completed reload, in  1.871 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1607ms)
-		BeginReloadAssembly (46ms)
+	ReloadAssembly (1872ms)
+		BeginReloadAssembly (55ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (398ms)
-			LoadAssemblies (44ms)
+		EndReloadAssembly (458ms)
+			LoadAssemblies (53ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (141ms)
+			SetupTypeCache (161ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (27ms)
-			SetupLoadedEditorAssemblies (164ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (185ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (51ms)
-				BeforeProcessingInitializeOnLoad (14ms)
-				ProcessInitializeOnLoadAttributes (69ms)
-				ProcessInitializeOnLoadMethodAttributes (26ms)
+				RefreshPlugins (56ms)
+				BeforeProcessingInitializeOnLoad (13ms)
+				ProcessInitializeOnLoadAttributes (78ms)
+				ProcessInitializeOnLoadMethodAttributes (31ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004806 seconds.
+Registered in 0.004515 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for Lumin target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.28 ms, found 6 plugins.
-Preloading 1 native plugins for Editor in 0.17 ms.
+Refreshing native plugins compatible for Editor in 0.70 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.06 ms.
 [XR] OculusXRPlugin: registering subsystems
 [XR] Unable to register display lifecyle provider: [1]
 [XR] Oculus Input lifecycle provider registered.
 [XR] Unable to register input lifecyle provider: [1]
 [XR] OVRP version 1.61.0
 Mono: successfully reloaded assembly
-- Completed reload, in  1.012 seconds
+- Completed reload, in  1.152 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1014ms)
-		BeginReloadAssembly (129ms)
+	ReloadAssembly (1153ms)
+		BeginReloadAssembly (153ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (16ms)
-		EndReloadAssembly (828ms)
-			LoadAssemblies (81ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (935ms)
+			LoadAssemblies (85ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (273ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (45ms)
-			SetupLoadedEditorAssemblies (333ms)
+			SetupTypeCache (310ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (57ms)
+			SetupLoadedEditorAssemblies (372ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (96ms)
-				ProcessInitializeOnLoadAttributes (215ms)
-				ProcessInitializeOnLoadMethodAttributes (9ms)
-				AfterProcessingInitializeOnLoad (5ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (101ms)
+				ProcessInitializeOnLoadAttributes (246ms)
+				ProcessInitializeOnLoadMethodAttributes (12ms)
+				AfterProcessingInitializeOnLoad (6ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (5ms)
@@ -119,15 +119,15 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.66 ms, found 6 plugins.
-Preloading 1 native plugins for Editor in 0.12 ms.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.67 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.07 ms.
 Unloading 2059 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 102.5 MB.
-System memory in use after: 102.5 MB.
+System memory in use before: 102.8 MB.
+System memory in use after: 102.9 MB.
 
-Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 2480.
-Total: 2.934100 ms (FindLiveObjects: 0.327200 ms CreateObjectMapping: 0.100600 ms MarkObjects: 2.401700 ms  DeleteObjects: 0.103600 ms)
+Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 2482.
+Total: 4.392500 ms (FindLiveObjects: 0.276600 ms CreateObjectMapping: 0.091800 ms MarkObjects: 3.897800 ms  DeleteObjects: 0.124500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -141,180 +141,44 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Scissors.controller
-  artifactKey: Guid(afb9f5a8e8cc633418cc83e09b4a4654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Scissors.controller using Guid(afb9f5a8e8cc633418cc83e09b4a4654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ef37846a56cb0cfd68c6edb6121b2fb') in 0.033731 seconds 
-  Import took 0.037899 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 35.413697 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Bag001.controller
-  artifactKey: Guid(841d442eab1bebd45950d3f3e6f149fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Bag001.controller using Guid(841d442eab1bebd45950d3f3e6f149fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61930b504ad0c284c15adc98dd298ada') in 0.005499 seconds 
-  Import took 0.010710 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.293318 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Lightbody.controller
-  artifactKey: Guid(1ed384e284b25c34d84f0cee14b6fce8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Lightbody.controller using Guid(1ed384e284b25c34d84f0cee14b6fce8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '502233b0d2d60eae8c75c35d1050e450') in 0.006006 seconds 
-  Import took 0.008895 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.718105 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/LightStand.controller
-  artifactKey: Guid(74cb73397736169479ad7633b17dc0e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/LightStand.controller using Guid(74cb73397736169479ad7633b17dc0e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e34b64a8ebadf0eebad80c503db7300') in 0.006528 seconds 
-  Import took 0.010594 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.438361 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_Bag.anim
-  artifactKey: Guid(4d316794fac4ddf4c80aea8d3dee8c03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_Bag.anim using Guid(4d316794fac4ddf4c80aea8d3dee8c03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96dc8e51eb82b92aabbf81b34456f07a') in 0.006320 seconds 
-  Import took 0.009567 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.003495 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_Bag.anim
-  artifactKey: Guid(4d316794fac4ddf4c80aea8d3dee8c03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_Bag.anim using Guid(4d316794fac4ddf4c80aea8d3dee8c03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96dc8e51eb82b92aabbf81b34456f07a') in 0.002622 seconds 
-  Import took 0.006808 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.286286 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_LightBody.anim
-  artifactKey: Guid(5a0db1c6f1a8a164baf4342a091ba233) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_LightBody.anim using Guid(5a0db1c6f1a8a164baf4342a091ba233) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '434c620a7a2031670f88274af1c9df28') in 0.004190 seconds 
-  Import took 0.007173 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.493919 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_LightHead.anim
-  artifactKey: Guid(9387433b840f1d6429ab0721327378c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_LightHead.anim using Guid(9387433b840f1d6429ab0721327378c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96c4a3bbd00dfa5713cd41c7e8553e7b') in 0.004872 seconds 
-  Import took 0.007756 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.177623 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_LightStand.anim
-  artifactKey: Guid(dffc28f6536f8f14b9f1b6c25ba252e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_LightStand.anim using Guid(dffc28f6536f8f14b9f1b6c25ba252e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e9ae7678d555aa9081aa813d6ef7c51') in 0.004820 seconds 
-  Import took 0.009233 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.940878 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_Scissors.anim
-  artifactKey: Guid(5eb5db8b61b9ecc458f189dcfbabfea0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_Scissors.anim using Guid(5eb5db8b61b9ecc458f189dcfbabfea0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1e39d94a85a3124bcf257b2d577dd68') in 0.006382 seconds 
-  Import took 0.010697 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.693743 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_Scissors_parts.anim
-  artifactKey: Guid(bcfd50e125e31a3488913b76a8d2bda3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Highlight_Scissors_parts.anim using Guid(bcfd50e125e31a3488913b76a8d2bda3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8901391db694b2a021f54b72faacf43') in 0.006872 seconds 
-  Import took 0.010083 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.189290 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Idol_Bag.anim
-  artifactKey: Guid(c6b56367aaf418945916856a85c4b269) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Idol_Bag.anim using Guid(c6b56367aaf418945916856a85c4b269) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d926a761d7d22f3a38dc3fc83e3bb25') in 0.005369 seconds 
-  Import took 0.010276 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.759211 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Idol_LightBody.anim
-  artifactKey: Guid(59fb6e2f7c50e4443b6bd347bfb97ddd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Idol_LightBody.anim using Guid(59fb6e2f7c50e4443b6bd347bfb97ddd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf402d7c4db6558e6f33885cd0eb8edb') in 0.005217 seconds 
-  Import took 0.010433 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.836802 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Idol_LightHead.anim
-  artifactKey: Guid(a5092d92582c1504a880220acae7b55a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Idol_LightHead.anim using Guid(a5092d92582c1504a880220acae7b55a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08cfa663b0da12b413858ded9903c630') in 0.004722 seconds 
-  Import took 0.007601 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.944160 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Idol_LightStand.anim
-  artifactKey: Guid(df2e5a9285b21674caaa7519b6261bd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Idol_LightStand.anim using Guid(df2e5a9285b21674caaa7519b6261bd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7623744884b81a39344a5b31fb2d815') in 0.004798 seconds 
-  Import took 0.010984 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.042223 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Scissors.controller
-  artifactKey: Guid(afb9f5a8e8cc633418cc83e09b4a4654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Scissors.controller using Guid(afb9f5a8e8cc633418cc83e09b4a4654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a614d7271f181502cd55ed7e07cb8d90') in 0.011352 seconds 
-  Import took 0.016554 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001880 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Scissors.controller
-  artifactKey: Guid(afb9f5a8e8cc633418cc83e09b4a4654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Scissors.controller using Guid(afb9f5a8e8cc633418cc83e09b4a4654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a614d7271f181502cd55ed7e07cb8d90') in 0.004650 seconds 
-  Import took 0.008011 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.486172 seconds.
-  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Scissors001.controller
-  artifactKey: Guid(8501c6dca9f6ddb4e92f84c5ec4cf787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/Scissors/Scissors001.controller using Guid(8501c6dca9f6ddb4e92f84c5ec4cf787) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7afc8c5e006f0470fe3035824e9759bf') in 0.005032 seconds 
-  Import took 0.010914 seconds .
+  path: Assets/001_Work/001 Scenes/003 Stage1.unity
+  artifactKey: Guid(9de55fd3334e8d04b92540a7d0ef65ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/001 Scenes/003 Stage1.unity using Guid(9de55fd3334e8d04b92540a7d0ef65ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18fe04fde742e6219c5b19c67fbbf827') in 0.014322 seconds 
+  Import took 0.019247 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005278 seconds.
+Registered in 0.005420 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for Lumin target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.81 ms, found 6 plugins.
-Preloading 1 native plugins for Editor in 0.07 ms.
+Refreshing native plugins compatible for Editor in 0.64 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.06 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.012 seconds
+- Completed reload, in  1.055 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1012ms)
-		BeginReloadAssembly (100ms)
+	ReloadAssembly (1056ms)
+		BeginReloadAssembly (102ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (27ms)
-		EndReloadAssembly (858ms)
-			LoadAssemblies (82ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (881ms)
+			LoadAssemblies (91ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (282ms)
+			SetupTypeCache (325ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (35ms)
-			SetupLoadedEditorAssemblies (348ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (321ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (107ms)
-				ProcessInitializeOnLoadAttributes (223ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
+				BeforeProcessingInitializeOnLoad (84ms)
+				ProcessInitializeOnLoadAttributes (218ms)
+				ProcessInitializeOnLoadMethodAttributes (8ms)
 				AfterProcessingInitializeOnLoad (6ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -322,14 +186,374 @@ Domain Reload Profiling:
 Platform modules already initialized, skipping
 Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524294) extendedPlatform(0)
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 1.32 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 1996 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.1 MB.
+System memory in use after: 98.2 MB.
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2486.
+Total: 3.447500 ms (FindLiveObjects: 0.399300 ms CreateObjectMapping: 0.125400 ms MarkObjects: 2.853700 ms  DeleteObjects: 0.068100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004364 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.65 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.06 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.931 seconds
+Domain Reload Profiling:
+	ReloadAssembly (931ms)
+		BeginReloadAssembly (102ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (776ms)
+			LoadAssemblies (76ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (254ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (32ms)
+			SetupLoadedEditorAssemblies (321ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (76ms)
+				ProcessInitializeOnLoadAttributes (228ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524294) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
 Refreshing native plugins compatible for Editor in 0.74 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.07 ms.
+Unloading 1996 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.1 MB.
+System memory in use after: 98.3 MB.
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2490.
+Total: 3.369000 ms (FindLiveObjects: 0.177100 ms CreateObjectMapping: 0.056300 ms MarkObjects: 3.057400 ms  DeleteObjects: 0.077300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004637 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.94 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.141 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1142ms)
+		BeginReloadAssembly (98ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (27ms)
+		EndReloadAssembly (984ms)
+			LoadAssemblies (87ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (315ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (389ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (129ms)
+				ProcessInitializeOnLoadAttributes (238ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524294) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 1.55 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.26 ms.
+Unloading 1996 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.2 MB.
+System memory in use after: 98.3 MB.
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2494.
+Total: 4.326000 ms (FindLiveObjects: 0.617100 ms CreateObjectMapping: 0.211600 ms MarkObjects: 3.426200 ms  DeleteObjects: 0.068300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007524 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.66 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.06 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.204 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1207ms)
+		BeginReloadAssembly (214ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (15ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (99ms)
+		EndReloadAssembly (923ms)
+			LoadAssemblies (101ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (318ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (39ms)
+			SetupLoadedEditorAssemblies (339ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (93ms)
+				ProcessInitializeOnLoadAttributes (228ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524294) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 0.67 ms, found 6 plugins.
 Preloading 1 native plugins for Editor in 0.08 ms.
 Unloading 1996 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 97.9 MB.
-System memory in use after: 98.0 MB.
+System memory in use before: 98.2 MB.
+System memory in use after: 98.3 MB.
 
-Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2484.
-Total: 1.759900 ms (FindLiveObjects: 0.182300 ms CreateObjectMapping: 0.073500 ms MarkObjects: 1.464000 ms  DeleteObjects: 0.018800 ms)
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2498.
+Total: 2.594900 ms (FindLiveObjects: 0.267100 ms CreateObjectMapping: 0.081100 ms MarkObjects: 2.216400 ms  DeleteObjects: 0.028800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.019359 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.06 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.038 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1039ms)
+		BeginReloadAssembly (116ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (863ms)
+			LoadAssemblies (86ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (278ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (324ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (225ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524294) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 0.92 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Unloading 1996 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.1 MB.
+System memory in use after: 98.2 MB.
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2502.
+Total: 1.941900 ms (FindLiveObjects: 0.170900 ms CreateObjectMapping: 0.065200 ms MarkObjects: 1.683700 ms  DeleteObjects: 0.020900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009654 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.46 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.21 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.176 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1176ms)
+		BeginReloadAssembly (130ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (956ms)
+			LoadAssemblies (116ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (330ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (39ms)
+			SetupLoadedEditorAssemblies (348ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (93ms)
+				ProcessInitializeOnLoadAttributes (235ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524294) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 0.66 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.07 ms.
+Unloading 1996 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.2 MB.
+System memory in use after: 98.3 MB.
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2506.
+Total: 2.495500 ms (FindLiveObjects: 0.216300 ms CreateObjectMapping: 0.108800 ms MarkObjects: 2.108300 ms  DeleteObjects: 0.060800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005836 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.14 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.057 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1059ms)
+		BeginReloadAssembly (104ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (894ms)
+			LoadAssemblies (88ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (272ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (342ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (97ms)
+				ProcessInitializeOnLoadAttributes (223ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524294) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.08 ms.
+Unloading 1996 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.2 MB.
+System memory in use after: 98.3 MB.
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2510.
+Total: 2.231300 ms (FindLiveObjects: 0.235900 ms CreateObjectMapping: 0.082800 ms MarkObjects: 1.889800 ms  DeleteObjects: 0.021300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -344,146 +568,229 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 258.575019 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/TimeLimitFrame.png
-  artifactKey: Guid(d194d880323079c45837814e1af1c40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/TimeLimitFrame.png using Guid(d194d880323079c45837814e1af1c40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdb062e66cb59b3853f50783b08ae00b') in 0.112138 seconds 
-  Import took 0.116338 seconds .
+  Time since last request: 9691.663524 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Bag001.controller
+  artifactKey: Guid(41c34044925ab344b97403b4689991bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Bag001.controller using Guid(41c34044925ab344b97403b4689991bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fac8df10da41132515ed6b17cebe0699') in 0.078940 seconds 
+  Import took 0.085902 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 26.242204 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/UIFrame.png
-  artifactKey: Guid(b6d2aa8b0dbc6e442b2b7c9dd5e8928c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/UIFrame.png using Guid(b6d2aa8b0dbc6e442b2b7c9dd5e8928c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72dc53d61c7928b17399be26211e139c') in 0.040202 seconds 
-  Import took 0.043543 seconds .
+  Time since last request: 1.402534 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_Bag.anim
+  artifactKey: Guid(ebecfb112cf27cf4aae46c06b47f2663) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_Bag.anim using Guid(ebecfb112cf27cf4aae46c06b47f2663) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '457ece37def0f0fd0929cecf4dda7dc7') in 0.004386 seconds 
+  Import took 0.008234 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.002526 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/UIFrame.png
-  artifactKey: Guid(b6d2aa8b0dbc6e442b2b7c9dd5e8928c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/UIFrame.png using Guid(b6d2aa8b0dbc6e442b2b7c9dd5e8928c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72dc53d61c7928b17399be26211e139c') in 0.036929 seconds 
-  Import took 0.040309 seconds .
+  Time since last request: 0.006574 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_Bag.anim
+  artifactKey: Guid(ebecfb112cf27cf4aae46c06b47f2663) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_Bag.anim using Guid(ebecfb112cf27cf4aae46c06b47f2663) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '457ece37def0f0fd0929cecf4dda7dc7') in 0.002562 seconds 
+  Import took 0.005642 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 30.206867 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/TeleportFrame.png
-  artifactKey: Guid(d89ddff0c4e625a4c926ee9898fc3fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/TeleportFrame.png using Guid(d89ddff0c4e625a4c926ee9898fc3fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6630cd607c0bee4822378efa0512b9d2') in 0.043615 seconds 
-  Import took 0.048628 seconds .
+  Time since last request: 9.097648 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_LightBody.anim
+  artifactKey: Guid(10ebca8252a6b834694dc0c93f6819ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_LightBody.anim using Guid(10ebca8252a6b834694dc0c93f6819ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f13a5eabaf4862f9ef52c1322a23e8d') in 0.005247 seconds 
+  Import took 0.009762 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 21.421254 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/TeleportPad.png
-  artifactKey: Guid(1bf6c5a09bcf65d419029e4b69bf2a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/TeleportPad.png using Guid(1bf6c5a09bcf65d419029e4b69bf2a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b7e8f9719ad0d59e3883112f36094e4') in 0.007895 seconds 
-  Import took 0.011036 seconds .
+  Time since last request: 0.901949 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_LightHead.anim
+  artifactKey: Guid(7d7d4fa1b6586654990f6d668d843cdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_LightHead.anim using Guid(7d7d4fa1b6586654990f6d668d843cdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5e5363694706b03d84e86f727c4469d') in 0.005121 seconds 
+  Import took 0.011279 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.039013 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/TeleportPad.png
-  artifactKey: Guid(1bf6c5a09bcf65d419029e4b69bf2a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/TeleportPad.png using Guid(1bf6c5a09bcf65d419029e4b69bf2a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b7e8f9719ad0d59e3883112f36094e4') in 0.023798 seconds 
-  Import took 0.027149 seconds .
+  Time since last request: 0.936436 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_LightStand.anim
+  artifactKey: Guid(1de589d34207488419e2dd8067bcd41e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_LightStand.anim using Guid(1de589d34207488419e2dd8067bcd41e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2e3010d249f885d1bb35e15726e06ed') in 0.002795 seconds 
+  Import took 0.006225 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 16.067670 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/SpeechballoonFrame.png
-  artifactKey: Guid(b6d2aa8b0dbc6e442b2b7c9dd5e8928c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/SpeechballoonFrame.png using Guid(b6d2aa8b0dbc6e442b2b7c9dd5e8928c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6f648b9ff75ad82e4dce6f3e246c36b') in 0.039137 seconds 
-  Import took 0.043668 seconds .
+  Time since last request: 1.130778 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_Scissors.anim
+  artifactKey: Guid(6a0b9d0a16ca89c4c9c6e4e5bfcc0070) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_Scissors.anim using Guid(6a0b9d0a16ca89c4c9c6e4e5bfcc0070) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fd12487894814bdef281d78009880d0') in 0.008714 seconds 
+  Import took 0.013789 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.001250 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/SpeechballoonFrame.png
-  artifactKey: Guid(b6d2aa8b0dbc6e442b2b7c9dd5e8928c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/SpeechballoonFrame.png using Guid(b6d2aa8b0dbc6e442b2b7c9dd5e8928c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6f648b9ff75ad82e4dce6f3e246c36b') in 0.037716 seconds 
-  Import took 0.041545 seconds .
+  Time since last request: 3.089721 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_Scissors_parts.anim
+  artifactKey: Guid(c7cd78c370b397649a19035dbeb0e658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Highlight_Scissors_parts.anim using Guid(c7cd78c370b397649a19035dbeb0e658) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bee95e830daf509dcd90723b09fc639') in 0.008182 seconds 
+  Import took 0.013158 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.445835 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/UiFrame.png
-  artifactKey: Guid(1c6f5e94248a6a94bbd0132b14447253) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/UiFrame.png using Guid(1c6f5e94248a6a94bbd0132b14447253) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a777a2731385387bc2f84900e368d850') in 0.049469 seconds 
-  Import took 0.052695 seconds .
+  Time since last request: 3.327023 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_Bag.anim
+  artifactKey: Guid(f176df36fda0f1248b8a5df5dc4b3679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_Bag.anim using Guid(f176df36fda0f1248b8a5df5dc4b3679) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64de8cf1dba8d7b2d7d67abfcda1c09e') in 0.005425 seconds 
+  Import took 0.011101 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 36.094264 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage0).png
-  artifactKey: Guid(b582a5ac78cfd854293c4a1efd6a0096) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage0).png using Guid(b582a5ac78cfd854293c4a1efd6a0096) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '196268ced83c603693a3c0fe3ec9f826') in 0.015371 seconds 
-  Import took 0.020374 seconds .
+  Time since last request: 2.691542 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_LightBody.anim
+  artifactKey: Guid(98f556eb8d3658b48990c7814a9e4dba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_LightBody.anim using Guid(98f556eb8d3658b48990c7814a9e4dba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6877b03d6d2208bc85ae41477e195128') in 0.003006 seconds 
+  Import took 0.008870 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.065323 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage0).png
-  artifactKey: Guid(b582a5ac78cfd854293c4a1efd6a0096) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage0).png using Guid(b582a5ac78cfd854293c4a1efd6a0096) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '196268ced83c603693a3c0fe3ec9f826') in 0.036869 seconds 
-  Import took 0.039900 seconds .
+  Time since last request: 2.446154 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_LightHead.anim
+  artifactKey: Guid(4ba293e6fadaf0e4ab32c0384f0034a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_LightHead.anim using Guid(4ba293e6fadaf0e4ab32c0384f0034a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aff4219d8cd83bc566af65fbef48d212') in 0.007678 seconds 
+  Import took 0.013079 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 20.215601 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/startMenu(Start1).png
-  artifactKey: Guid(aabbcf39d644a96418db9515795b692d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/startMenu(Start1).png using Guid(aabbcf39d644a96418db9515795b692d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2d3e5fb2a6a719435d165cee75589b5') in 0.042454 seconds 
-  Import took 0.047829 seconds .
+  Time since last request: 0.788120 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_LightStand.anim
+  artifactKey: Guid(ce55a3527972010429feaf5629ab0243) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_LightStand.anim using Guid(ce55a3527972010429feaf5629ab0243) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3a300ffac29948c4cd635ab4e4c0643') in 0.004918 seconds 
+  Import took 0.011047 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.003184 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/startMenu(Start1).png
-  artifactKey: Guid(aabbcf39d644a96418db9515795b692d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/startMenu(Start1).png using Guid(aabbcf39d644a96418db9515795b692d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2d3e5fb2a6a719435d165cee75589b5') in 0.038263 seconds 
-  Import took 0.041009 seconds .
+  Time since last request: 0.896610 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_Scissors.anim
+  artifactKey: Guid(7324e48ec323f72409ef4464c494df37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_Scissors.anim using Guid(7324e48ec323f72409ef4464c494df37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4b66f1d4af43a311ab169fce02c08cd') in 0.005034 seconds 
+  Import took 0.011146 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 19.196463 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage2).png
-  artifactKey: Guid(67c4f2f6031a0a5418e7db24189f1c0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage2).png using Guid(67c4f2f6031a0a5418e7db24189f1c0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0d2dcae12e89949c7a32f59bdc9c26b') in 0.013330 seconds 
-  Import took 0.016868 seconds .
+  Time since last request: 3.242676 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_Scissors_parts.anim
+  artifactKey: Guid(81c36475605552a4f9b5ba3de1740ea4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Idol_Scissors_parts.anim using Guid(81c36475605552a4f9b5ba3de1740ea4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b11fc67f76a7e329002a786e4dd4fccb') in 0.006440 seconds 
+  Import took 0.011624 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.039031 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage2).png
-  artifactKey: Guid(67c4f2f6031a0a5418e7db24189f1c0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage2).png using Guid(67c4f2f6031a0a5418e7db24189f1c0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0d2dcae12e89949c7a32f59bdc9c26b') in 0.038040 seconds 
-  Import took 0.041555 seconds .
+  Time since last request: 4.580292 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Scissors.controller
+  artifactKey: Guid(275509c2af676ef4e8b631babf040ee1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Scissors.controller using Guid(275509c2af676ef4e8b631babf040ee1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa2edc85c00f2392a49ddcb6fc4a7599') in 0.009132 seconds 
+  Import took 0.013163 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 15.274028 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage3).png
-  artifactKey: Guid(eb51ec01a2a3c7244ac19140cc15c1d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage3).png using Guid(eb51ec01a2a3c7244ac19140cc15c1d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a948a4c56c8922102f5e60b5c2379e17') in 0.045173 seconds 
-  Import took 0.052246 seconds .
+  Time since last request: 2.404208 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Scissors001.controller
+  artifactKey: Guid(8f08cb8572a3af44ebc0787195328870) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Scissors001.controller using Guid(8f08cb8572a3af44ebc0787195328870) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6460027e6ed1e78431a05dab1d8a5db') in 0.004368 seconds 
+  Import took 0.010237 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.003975 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage3).png
-  artifactKey: Guid(eb51ec01a2a3c7244ac19140cc15c1d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/StartMenu(Stage3).png using Guid(eb51ec01a2a3c7244ac19140cc15c1d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a948a4c56c8922102f5e60b5c2379e17') in 0.035700 seconds 
-  Import took 0.038339 seconds .
+  Time since last request: 0.001717 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Scissors001.controller
+  artifactKey: Guid(8f08cb8572a3af44ebc0787195328870) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Scissors001.controller using Guid(8f08cb8572a3af44ebc0787195328870) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6460027e6ed1e78431a05dab1d8a5db') in 0.003517 seconds 
+  Import took 0.007382 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 13.548294 seconds.
-  path: Assets/001_Work/YasuiSan/Textures/UI/Title.png
-  artifactKey: Guid(48e66b85580e075418aec9ca45a46d8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/001_Work/YasuiSan/Textures/UI/Title.png using Guid(48e66b85580e075418aec9ca45a46d8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad2a4ff4e2ed24f667bde552016f4f64') in 0.074785 seconds 
-  Import took 0.078806 seconds .
+  Time since last request: 2.442838 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Scissors001_parts.controller
+  artifactKey: Guid(8bd0b363a61fa8c4bb308f0778d4cfff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Scissors001_parts.controller using Guid(8bd0b363a61fa8c4bb308f0778d4cfff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78b8fa83db703ccad9ec9ffbd2ec7295') in 0.006100 seconds 
+  Import took 0.010821 seconds .
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Import Request.
+  Time since last request: 0.000663 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Scissors001_parts.controller
+  artifactKey: Guid(8bd0b363a61fa8c4bb308f0778d4cfff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Scissors001_parts.controller using Guid(8bd0b363a61fa8c4bb308f0778d4cfff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78b8fa83db703ccad9ec9ffbd2ec7295') in 0.003829 seconds 
+  Import took 0.007419 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.089439 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Lightbody.controller
+  artifactKey: Guid(bbda33cfcf3cca942922eacd5fa1eb2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Lightbody.controller using Guid(bbda33cfcf3cca942922eacd5fa1eb2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb2763e322fad001e2323d8dea676980') in 0.004068 seconds 
+  Import took 0.010148 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007981 seconds.
+  path: Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Lightbody.controller
+  artifactKey: Guid(bbda33cfcf3cca942922eacd5fa1eb2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/001_Work/YasuiSan/Animations/UI/Stage1/LightStand/Lightbody.controller using Guid(bbda33cfcf3cca942922eacd5fa1eb2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb2763e322fad001e2323d8dea676980') in 0.004664 seconds 
+  Import took 0.008669 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005988 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.046 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1047ms)
+		BeginReloadAssembly (105ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (884ms)
+			LoadAssemblies (80ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (270ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (37ms)
+			SetupLoadedEditorAssemblies (332ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (98ms)
+				ProcessInitializeOnLoadAttributes (211ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524294) extendedPlatform(0)
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 6 plugins.
+Preloading 1 native plugins for Editor in 0.08 ms.
+Unloading 1996 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 98.2 MB.
+System memory in use after: 98.4 MB.
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2514.
+Total: 2.748800 ms (FindLiveObjects: 0.223700 ms CreateObjectMapping: 0.075300 ms MarkObjects: 2.401600 ms  DeleteObjects: 0.047300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
