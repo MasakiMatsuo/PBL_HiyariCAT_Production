@@ -370,46 +370,43 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
         {
-            #region ÅyStage 1ÅzChecking that dangerous items have been removed.
-            GameObject LS = GameObject.Find("Vase001");
-            GameObject PB = GameObject.Find("Chemicals001v2");
-            GameObject Scissors = GameObject.Find("Door003");
+            #region ÅyStage2ÅzChecking that dangerous items have been removed.
+            GameObject VaseCheck = GameObject.Find("Vase001");
+            GameObject PChemicalCheck = GameObject.Find("Chemicals001v2");
+            GameObject DoorCheck = GameObject.Find("Door003");
 
-            Debug.LogError($"Masaki Test : LS : {LS}");
-            Debug.LogError($"Masaki Test : PB : {LS}");
-            Debug.LogError($"Masaki Test : Scisseros : {Scissors}");
 
             #region Checking
-            if (LS)
+            if (VaseCheck)
             {
-                Debug.LogError("Masaki Test : Check Vase OK");
                 Stage2_Vase_Check = false;
             }
             else
             {
-                Debug.LogError("Masaki Test : Check Vase NG");
                 Stage2_Vase_Check = true;
             }
-            if (PB)
+
+            if (PChemicalCheck)
             {
-                Debug.LogError("Masaki Test : Check Chemical OK");
                 Stage2_Chemical_Check = false;
             }
             else
             {
-                Debug.LogError("Masaki Test : Check Chemical NG");
                 Stage2_Chemical_Check = true;
             }
-            if (Scissors)
+
+            Stage3_Door_Check = doorAnimation.GetBool("Touch");
+            Debug.LogError($"Masaki Test : Door check Å® {Stage3_Door_Check}");
+
+            /*ïsóvÇ»ÇÁçÌèú
+            if (DoorCheck)
             {
-                Debug.LogError("Masaki Test : Check Door OK");
                 Stage3_Door_Check = false;
             }
             else
             {
-                Debug.LogError("Masaki Test : Check Door NG");
                 Stage3_Door_Check = true;
-            }
+            }*/
             #endregion
             #endregion
 
