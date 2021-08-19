@@ -19353,6 +19353,8 @@ GameObject:
   - component: {fileID: 4966940973709227578}
   - component: {fileID: 8901679867168043442}
   - component: {fileID: 979742306823736842}
+  - component: {fileID: 4459838112307259920}
+  - component: {fileID: 4459838112307259921}
   m_Layer: 0
   m_Name: Chemicals_cap01
   m_TagString: Untagged
@@ -19360,6 +19362,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &4459838112307259920
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459838112307259919}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7c9939ee6886344995b0b55770efdce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4459838112307259921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459838112307259919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4459838112307259920}
+  inputManager: {fileID: 8506171100790870471}
 --- !u!23 &4474365293193189628
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19754,7 +19789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4459838112307259919}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0102, y: -0.0002999995, z: 0.00002000183}
+  m_LocalPosition: {x: -0.01189, y: -0.0003, z: -0.00058}
   m_LocalScale: {x: 0.008338802, y: 0.008088001, z: 0.008338802}
   m_Children: []
   m_Father: {fileID: 3347228658424435728}
@@ -21542,13 +21577,48 @@ GameObject:
   - component: {fileID: 7696706107872425178}
   - component: {fileID: 265230905903974419}
   - component: {fileID: 154863653321304281}
+  - component: {fileID: 5739164802717630472}
+  - component: {fileID: 5739164802717630473}
   m_Layer: 0
-  m_Name: Chemicals_cap01 1
+  m_Name: Chemicals_cap02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &5739164802717630472
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5739164802717630471}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b3994ae4bccdb34ba038f6ecd8e937d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5739164802717630473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5739164802717630471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5739164802717630472}
+  inputManager: {fileID: 8506171100790870471}
 --- !u!1 &5745500419000855800
 GameObject:
   m_ObjectHideFlags: 0
@@ -23167,6 +23237,8 @@ GameObject:
   - component: {fileID: 3983637930487257712}
   - component: {fileID: 3002370646099421872}
   - component: {fileID: 6782657452541704272}
+  - component: {fileID: 7455478229038236103}
+  - component: {fileID: 7455478229038236104}
   m_Layer: 0
   m_Name: Chemicals_body
   m_TagString: Untagged
@@ -23174,6 +23246,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &7455478229038236103
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7455478229038236102}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a27f6b42e205f5c4c8543c7c2ccb47d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7455478229038236104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7455478229038236102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7455478229038236103}
+  inputManager: {fileID: 8506171100790870471}
 --- !u!33 &7503338675960833781
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -23589,6 +23694,8 @@ GameObject:
   - component: {fileID: 7196845413237748296}
   - component: {fileID: 8486182538480606533}
   - component: {fileID: 5923293090134651831}
+  - component: {fileID: 7991009549971889094}
+  - component: {fileID: 7991009549971889095}
   m_Layer: 0
   m_Name: Vase001
   m_TagString: HeavyTarget_Vase
@@ -23596,6 +23703,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &7991009549971889094
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7991009549971889093}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1da139f5e7273d444a7d816925f607bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7991009549971889095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7991009549971889093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7991009549971889094}
+  inputManager: {fileID: 8506171100790870471}
 --- !u!23 &8015469729605769218
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24538,6 +24678,9 @@ MonoBehaviour:
   Stage2_Vase_Check: 0
   Stage2_Chemical_Check: 0
   Stage3_Door_Check: 0
+  hitFlg2_1: 0
+  hitFlg2_2: 0
+  hitFlg2_3: 0
 --- !u!1 &8506171100799399124
 GameObject:
   m_ObjectHideFlags: 0

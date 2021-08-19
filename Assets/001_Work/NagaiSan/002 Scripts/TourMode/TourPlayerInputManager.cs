@@ -153,6 +153,20 @@ public class TourPlayerInputManager : MonoBehaviour
                         SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
                     }
 
+                    #region Debug Cat Mode
+                    else if (tagName == "Debug_CatMode")
+                    {
+                        SceneManager.LoadScene("006 TourStage1_Cat");// Need to fix "scene.name" when Finalize
+                    }
+                    #endregion // Debug Cat Mode
+
+                    #region Debug Human Mode
+                    else if (tagName == "Debug_HumanMode")
+                    {
+                        SceneManager.LoadScene("006 TourStage1_Human");// Need to fix "scene.name" when Finalize
+                    }
+                    #endregion // Debug Human Mode
+
                     #region Debug Button NextStage
                     else if (tagName == "Debug_NextStage")
                     {
@@ -169,7 +183,7 @@ public class TourPlayerInputManager : MonoBehaviour
                             SceneManager.LoadScene("003 Stage1");// Need to fix "scene.name" when Finalize
                         }
                     }
-                    #endregion
+                    #endregion // Debug Button NextStage
                     #endregion // Scene Transition
                     #endregion // Menu Pointing
 
