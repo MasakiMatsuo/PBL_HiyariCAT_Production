@@ -43,4 +43,18 @@ public class SwitchViewManager : MonoBehaviour
         }
     }
 
+
+    public void SwitchViewerOnStage0()
+    {
+        GameObject ovrc = GameObject.Find("MyOVRPlayerController");
+
+        // Cat move the first point near by Light Stand
+        if (ovrc)
+        {
+            ovrc.SetActive(false);
+            playerInputManagerS13.iamCat = true;
+            catOVRC_Scissors.SetActive(true);
+        }
+    }
+
 }

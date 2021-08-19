@@ -71,6 +71,23 @@ public class CatInputManager : MonoBehaviour
 
     public void CatMode()
     {
+        if (SceneManager.GetActiveScene().name == "002 Stage0")
+        {
+            stage1_LS_Point = true;
+            stage1_PB_Point = true;
+
+            catMemoStage1_Scissors_delight.SetActive(true);
+
+            if (catMemoStage1_Scissors_delight && OVRInput.GetDown(OVRInput.RawButton.A))
+            {
+                stage1_Scissors_Point = true;
+                catMemoStage1_Scissors_delight.SetActive(false);
+
+                //resultMenu.SetActive(true);
+
+            }
+        }
+
         #region Patrol Dangerous Points
         #region On Stage 1
         if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize

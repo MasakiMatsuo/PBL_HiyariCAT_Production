@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerInputManager_Stage1_3 : MonoBehaviour
+public class PlayerInputManager_Stage0 : MonoBehaviour
 {
     /// CAUTION !!! /////////////////////////////////////////////////
     /// You shold search "Need to fix" before Finalize.
@@ -89,8 +89,6 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         #endregion
 
         catInputManager.CatMode();
-
-
     }
 
     public void InitMyPlayerRay()
