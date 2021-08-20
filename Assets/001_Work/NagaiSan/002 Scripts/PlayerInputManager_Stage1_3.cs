@@ -32,6 +32,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     
     #region Flags
     private bool pFlg = false;
+    private bool rFlg = false;
 
     public bool Stage1_LS_Check = default;
     public bool Stage1_PB_Check = default;
@@ -223,9 +224,23 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                     #endregion
                     #region Interaction of HeavyTarget
                     #region Print "Remove" Button for tag.name == "HeavyTarget"
-                    if (tagName == "HeavyTarget")
+                    /*if (tagName == "HeavyTarget")
                     {
                         removeB.SetActive(true);
+                    }*/
+                    if (tagName == "HeavyTarget")
+                    {
+                        //Debug.LogWarning(rFlg);
+                        if (!rFlg)
+                        {
+                            removeB.SetActive(true); ;
+                            rFlg = true;
+                        }
+                        else
+                        {
+                            removeB.SetActive(false);
+                            rFlg = false;
+                        }
                     }
                     #endregion
 

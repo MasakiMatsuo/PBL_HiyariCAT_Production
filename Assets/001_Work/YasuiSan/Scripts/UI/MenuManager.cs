@@ -17,7 +17,7 @@ public class MenuManager : MonoBehaviour
     void ChangeStartMenu()
     {
         // ƒV[ƒ“Ø‚è‘Ö‚¦
-        if (OVRInput.Get(OVRInput.Button.One))
+        if (OVRInput.Get(OVRInput.RawButton.A))
         {
             /*Button.Two‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚Ìˆ—*/
             menu.enabled = false;

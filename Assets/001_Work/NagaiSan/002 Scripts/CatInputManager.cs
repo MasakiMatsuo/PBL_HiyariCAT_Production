@@ -277,15 +277,14 @@ public class CatInputManager : MonoBehaviour
                     //
                     else if (tagName == "TourHere")
                     {
-                        Debug.Log("Not Done Here...");
-
+                        SceneManager.LoadScene("006 TourStage1_Human");
                         /* Coming Soon.... */
                         //SceneManager.LoadScene("**Tour Mode**"); // Need to fix "scene.name" when Finalize
                     }
 
                     else if (tagName == "Quit")
                     {
-                        SceneManager.LoadScene("006 EndScene");// Need to fix "scene.name" when Finalize
+                        SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
                     }
                     playerInputManagerS13.iamCat = false;
                 }
