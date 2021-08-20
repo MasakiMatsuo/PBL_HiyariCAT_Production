@@ -395,8 +395,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                 Stage2_Chemical_Check = true;
             }
 
-            Stage3_Door_Check = doorAnimation.GetBool("Touch");
-            Debug.LogError($"Masaki Test : Door check Å® {Stage3_Door_Check}");
+            Stage3_Door_Check = !doorAnimation.GetBool("Touch");
 
             /*ïsóvÇ»ÇÁçÌèú
             if (DoorCheck)
