@@ -29,14 +29,14 @@ public class SwitchViewManager_Stage2 : MonoBehaviour
     public void ViewNextDangerousPoint()
     {
         // Cat move the second point near by Plastic Bag
-        if (catInputManager.stage1_LS_Point && !catInputManager.stage1_PB_Point)
+        if (catInputManager.stage2_Vase_Point && !catInputManager.stage2_Chemical_Point)
         {
             catOVRC_Vase.SetActive(false);
             catOVRC_Chemical.SetActive(true);
         }
 
         // Cat move the third point near by Scissors
-        if (catInputManager.stage1_LS_Point && catInputManager.stage1_PB_Point && !catInputManager.stage1_Scissors_Point)
+        if (catInputManager.stage2_Vase_Point && catInputManager.stage2_Chemical_Point && !catInputManager.stage2_Door_Point)
         {
             catOVRC_Chemical.SetActive(false);
             catOVRC_Door.SetActive(true);

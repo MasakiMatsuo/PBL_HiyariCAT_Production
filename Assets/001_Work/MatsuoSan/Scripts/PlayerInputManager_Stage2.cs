@@ -368,15 +368,16 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
 
     public void CheckRemoving()
     {
-        if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
+        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
         {
-            #region ÅyStage 1ÅzChecking that dangerous items have been removed.
-            GameObject LS = GameObject.Find("Vase001");
-            GameObject PB = GameObject.Find("Chemicals001v2");
-            GameObject Scissors = GameObject.Find("Door003");
+            #region ÅyStage2ÅzChecking that dangerous items have been removed.
+            GameObject VaseCheck = GameObject.Find("Vase001");
+            GameObject PChemicalCheck = GameObject.Find("Chemicals001v2");
+            GameObject DoorCheck = GameObject.Find("Door003");
+
 
             #region Checking
-            if (LS)
+            if (VaseCheck)
             {
                 Stage2_Vase_Check = false;
             }
@@ -384,7 +385,8 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             {
                 Stage2_Vase_Check = true;
             }
-            if (PB)
+
+            if (PChemicalCheck)
             {
                 Stage2_Chemical_Check = false;
             }
@@ -392,14 +394,18 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             {
                 Stage2_Chemical_Check = true;
             }
-            if (Scissors)
+
+            Stage3_Door_Check = !doorAnimation.GetBool("Touch");
+
+            /*ïsóvÇ»ÇÁçÌèú
+            if (DoorCheck)
             {
                 Stage3_Door_Check = false;
             }
             else
             {
                 Stage3_Door_Check = true;
-            }
+            }*/
             #endregion
             #endregion
 
