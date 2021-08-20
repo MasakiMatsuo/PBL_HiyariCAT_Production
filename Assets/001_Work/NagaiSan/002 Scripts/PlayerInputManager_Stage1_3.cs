@@ -22,8 +22,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
 
     #region UIs
     #region For Stage 0
-    public GameObject WelcomeText;
-    public GameObject GuideText001;
+    //public GameObject welcomeText;
+    public List<GameObject> guideTexts;
     #endregion // For Stage 0
     public GameObject removeB;
     public GameObject pauseMenu;
@@ -102,6 +102,11 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         #region Initialize UIs
         removeB.SetActive(false);
         pauseMenu.SetActive(false);
+
+        if (SceneManager.GetActiveScene().name == "002 Stage0")
+        {
+            guideTexts = new List<GameObject>();
+        }
         #endregion
         
         iamCat = false;
@@ -358,7 +363,6 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         }
     }
 
-
     public void CheckRemoving()
     {
         if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
@@ -438,7 +442,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
 
     public void TutorialPlayerMode()
     {
-
+        PointingInteraction();
     }
 
 }
