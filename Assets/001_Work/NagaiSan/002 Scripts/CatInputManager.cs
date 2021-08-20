@@ -21,13 +21,13 @@ public class CatInputManager : MonoBehaviour
     #region UIs
     //Stage1
     public GameObject catMemoStage1_LS_delight;
-    public GameObject catMemoStage1_LS_cranky;  // ご機嫌斜めな解説モード（ライトスタンド）：UI実装時にコメントアウト外してください
+    public GameObject catMemoStage1_LS_cranky;
 
     public GameObject catMemoStage1_PB_delight;
-    public GameObject catMemoStage1_PB_cranky;  // ご機嫌斜めな解説モード（ビニール袋）：UI実装時にコメントアウト外してください
+    public GameObject catMemoStage1_PB_cranky;
 
     public GameObject catMemoStage1_Scissors_delight;
-    public GameObject catMemoStage1_Ssers_cranky;  // ご機嫌斜めな解説モード（ハサミ）：UI実装時にコメントアウト外してください
+    public GameObject catMemoStage1_Ssers_cranky;
 
     //Stage2
 

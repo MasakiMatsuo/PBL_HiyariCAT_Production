@@ -14,21 +14,25 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     #region Player Values
     public GameObject playerRightController;
     public LineRenderer rayObject;
-    #endregion
+    #endregion // Player Values
 
     public Animator capacityAnimation;
 
     public bool iamCat = false;
 
     #region UIs
+    #region For Stage 0
+    public GameObject WelcomeText;
+    public GameObject GuideText001;
+    #endregion // For Stage 0
     public GameObject removeB;
     public GameObject pauseMenu;
-    #endregion
+    #endregion // UIs
 
     #region Other Scripts
     public CatInputManager catInputManager;
     public SwitchViewManager switchViewManager;
-    #endregion
+    #endregion // Other Scripts
     
     #region Flags
     private bool pFlg = false;
@@ -43,8 +47,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     public bool hitFlg1_2 = false;
     public bool hitFlg1_3 = false;
 
-    #endregion
-    #endregion
+    #endregion // Flags
+    #endregion // Require Values
 
     void Start()
     {
@@ -53,19 +57,38 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
 
     void Update()
     {
-        if (!iamCat)
+        // When Stage 0
+        if (SceneManager.GetActiveScene().name == "002 Stage0")// Need to fix "scene.name" when Finalize
         {
-            InitMyPlayerRay();
-            PlayerMode();
+            if (!iamCat)
+            {
+                InitMyPlayerRay();
+                TutorialPlayerMode();
+            }/*
+            else
+            {
+                #region Create Start Point of Ray (Cat)
+                catInputManager.InitMyCatRay();
+                #endregion
+                CatMode();
+            }*/
         }
+        // When Stage 1 or Stage 3
         else
         {
-            #region Create Start Point of Ray (Cat)
-            catInputManager.InitMyCatRay();
-            #endregion
-            CatMode();
+            if (!iamCat)
+            {
+                InitMyPlayerRay();
+                PlayerMode();
+            }
+            else
+            {
+                #region Create Start Point of Ray (Cat)
+                catInputManager.InitMyCatRay();
+                #endregion
+                CatMode();
+            }
         }
-
 
     }
 
@@ -397,5 +420,10 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         #endregion
     }
 
+
+    public void TutorialPlayerMode()
+    {
+
+    }
 
 }

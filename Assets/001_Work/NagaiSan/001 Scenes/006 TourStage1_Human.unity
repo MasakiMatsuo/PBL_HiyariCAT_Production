@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 104bf7ee6f7e8294bac38d8977b19c0b, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 6593141d69dc71243a023abab07bc100, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -644,7 +644,7 @@ Light:
   serializedVersion: 10
   m_Type: 3
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9653499, b: 0.7122642, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
@@ -677,7 +677,7 @@ Light:
       e33: 1
     m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
+  m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
@@ -1285,9 +1285,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 2020946142}
-  playerInputManagerS13: {fileID: 0}
-  catInputManager: {fileID: 0}
+  timeLimitImage1: {fileID: 0}
+  timeLimitImage2: {fileID: 0}
+  timeLimitImage3: {fileID: 0}
   totalTime: 120
+  catInputManager: {fileID: 0}
+  switchViewManager: {fileID: 0}
+  playerInputManagerS13: {fileID: 0}
 --- !u!4 &958929562
 Transform:
   m_ObjectHideFlags: 0
@@ -2835,6 +2839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5442d96a0ab854d8ba0f211cf1ab95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cleanFlg: 0
 --- !u!1 &2020946140
 GameObject:
   m_ObjectHideFlags: 0
@@ -6428,6 +6433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5442d96a0ab854d8ba0f211cf1ab95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cleanFlg: 0
 --- !u!33 &9068860155414926588
 MeshFilter:
   m_ObjectHideFlags: 0
