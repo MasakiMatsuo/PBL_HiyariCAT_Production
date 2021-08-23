@@ -88,7 +88,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     public void CatMode()
     {
         #region Close Desk
-        doorAnimation.SetBool("Touch", false);
+        //doorAnimation.SetBool("Touch", false);
         #endregion
 
         catInputManager.CatMode();
@@ -177,6 +177,12 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                     {
                         SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
                     }
+                    else if (tagName == "AbortThisStage")
+                    {
+                        CheckRemoving();
+                        switchViewManager.SwitchViewer();
+                    }
+
 
                     #region Debug Button NextStage
                     else if (tagName == "Debug_NextStage")

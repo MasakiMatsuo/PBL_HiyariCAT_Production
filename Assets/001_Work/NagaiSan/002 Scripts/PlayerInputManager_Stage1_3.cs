@@ -192,6 +192,11 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                     {
                         SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
                     }
+                    else if (tagName == "AbortThisStage")
+                    {
+                        CheckRemoving();
+                        switchViewManager.SwitchViewer();
+                    }
 
                     #region Debug Button NextStage
                     else if (tagName == "Debug_NextStage")
