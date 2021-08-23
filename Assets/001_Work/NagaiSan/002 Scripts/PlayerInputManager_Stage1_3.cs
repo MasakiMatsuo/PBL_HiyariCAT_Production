@@ -21,15 +21,12 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     public bool iamCat = false;
 
     #region UIs
-    #region For Stage 0
-    //public GameObject welcomeText;
-    public List<GameObject> guideTexts;
-    #endregion // For Stage 0
     public GameObject removeB;
     public GameObject pauseMenu;
     #endregion // UIs
 
     #region Other Scripts
+    public GameObject tutorialManager;
     public CatInputManager catInputManager;
     public SwitchViewManager switchViewManager;
     #endregion // Other Scripts
@@ -65,14 +62,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             {
                 InitMyPlayerRay();
                 TutorialPlayerMode();
-            }/*
-            else
-            {
-                #region Create Start Point of Ray (Cat)
-                catInputManager.InitMyCatRay();
-                #endregion
-                CatMode();
-            }*/
+            }
         }
         // When Stage 1 or Stage 3
         else
@@ -102,13 +92,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         #region Initialize UIs
         removeB.SetActive(false);
         pauseMenu.SetActive(false);
-
-        if (SceneManager.GetActiveScene().name == "002 Stage0")
-        {
-            guideTexts = new List<GameObject>();
-        }
         #endregion
-        
+
         iamCat = false;
     }
 
@@ -141,6 +126,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         {
             PauseMenu();
         }
+
         PointingInteraction();
     }
 
@@ -443,6 +429,16 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     public void TutorialPlayerMode()
     {
         PointingInteraction();
+
+        // PauseMenu (Player Clears Tutorial and Press "X")
+        if (tutorialManager.GetComponent<TutorialManager>().endTutorialFlag && OVRInput.GetDown(OVRInput.RawButton.X))
+        {
+            PauseMenu();
+        }
+
+        tutorialManager.GetComponent<TutorialManager>().GuideTexts_Welcome_to_No1();
+
+        
     }
 
 }

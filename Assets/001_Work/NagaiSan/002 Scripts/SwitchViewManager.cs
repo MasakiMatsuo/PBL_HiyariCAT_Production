@@ -46,7 +46,7 @@ public class SwitchViewManager : MonoBehaviour
 
     public void SwitchViewerOnStage0()
     {
-        GameObject ovrc = GameObject.Find("MyOVRPlayerController");
+        GameObject ovrc = GameObject.Find("TutorialMyOVRPlayerController");
 
         // Cat move the first point near by Light Stand
         if (ovrc)
