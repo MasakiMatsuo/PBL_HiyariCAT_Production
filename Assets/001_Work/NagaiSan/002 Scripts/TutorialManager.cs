@@ -8,10 +8,12 @@ public class TutorialManager : MonoBehaviour
     #region Require Values
     #region UIs
     // Texts
-    public List<GameObject> guideTexts;
+    //public List<GameObject> guideTexts;
+    public GameObject[] guideTexts = new GameObject[9];
 
     // Images
-    public List<GameObject> guideImages;
+    //public List<GameObject> guideImages;
+    public GameObject[] guideImages = new GameObject[2];
     #endregion // UIs
 
     private int readNum = 0;
@@ -29,22 +31,23 @@ public class TutorialManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "002 Stage0")
         {
+            /*
             guideTexts = new List<GameObject>();
             guideImages = new List<GameObject>();
-
-            for (int i = 0; i < guideTexts.Count -1;i++)
+            */
+            for (int i = 0; i < guideTexts.Length; i++)
             {
                 guideTexts[i].SetActive(false);
             }
-            for (int i = 0; i < guideImages.Count - 1; i++)
+            
+            for (int i = 0; i < guideImages.Length; i++)
             {
                 guideImages[i].SetActive(false);
             }
-
+            
             readNum = 0;
         }
     }
-
 
     public void GuideTexts_Welcome_to_No1()
     {
@@ -53,12 +56,9 @@ public class TutorialManager : MonoBehaviour
         switch (readNum)
         {
             case 0:
-                
-                //guideImages[0].SetActive(true);
-                //guideTexts[readNum].SetActive(true);
+                guideImages[0].SetActive(true);
+                guideTexts[readNum].SetActive(true);
                 readDone = true;
-                Debug.Log("readNum[0] Fire!");
-
                 break;
 
             case 1:
@@ -75,10 +75,10 @@ public class TutorialManager : MonoBehaviour
                     else
                     {
                         guideImages[0].SetActive(false);
-                        //guideImages[1].SetActive(true);
+                        guideImages[1].SetActive(true);
                     }
 
-                    //guideTexts[readNum -1].SetActive(false);
+                    guideTexts[readNum -1].SetActive(false);
                     guideTexts[readNum].SetActive(true);
                     readDone = true;
                 }

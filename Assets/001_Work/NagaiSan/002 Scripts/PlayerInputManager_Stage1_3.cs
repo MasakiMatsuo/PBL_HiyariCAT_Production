@@ -39,6 +39,9 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     public bool Stage1_PB_Check = default;
     public bool Stage1_Scissors_Check = default;
 
+    public bool lightObj = false;
+    public bool heavyObj = false;
+
     //※UI
     //ステージ1
     public bool hitFlg1_1 = false;
@@ -214,8 +217,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                             SceneManager.LoadScene("003 Stage1");// Need to fix "scene.name" when Finalize
                         }
                     }
-                    #endregion
-                    #endregion
+                    #endregion // Debug Button NextStage
+                    #endregion //Scene Transition
 
                     #region Checking dangerous items & Debug Cat Mode
                     else if (tagName == "Debug_CatMode")
@@ -224,7 +227,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                         switchViewManager.SwitchViewer();
                     }
                     #endregion
-                    #endregion
+                    #endregion //Menu Pointing
 
                     #region Interaction of Capacity
                     if (tagName == "Capacity")
@@ -240,7 +243,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                         hit.collider.transform.parent = playerRightController.transform;
                         break;
                     }
-                    #endregion
+                    #endregion //Interaction of Target
+
                     #region Interaction of HeavyTarget
                     #region Print "Remove" Button for tag.name == "HeavyTarget"
                     /*if (tagName == "HeavyTarget")
@@ -261,7 +265,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                             rFlg = false;
                         }
                     }
-                    #endregion
+                    #endregion // Print "Remove" Button for tag.name == "HeavyTarget"
 
                     if (tagName == "Remove")
                     {
@@ -286,12 +290,12 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                         }
                         #endregion
                     }
-                    #endregion
+                    #endregion // Interaction of HeavyTarget
                 }
                 #region Catching Object's gravity is false;
                 GameObject go = playerRightController.transform.GetChild(3).gameObject;
                 go.GetComponent<Rigidbody>().useGravity = false;
-                #endregion
+                #endregion //Catching Object's gravity is false;
             }
             // Release Object
             if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
@@ -305,25 +309,37 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                 string lightTagName = hit.collider.tag;
                 string lightObjNam = hit.collider.name;
 
-                if (lightTagName == "Target")
+                if (SceneManager.GetActiveScene().name == "002 Stage0")
                 {
-                    if (lightObjNam == "Bag001")
+                    if (lightTagName == "")
                     {
-                        hitFlg1_1 = true;
-                    }
-                    else if (lightObjNam == "Scissors001")
-                    {
-                        hitFlg1_2 = true;
+
                     }
                 }
-                else if (lightTagName == "HeavyTarget")
+                else if(SceneManager.GetActiveScene().name == "003 Stage1")
                 {
-                    hitFlg1_3 = true;
-                    if (lightObjNam == "LightStand001")
+                    if (lightTagName == "Target")
+                    {
+                        if (lightObjNam == "Bag001")
+                        {
+                            hitFlg1_1 = true;
+                        }
+                        else if (lightObjNam == "Scissors001")
+                        {
+                            hitFlg1_2 = true;
+                        }
+                    }
+                    else if (lightTagName == "HeavyTarget")
                     {
                         hitFlg1_3 = true;
+                        if (lightObjNam == "LightStand001")
+                        {
+                            hitFlg1_3 = true;
+                        }
                     }
                 }
+
+                
 
             }
         }
