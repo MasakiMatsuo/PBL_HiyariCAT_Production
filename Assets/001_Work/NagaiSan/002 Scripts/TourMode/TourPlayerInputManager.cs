@@ -22,6 +22,10 @@ public class TourPlayerInputManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject sitOnPos1B;
     public GameObject sitOnPos2B;
+
+    public GameObject message1;
+    public GameObject message2;
+    public GameObject message3;
     #endregion
 
     #region Other Scripts
@@ -32,6 +36,10 @@ public class TourPlayerInputManager : MonoBehaviour
     private bool pFlg = false;
     private bool sobFlg = false;
     private bool socFlg = false;
+
+    private bool mFlg1 = false;
+    private bool mFlg2 = false;
+    private bool mFlg3 = false;
 
     #endregion
     #endregion
@@ -239,6 +247,49 @@ public class TourPlayerInputManager : MonoBehaviour
                         tourSVM.TourSwitchViewerOnStage1_Player_SitOnChair();
                     }
                     #endregion // SitOnChair
+
+                    #region DoorActmessage
+                    if (tagName == "Door_Message1")
+                    {
+                        if (!mFlg1)
+                        {
+                            message1.SetActive(true);
+                            mFlg1 = true;
+                        }
+                        else
+                        {
+                            message1.SetActive(false);
+                            mFlg1 = false;
+                        }
+                    }
+                    if (tagName == "Door_Message2")
+                    {
+                        if (!mFlg2)
+                        {
+                            message2.SetActive(true);
+                            mFlg2 = true;
+                        }
+                        else
+                        {
+                            message2.SetActive(false);
+                            mFlg2 = false;
+                        }
+                    }
+                    if (tagName == "Door_Message3")
+                    {
+                        if (!mFlg3)
+                        {
+                            message3.SetActive(true);
+                            mFlg3 = true;
+                        }
+                        else
+                        {
+                            message3.SetActive(false);
+                            mFlg3 = false;
+                        }
+                    }
+
+                    #endregion //Door Act message
 
                     #endregion // Tour Mode Interaction
                 }
