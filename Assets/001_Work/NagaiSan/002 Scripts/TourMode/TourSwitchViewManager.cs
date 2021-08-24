@@ -6,11 +6,11 @@ public class TourSwitchViewManager : MonoBehaviour
 {
     #region Require Values
     public GameObject playerOVRC_Walk;
-    public GameObject playerOVRC_Bed;
+    public GameObject playerOVRC_Pos1;
+    public GameObject playerOVRC_Pos2;
 
-
-
-    public bool player_SitOnBedFlag = false;
+    public bool player_SitOnPos1Flag = false;
+    public bool player_SitOnPos2Flag = false;
     /*
     public GameObject catOVRC_LS;
     public GameObject catOVRC_PB;
@@ -22,61 +22,76 @@ public class TourSwitchViewManager : MonoBehaviour
     */
     #endregion
 
-
+    // Player sits on Bed.
     public void TourSwitchViewerOnStage1_Player_SitOnBed()
     {
         if (playerOVRC_Walk)
         {
             playerOVRC_Walk.SetActive(false);
+            playerOVRC_Pos1.SetActive(true);
 
-            playerOVRC_Bed.SetActive(true);
-
-            player_SitOnBedFlag = true;
+            player_SitOnPos1Flag = true;
         }
-
     }
 
+    // Player sits on Chair.
+    public void TourSwitchViewerOnStage1_Player_SitOnChair()
+    {
+        if (playerOVRC_Walk)
+        {
+            playerOVRC_Walk.SetActive(false);
+            playerOVRC_Pos2.SetActive(true);
 
+            player_SitOnPos2Flag = true;
+        }
+    }
+
+    // Player returns walking.
     public void TourSwitchViewerOnStage1_Player_ReturnWalk()
     {
-        if (player_SitOnBedFlag)
+        #region Player sit on Pos1(Bed).
+        if (player_SitOnPos1Flag)
         {
-            playerOVRC_Bed.SetActive(false);
-            player_SitOnBedFlag = false;
+            playerOVRC_Pos1.SetActive(false);
+            player_SitOnPos1Flag = false;
 
             playerOVRC_Walk.SetActive(true);
         }
+        #endregion
+        #region Player sit on Pos2(Human:Chair, Cat:Table).
+        if (player_SitOnPos2Flag)
+        {
+            playerOVRC_Pos2.SetActive(false);
+            player_SitOnPos2Flag = false;
+
+            playerOVRC_Walk.SetActive(true);
+        }
+        #endregion
     }
 
-        /*
-        public void SwitchViewer()
+    // Cat sits on Bed.
+    public void TourSwitchViewerOnStage1_Cat_SitOnBed()
+    {
+        if (playerOVRC_Walk)
         {
-            GameObject ovrc = GameObject.Find("MyOVRPlayerController");
+            playerOVRC_Walk.SetActive(false);
+            playerOVRC_Pos1.SetActive(true);
 
-            // Cat move the first point near by Light Stand
-            if (ovrc)
-            {
-                ovrc.SetActive(false);
-                playerInputManagerS13.iamCat = true;
-                catOVRC_LS.SetActive(true);
-            }
+            player_SitOnPos1Flag = true;
         }
-
-        public void ViewNextDangerousPoint()
-        {
-            // Cat move the second point near by Plastic Bag
-            if (catInputManager.stage1_LS_Point && !catInputManager.stage1_PB_Point)
-            {
-                catOVRC_LS.SetActive(false);
-                catOVRC_PB.SetActive(true);
-            }
-
-            // Cat move the third point near by Scissors
-            if (catInputManager.stage1_LS_Point && catInputManager.stage1_PB_Point && !catInputManager.stage1_Scissors_Point)
-            {
-                catOVRC_PB.SetActive(false);
-                catOVRC_Scissors.SetActive(true);
-            }
-        }
-        */
     }
+
+    // Cat sits on Table.
+    public void TourSwitchViewerOnStage1_Cat_SitOnTable()
+    {
+        if (playerOVRC_Walk)
+        {
+            playerOVRC_Walk.SetActive(false);
+            playerOVRC_Pos2.SetActive(true);
+
+            player_SitOnPos2Flag = true;
+            Debug.Log($"playerOVRC_Pos2 is {playerOVRC_Pos2}");
+        }
+    }
+
+}

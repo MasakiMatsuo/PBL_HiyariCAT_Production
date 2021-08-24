@@ -22,12 +22,14 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
 
     #region UIs
     public GameObject removeB;
+    public GameObject removeB_Vase;
+    public GameObject removeB_Chemical;
     public GameObject pauseMenu;
     #endregion
 
     #region Other Scripts
-    public CatInputManager catInputManager;
-    public SwitchViewManager switchViewManager;
+    public CatInputManager_Stage2 catInputManager;
+    public SwitchViewManager_Stage2 switchViewManager;
     #endregion
 
     #region Flags
@@ -36,6 +38,11 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     public bool Stage2_Vase_Check = default;
     public bool Stage2_Chemical_Check = default;
     public bool Stage3_Door_Check = default;
+
+    public bool hitFlg2_1 = false;
+    public bool hitFlg2_2 = false;
+    public bool hitFlg2_3 = false;
+
     #endregion
     #endregion
 
@@ -70,6 +77,8 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
 
         #region Initialize UIs
         removeB.SetActive(false);
+        removeB_Vase.SetActive(false);
+        removeB_Chemical.SetActive(false);
         pauseMenu.SetActive(false);
         #endregion
 
@@ -79,7 +88,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     public void CatMode()
     {
         #region Close Desk
-        doorAnimation.SetBool("Touch", false);
+        //doorAnimation.SetBool("Touch", false);
         #endregion
 
         catInputManager.CatMode();
@@ -168,6 +177,12 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                     {
                         SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
                     }
+                    else if (tagName == "AbortThisStage")
+                    {
+                        CheckRemoving();
+                        switchViewManager.SwitchViewer();
+                    }
+
 
                     #region Debug Button NextStage
                     else if (tagName == "Debug_NextStage")
@@ -218,6 +233,14 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                     {
                         removeB.SetActive(true);
                     }
+                    if (tagName == "HeavyTarget_Vase")
+                    {
+                        removeB_Vase.SetActive(true);
+                    }
+                    if (tagName == "HeavyTarget_Chemical")
+                    {
+                        removeB_Chemical.SetActive(true);
+                    }
                     #endregion
 
                     if (tagName == "Remove")
@@ -231,19 +254,34 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                             removeB.SetActive(false);
                         }
                         #endregion
+                    }
+                    #endregion
+
+                    if (tagName == "Remove_Vase")
+                    {
                         #region Remove Items when STAGE 2
                         if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
                         {
                             GameObject _Vase001 = GameObject.Find("Vase001");
-                            GameObject _Chemical002 = GameObject.Find("Chemicals001v2");
 
                             _Vase001.SetActive(false);
-                            _Chemical002.SetActive(false);
-                            removeB.SetActive(false);
+                            removeB_Vase.SetActive(false);
                         }
                         #endregion
                     }
-                    #endregion
+                    if (tagName == "Remove_Chemical")
+                    {
+                        #region Remove Items when STAGE 2
+                        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
+                        {
+                            GameObject _Chemical002 = GameObject.Find("Chemicals001v2");
+
+                            _Chemical002.SetActive(false);
+                            removeB_Chemical.SetActive(false);
+                        }
+                        #endregion
+                    }
+
                 }
                 #region Catching Object's gravity is false;
                 GameObject go = playerRightController.transform.GetChild(3).gameObject;
@@ -251,10 +289,58 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                 #endregion
             }
             // Release Object
+            /*
             if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
             {
                 MyReleaseObject();
             }
+            */
+
+            //UI Highlight Object
+            foreach (var hit in hits)
+            {
+                string lightTagName = hit.collider.tag;
+                string lightObjNam = hit.collider.name;
+                /*
+                if (lightTagName == "Target")
+                {
+                    if (lightObjNam == "Bag001")
+                    {
+                        hitFlg2_1 = true;
+                    }
+                    else if (lightObjNam == "Scissors001")
+                    {
+                        hitFlg2_2 = true;
+                    }
+                }*/
+                if (lightTagName == "HeavyTarget_Vase")
+                {
+                    //hitFlg2_3 = true;
+                    if (lightObjNam == "Vase001")
+                    {
+                        hitFlg2_1 = true;
+                    }
+                }
+                if (lightTagName == "HeavyTarget_Chemical")
+                {
+                    //hitFlg2_3 = true;
+                    if (lightObjNam == "Chemicals001v2")
+                    {
+                        hitFlg2_2 = true;
+                    }
+                }
+                if (lightTagName == "Capacity")
+                {
+                    //hitFlg2_3 = true;
+                    if (lightObjNam == "Door003")
+                    {
+                        hitFlg2_3 = true;
+                    }
+                }
+
+            }
+
+
         }
         // When the RHandTrigger is released
         else
@@ -262,6 +348,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             // Remove the Echo of Ray (Player)
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
 
+            /*
             #region Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
             int checkNG = 3;
             int childCheck = playerRightController.transform.childCount - 1;
@@ -275,21 +362,28 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                 MyReleaseObject();
             }
             #endregion
+            */
+
+            //Å¶UI Flae all highlight false
+            hitFlg2_1 = false;
+            hitFlg2_2 = false;
+            hitFlg2_3 = false;
         }
     }
 
 
     public void CheckRemoving()
     {
-        if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
+        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
         {
-            #region ÅyStage 1ÅzChecking that dangerous items have been removed.
-            GameObject LS = GameObject.Find("LightStand001");
-            GameObject PB = GameObject.Find("Bag001");
-            GameObject Scissors = GameObject.Find("Scissors001");
+            #region ÅyStage2ÅzChecking that dangerous items have been removed.
+            GameObject VaseCheck = GameObject.Find("Vase001");
+            GameObject PChemicalCheck = GameObject.Find("Chemicals001v2");
+            GameObject DoorCheck = GameObject.Find("Door003");
+
 
             #region Checking
-            if (LS)
+            if (VaseCheck)
             {
                 Stage2_Vase_Check = false;
             }
@@ -297,7 +391,8 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             {
                 Stage2_Vase_Check = true;
             }
-            if (PB)
+
+            if (PChemicalCheck)
             {
                 Stage2_Chemical_Check = false;
             }
@@ -305,14 +400,18 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             {
                 Stage2_Chemical_Check = true;
             }
-            if (Scissors)
+
+            Stage3_Door_Check = !doorAnimation.GetBool("Touch");
+
+            /*ïsóvÇ»ÇÁçÌèú
+            if (DoorCheck)
             {
                 Stage3_Door_Check = false;
             }
             else
             {
                 Stage3_Door_Check = true;
-            }
+            }*/
             #endregion
             #endregion
 
@@ -336,6 +435,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
         #endregion
     }
 
+    /*
     public void MyReleaseObject()
     {
         #region Deselect Object's gravity is true;
@@ -354,6 +454,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
         }
         #endregion
     }
+    */
 
 
 }

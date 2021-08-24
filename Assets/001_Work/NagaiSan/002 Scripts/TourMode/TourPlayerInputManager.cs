@@ -16,25 +16,22 @@ public class TourPlayerInputManager : MonoBehaviour
     public LineRenderer rayObject;
     #endregion
 
-    public Animator tableAnimation;
-
-    public bool iamCat = false;
+    public Animator capacityAnimation;
 
     #region UIs
     public GameObject pauseMenu;
-    public GameObject sitOnBedB;
-    //public GameObject sitOnChairB;
+    public GameObject sitOnPos1B;
+    public GameObject sitOnPos2B;
     #endregion
 
     #region Other Scripts
-    public CatInputManager catInputManager;
     public TourSwitchViewManager tourSVM;
-    //public TimerManager timerManager;
     #endregion
     
     #region Flags
     private bool pFlg = false;
     private bool sobFlg = false;
+    private bool socFlg = false;
 
     #endregion
     #endregion
@@ -46,25 +43,14 @@ public class TourPlayerInputManager : MonoBehaviour
 
     void Update()
     {
-        if (!iamCat)
-        {
-            InitMyPlayerRay();
-            PlayerMode();
-        }
-        else
-        {
-            #region Create Start Point of Ray (Cat)
-            catInputManager.InitMyCatRay();
-            #endregion
-            CatMode();
-        }
+        InitMyPlayerRay();
+        TourMode();
 
-        if (tourSVM.player_SitOnBedFlag)
+        if (tourSVM.player_SitOnPos1Flag || tourSVM.player_SitOnPos2Flag)
         {
             if (OVRInput.GetDown(OVRInput.RawButton.Y))
             {
-                Debug.Log("Press Y");
-                tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
+                ReturnToPosition();
             }
         }
 
@@ -72,25 +58,16 @@ public class TourPlayerInputManager : MonoBehaviour
 
     public void InitApp()
     {
-        #region Open Desk Capacity when Start 
-        tableAnimation.SetBool("Touch", true);
+        
+        #region Close Desk Capacity when Start 
+        capacityAnimation.SetBool("Touch", false);
         #endregion
         
         #region Initialize UIs
         pauseMenu.SetActive(false);
-        sitOnBedB.SetActive(false);
+        sitOnPos1B.SetActive(false);
+        sitOnPos2B.SetActive(false);
         #endregion
-
-        iamCat = false;
-    }
-
-    public void CatMode()
-    {
-        #region Close Desk
-        tableAnimation.SetBool("Touch", false);
-        #endregion
-
-        catInputManager.CatMode();
     }
 
     public void InitMyPlayerRay()
@@ -104,7 +81,7 @@ public class TourPlayerInputManager : MonoBehaviour
         #endregion
     }
 
-    public void PlayerMode()
+    public void TourMode()
     {
         // PauseMenu
         if (OVRInput.GetDown(OVRInput.RawButton.X))
@@ -176,6 +153,20 @@ public class TourPlayerInputManager : MonoBehaviour
                         SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
                     }
 
+                    #region Debug Cat Mode
+                    else if (tagName == "Debug_CatMode")
+                    {
+                        SceneManager.LoadScene("006 TourStage1_Cat");// Need to fix "scene.name" when Finalize
+                    }
+                    #endregion // Debug Cat Mode
+
+                    #region Debug Human Mode
+                    else if (tagName == "Debug_HumanMode")
+                    {
+                        SceneManager.LoadScene("006 TourStage1_Human");// Need to fix "scene.name" when Finalize
+                    }
+                    #endregion // Debug Human Mode
+
                     #region Debug Button NextStage
                     else if (tagName == "Debug_NextStage")
                     {
@@ -192,7 +183,7 @@ public class TourPlayerInputManager : MonoBehaviour
                             SceneManager.LoadScene("003 Stage1");// Need to fix "scene.name" when Finalize
                         }
                     }
-                    #endregion
+                    #endregion // Debug Button NextStage
                     #endregion // Scene Transition
                     #endregion // Menu Pointing
 
@@ -211,22 +202,45 @@ public class TourPlayerInputManager : MonoBehaviour
                     {
                         if (!sobFlg)
                         {
-                            sitOnBedB.SetActive(true);
+                            sitOnPos1B.SetActive(true);
                             sobFlg = true;
                         }
                         else
                         {
-                            sitOnBedB.SetActive(false);
+                            sitOnPos1B.SetActive(false);
                             sobFlg = false;
                         }
                     }
                     if (tagName == "SitOnBed")
                     {
+                        sitOnPos1B.SetActive(false);
+                        sobFlg = false;
                         tourSVM.TourSwitchViewerOnStage1_Player_SitOnBed();
                     }
                     #endregion // SitOnBed
+                    #region SitOnChair
+                    if (tagName == "Chair_Stage1")
+                    {
+                        if (!socFlg)
+                        {
+                            sitOnPos2B.SetActive(true);
+                            socFlg = true;
+                        }
+                        else
+                        {
+                            sitOnPos2B.SetActive(false);
+                            socFlg = false;
+                        }
+                    }
+                    if (tagName == "SitOnChair")
+                    {
+                        sitOnPos2B.SetActive(false);
+                        socFlg = false;
+                        tourSVM.TourSwitchViewerOnStage1_Player_SitOnChair();
+                    }
+                    #endregion // SitOnChair
+
                     #endregion // Tour Mode Interaction
-                    
                 }
             }
         }
@@ -241,18 +255,28 @@ public class TourPlayerInputManager : MonoBehaviour
     public void PointingDeskCapacity()
     {
         // Get Status in "Touch" (True or False)
-        bool nowTransDeskCap = tableAnimation.GetBool("Touch");
+        bool nowTransDeskCap = capacityAnimation.GetBool("Touch");
 
         #region Open / Close Desk (with Decision Area)
         if (!nowTransDeskCap)
         {
-            tableAnimation.SetBool("Touch", true);
+            capacityAnimation.SetBool("Touch", true);
         }
         else
         {
-            tableAnimation.SetBool("Touch", false);
+            capacityAnimation.SetBool("Touch", false);
         }
         #endregion
+    }
+
+    public void ReturnToPosition()
+    {
+        sitOnPos1B.SetActive(false);
+        sobFlg = false;
+        sitOnPos2B.SetActive(false);
+        socFlg = false;
+        tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
+            
     }
 
 }

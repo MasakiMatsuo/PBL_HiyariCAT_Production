@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CatInputManager : MonoBehaviour
 {
@@ -17,15 +19,24 @@ public class CatInputManager : MonoBehaviour
     #endregion
 
     #region UIs
+    //Stage1
     public GameObject catMemoStage1_LS_delight;
-    //public GameObject catMemoStage1_LS_cranky;  // ご機嫌斜めな解説モード（ライトスタンド）：UI実装時にコメントアウト外してください
+    public GameObject catMemoStage1_LS_cranky;
 
     public GameObject catMemoStage1_PB_delight;
-    //public GameObject catMemoStage1_PB_cranky;  // ご機嫌斜めな解説モード（ビニール袋）：UI実装時にコメントアウト外してください
+    public GameObject catMemoStage1_PB_cranky;
+
     public GameObject catMemoStage1_Scissors_delight;
-    //public GameObject catMemoStage1_Ssers_cranky;  // ご機嫌斜めな解説モード（ハサミ）：UI実装時にコメントアウト外してください
+    public GameObject catMemoStage1_Ssers_cranky;
+
+    //Stage2
+
+
+    //Stage3
 
     public GameObject resultMenu;
+    public Text resultText;
+    private int achievementNum = 0;
     #endregion
 
     #region Other Scripts
@@ -51,8 +62,13 @@ public class CatInputManager : MonoBehaviour
     {
         /*Cat Memo -> SetActive(false) */
         catMemoStage1_LS_delight.SetActive(false);
+        catMemoStage1_LS_cranky.SetActive(false);
+
         catMemoStage1_PB_delight.SetActive(false);
+        catMemoStage1_PB_cranky.SetActive(false);
+
         catMemoStage1_Scissors_delight.SetActive(false);
+        catMemoStage1_Ssers_cranky.SetActive(false);
     }
 
     public void InitMyCatRay()
@@ -71,6 +87,23 @@ public class CatInputManager : MonoBehaviour
 
     public void CatMode()
     {
+        if (SceneManager.GetActiveScene().name == "002 Stage0")
+        {
+            stage1_LS_Point = true;
+            stage1_PB_Point = true;
+
+            catMemoStage1_Scissors_delight.SetActive(true);
+
+            if (catMemoStage1_Scissors_delight && OVRInput.GetDown(OVRInput.RawButton.A))
+            {
+                stage1_Scissors_Point = true;
+                catMemoStage1_Scissors_delight.SetActive(false);
+
+                //resultMenu.SetActive(true);
+
+            }
+        }
+
         #region Patrol Dangerous Points
         #region On Stage 1
         if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
@@ -82,13 +115,23 @@ public class CatInputManager : MonoBehaviour
                     // If player has not never read it, show CatMemo 01
                     if (!stage1_LS_Point)
                     {
-                        catMemoStage1_LS_delight.SetActive(true);
+                        //catMemoStage1_LS_delight.SetActive(true);
+                        if (playerInputManagerS13.Stage1_LS_Check == true)
+                        {
+                            catMemoStage1_LS_delight.SetActive(true);
+                        }
+                        else
+                        {
+                            catMemoStage1_LS_cranky.SetActive(true);
+                        }
                     }
 
                     if (catMemoStage1_LS_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
                         stage1_LS_Point = true;
+
                         catMemoStage1_LS_delight.SetActive(false);
+                        catMemoStage1_LS_cranky.SetActive(false);
 
                         // Move next point
                         switchViewManager.ViewNextDangerousPoint();
@@ -101,13 +144,26 @@ public class CatInputManager : MonoBehaviour
                     #region Near Plastic Bag
                     if (stage1_LS_Point && !stage1_PB_Point)
                     {
-                        catMemoStage1_PB_delight.SetActive(true);
+                        //catMemoStage1_PB_delight.SetActive(true);
+
+                        //Are there any interactive objects left?
+                        if (playerInputManagerS13.Stage1_PB_Check == true)
+                        {
+                            catMemoStage1_PB_delight.SetActive(true);
+                        }
+                        else
+                        {
+                            catMemoStage1_PB_cranky.SetActive(true);
+                        }
                     }
 
                     if (catMemoStage1_PB_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
                         stage1_PB_Point = true;
+
                         catMemoStage1_PB_delight.SetActive(false);
+                        catMemoStage1_LS_cranky.SetActive(false);
+
 
                         switchViewManager.ViewNextDangerousPoint();
                         hasSeenPoints = 2;
@@ -120,15 +176,30 @@ public class CatInputManager : MonoBehaviour
                     #region Near Scissors
                     if (stage1_LS_Point && stage1_PB_Point && !stage1_Scissors_Point)
                     {
-                        catMemoStage1_Scissors_delight.SetActive(true);
+                        //catMemoStage1_Scissors_delight.SetActive(true);
+                        if (playerInputManagerS13.Stage1_Scissors_Check == true)
+                        {
+                            catMemoStage1_Scissors_delight.SetActive(true);
+                           
+                        }
+                        else
+                        {
+                            catMemoStage1_Ssers_cranky.SetActive(true);
+                        }
                     }
 
                     if (catMemoStage1_Scissors_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
                         stage1_Scissors_Point = true;
+
                         catMemoStage1_Scissors_delight.SetActive(false);
+                        catMemoStage1_Ssers_cranky.SetActive(false);
 
                         resultMenu.SetActive(true);
+                        achievementNum = Convert.ToInt32(playerInputManagerS13.Stage1_LS_Check) + Convert.ToInt32(playerInputManagerS13.Stage1_PB_Check) 
+                            + Convert.ToInt32(playerInputManagerS13.Stage1_Scissors_Check); 
+                        resultText.text = achievementNum + "/3";
+
                         hasSeenPoints = -1;
 
                     }
@@ -206,15 +277,14 @@ public class CatInputManager : MonoBehaviour
                     //
                     else if (tagName == "TourHere")
                     {
-                        Debug.Log("Not Done Here...");
-
+                        SceneManager.LoadScene("006 TourStage1_Human");
                         /* Coming Soon.... */
                         //SceneManager.LoadScene("**Tour Mode**"); // Need to fix "scene.name" when Finalize
                     }
 
                     else if (tagName == "Quit")
                     {
-                        SceneManager.LoadScene("006 EndScene");// Need to fix "scene.name" when Finalize
+                        SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
                     }
                     playerInputManagerS13.iamCat = false;
                 }

@@ -14,7 +14,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     #region Player Values
     public GameObject playerRightController;
     public LineRenderer rayObject;
-    #endregion
+    #endregion // Player Values
 
     public Animator capacityAnimation;
 
@@ -23,21 +23,30 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     #region UIs
     public GameObject removeB;
     public GameObject pauseMenu;
-    #endregion
+    #endregion // UIs
 
     #region Other Scripts
+    public GameObject tutorialManager;
     public CatInputManager catInputManager;
     public SwitchViewManager switchViewManager;
-    #endregion
+    #endregion // Other Scripts
     
     #region Flags
     private bool pFlg = false;
+    private bool rFlg = false;
 
     public bool Stage1_LS_Check = default;
     public bool Stage1_PB_Check = default;
     public bool Stage1_Scissors_Check = default;
-    #endregion
-    #endregion
+
+    //※UI
+    //ステージ1
+    public bool hitFlg1_1 = false;
+    public bool hitFlg1_2 = false;
+    public bool hitFlg1_3 = false;
+
+    #endregion // Flags
+    #endregion // Require Values
 
     void Start()
     {
@@ -46,19 +55,31 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
 
     void Update()
     {
-        if (!iamCat)
+        // When Stage 0
+        if (SceneManager.GetActiveScene().name == "002 Stage0")// Need to fix "scene.name" when Finalize
         {
-            InitMyPlayerRay();
-            PlayerMode();
+            if (!iamCat)
+            {
+                InitMyPlayerRay();
+                TutorialPlayerMode();
+            }
         }
+        // When Stage 1 or Stage 3
         else
         {
-            #region Create Start Point of Ray (Cat)
-            catInputManager.InitMyCatRay();
-            #endregion
-            CatMode();
+            if (!iamCat)
+            {
+                InitMyPlayerRay();
+                PlayerMode();
+            }
+            else
+            {
+                #region Create Start Point of Ray (Cat)
+                catInputManager.InitMyCatRay();
+                #endregion
+                CatMode();
+            }
         }
-
 
     }
 
@@ -72,7 +93,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         removeB.SetActive(false);
         pauseMenu.SetActive(false);
         #endregion
-        
+
         iamCat = false;
     }
 
@@ -83,6 +104,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         #endregion
 
         catInputManager.CatMode();
+
+
     }
 
     public void InitMyPlayerRay()
@@ -103,6 +126,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         {
             PauseMenu();
         }
+
         PointingInteraction();
     }
 
@@ -168,6 +192,11 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                     {
                         SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
                     }
+                    else if (tagName == "AbortThisStage")
+                    {
+                        CheckRemoving();
+                        switchViewManager.SwitchViewer();
+                    }
 
                     #region Debug Button NextStage
                     else if (tagName == "Debug_NextStage")
@@ -214,9 +243,23 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                     #endregion
                     #region Interaction of HeavyTarget
                     #region Print "Remove" Button for tag.name == "HeavyTarget"
-                    if (tagName == "HeavyTarget")
+                    /*if (tagName == "HeavyTarget")
                     {
                         removeB.SetActive(true);
+                    }*/
+                    if (tagName == "HeavyTarget")
+                    {
+                        //Debug.LogWarning(rFlg);
+                        if (!rFlg)
+                        {
+                            removeB.SetActive(true); ;
+                            rFlg = true;
+                        }
+                        else
+                        {
+                            removeB.SetActive(false);
+                            rFlg = false;
+                        }
                     }
                     #endregion
 
@@ -255,12 +298,45 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             {
                 MyReleaseObject();
             }
+
+            //※UI Highlight Object
+            foreach (var hit in hits)
+            {
+                string lightTagName = hit.collider.tag;
+                string lightObjNam = hit.collider.name;
+
+                if (lightTagName == "Target")
+                {
+                    if (lightObjNam == "Bag001")
+                    {
+                        hitFlg1_1 = true;
+                    }
+                    else if (lightObjNam == "Scissors001")
+                    {
+                        hitFlg1_2 = true;
+                    }
+                }
+                else if (lightTagName == "HeavyTarget")
+                {
+                    hitFlg1_3 = true;
+                    if (lightObjNam == "LightStand001")
+                    {
+                        hitFlg1_3 = true;
+                    }
+                }
+
+            }
         }
         // When the RHandTrigger is released
         else
         {
             // Remove the Echo of Ray (Player)
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
+
+            //※UI Flae all highlight false
+            hitFlg1_1 = false;
+            hitFlg1_2 = false;
+            hitFlg1_3 = false;
 
             #region Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
             int checkNG = 3;
@@ -277,7 +353,6 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             #endregion
         }
     }
-
 
     public void CheckRemoving()
     {
@@ -355,5 +430,20 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         #endregion
     }
 
+
+    public void TutorialPlayerMode()
+    {
+        PointingInteraction();
+
+        // PauseMenu (Player Clears Tutorial and Press "X")
+        if (tutorialManager.GetComponent<TutorialManager>().endTutorialFlag && OVRInput.GetDown(OVRInput.RawButton.X))
+        {
+            PauseMenu();
+        }
+
+        tutorialManager.GetComponent<TutorialManager>().GuideTexts_Welcome_to_No1();
+
+        
+    }
 
 }

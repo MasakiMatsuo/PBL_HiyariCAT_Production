@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System;
 
 public class CatInputManager_Stage2 : MonoBehaviour
 {
@@ -18,27 +20,31 @@ public class CatInputManager_Stage2 : MonoBehaviour
 
     #region UIs
     public GameObject catMemoStage2_Vase_delight;
-    //public GameObject catMemoStage1_LS_cranky;  // ご機嫌斜めな解説モード（ライトスタンド）：UI実装時にコメントアウト外してください
+    public GameObject catMemoStage2_Vase_cranky;  // ご機嫌斜めな解説モード（ライトスタンド）：UI実装時にコメントアウト外してください
 
     public GameObject catMemoStage2_Chemical_delight;
-    //public GameObject catMemoStage1_PB_cranky;  // ご機嫌斜めな解説モード（ビニール袋）：UI実装時にコメントアウト外してください
+    public GameObject catMemoStage2_Chemical_cranky;  // ご機嫌斜めな解説モード（ビニール袋）：UI実装時にコメントアウト外してください
+    
     public GameObject catMemoStage2_Door_delight;
-    //public GameObject catMemoStage1_Ssers_cranky;  // ご機嫌斜めな解説モード（ハサミ）：UI実装時にコメントアウト外してください
+    public GameObject catMemoStage2_Door_cranky;  // ご機嫌斜めな解説モード（ハサミ）：UI実装時にコメントアウト外してください
 
     public GameObject resultMenu;
+    public Text resultText;
+    private int achievementNum = 0;
+
     #endregion
 
     #region Other Scripts
-    public SwitchViewManager switchViewManager;
+    public SwitchViewManager_Stage2 switchViewManager;
     public PlayerInputManager_Stage2 playerInputManagerS2;
     #endregion
 
     #region Flags
     private int hasSeenPoints = 0;
 
-    public bool stage1_LS_Point = false;
-    public bool stage1_PB_Point = false;
-    public bool stage1_Scissors_Point = false;
+    public bool stage2_Vase_Point = false;
+    public bool stage2_Chemical_Point = false;
+    public bool stage2_Door_Point = false;
     #endregion
     #endregion
 
@@ -51,8 +57,14 @@ public class CatInputManager_Stage2 : MonoBehaviour
     {
         /*Cat Memo -> SetActive(false) */
         catMemoStage2_Vase_delight.SetActive(false);
+        catMemoStage2_Vase_cranky.SetActive(false);
+
         catMemoStage2_Chemical_delight.SetActive(false);
+        catMemoStage2_Chemical_cranky.SetActive(false);
+
+
         catMemoStage2_Door_delight.SetActive(false);
+        catMemoStage2_Door_cranky.SetActive(false);
     }
 
     public void InitMyCatRay()
@@ -73,22 +85,30 @@ public class CatInputManager_Stage2 : MonoBehaviour
     {
         #region Patrol Dangerous Points
         #region On Stage 1
-        if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
+        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
         {
             switch (hasSeenPoints)
             {
                 case 0:
                     #region Near LightStand
                     // If player has not never read it, show CatMemo 01
-                    if (!stage1_LS_Point)
+                    if (!stage2_Vase_Point)
                     {
-                        catMemoStage2_Vase_delight.SetActive(true);
+                        if (playerInputManagerS2.Stage2_Vase_Check == true)
+                        {
+                            catMemoStage2_Vase_delight.SetActive(true);
+                        }
+                        else
+                        {
+                            catMemoStage2_Vase_cranky.SetActive(true);
+                        }
                     }
 
                     if (catMemoStage2_Vase_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
-                        stage1_LS_Point = true;
+                        stage2_Vase_Point = true;
                         catMemoStage2_Vase_delight.SetActive(false);
+                        catMemoStage2_Vase_cranky.SetActive(false);
 
                         // Move next point
                         switchViewManager.ViewNextDangerousPoint();
@@ -99,15 +119,23 @@ public class CatInputManager_Stage2 : MonoBehaviour
 
                 case 1:
                     #region Near Plastic Bag
-                    if (stage1_LS_Point && !stage1_PB_Point)
+                    if (stage2_Vase_Point && !stage2_Chemical_Point)
                     {
-                        catMemoStage2_Chemical_delight.SetActive(true);
+                        if (playerInputManagerS2.Stage2_Chemical_Check == true)
+                        {
+                            catMemoStage2_Chemical_delight.SetActive(true);
+                        }
+                        else
+                        {
+                            catMemoStage2_Chemical_cranky.SetActive(true);
+                        }
                     }
 
                     if (catMemoStage2_Chemical_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
-                        stage1_PB_Point = true;
+                        stage2_Chemical_Point = true;
                         catMemoStage2_Chemical_delight.SetActive(false);
+                        catMemoStage2_Chemical_cranky.SetActive(false);
 
                         switchViewManager.ViewNextDangerousPoint();
                         hasSeenPoints = 2;
@@ -118,17 +146,30 @@ public class CatInputManager_Stage2 : MonoBehaviour
 
                 case 2:
                     #region Near Scissors
-                    if (stage1_LS_Point && stage1_PB_Point && !stage1_Scissors_Point)
+                    if (stage2_Vase_Point && stage2_Chemical_Point && !stage2_Door_Point)
                     {
-                        catMemoStage2_Door_delight.SetActive(true);
+                        if (playerInputManagerS2.Stage3_Door_Check == true)
+                        {
+                            catMemoStage2_Door_delight.SetActive(true);
+                        }
+                        else
+                        {
+                            catMemoStage2_Door_cranky.SetActive(true);
+                        }
                     }
 
                     if (catMemoStage2_Door_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
-                        stage1_Scissors_Point = true;
+                        stage2_Door_Point = true;
                         catMemoStage2_Door_delight.SetActive(false);
+                        catMemoStage2_Door_cranky.SetActive(false);
 
                         resultMenu.SetActive(true);
+                        achievementNum = Convert.ToInt32(playerInputManagerS2.Stage2_Vase_Check) 
+                            + Convert.ToInt32(playerInputManagerS2.Stage2_Chemical_Check)
+                            + Convert.ToInt32(playerInputManagerS2.Stage3_Door_Check);
+                        resultText.text = achievementNum + "/3";
+
                         hasSeenPoints = -1;
 
                     }
