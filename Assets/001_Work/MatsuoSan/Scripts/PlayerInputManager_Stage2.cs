@@ -24,6 +24,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     public GameObject removeB;
     public GameObject removeB_Vase;
     public GameObject removeB_Chemical;
+    public GameObject removeB_Door;
     public GameObject pauseMenu;
     #endregion
 
@@ -34,6 +35,10 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
 
     #region Flags
     private bool pFlg = false;
+    private bool rFlg = false;
+    private bool rFlg_Vase = false;
+    private bool rFlg_Chemical = false;
+    private bool rFlg_Door = false;
 
     public bool Stage2_Vase_Check = default;
     public bool Stage2_Chemical_Check = default;
@@ -72,13 +77,14 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     public void InitApp()
     {
         #region Open Desk Capacity when Start 
-        doorAnimation.SetBool("Touch", true);
+        //doorAnimation.SetBool("Touch", true);
         #endregion
 
         #region Initialize UIs
         removeB.SetActive(false);
         removeB_Vase.SetActive(false);
         removeB_Chemical.SetActive(false);
+        removeB_Door.SetActive(false);
         pauseMenu.SetActive(false);
         #endregion
 
@@ -213,10 +219,11 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                     #endregion
 
                     #region Interaction of Capacity
+
                     if (tagName == "Capacity")
                     {
-                        PointingDeskCapacity();
-                        break;
+                        //PointingDeskCapacity();
+                        //break;
                     }
                     #endregion
 
@@ -231,15 +238,58 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                     #region Print "Remove" Button for tag.name == "HeavyTarget"
                     if (tagName == "HeavyTarget")
                     {
-                        removeB.SetActive(true);
+                        if(!rFlg)
+                        {
+                            removeB.SetActive(true);
+                            rFlg = true;
+                        }
+                        else
+                        {
+                            removeB.SetActive(false);
+                            rFlg = false;
+                        }
                     }
                     if (tagName == "HeavyTarget_Vase")
                     {
-                        removeB_Vase.SetActive(true);
+                        if(!rFlg_Vase)
+                        {
+                            removeB_Vase.SetActive(true);
+                            rFlg_Vase = true;
+                        }
+                        else
+                        {
+                            removeB_Vase.SetActive(false);
+                            rFlg_Vase = false;
+                        }
                     }
                     if (tagName == "HeavyTarget_Chemical")
                     {
-                        removeB_Chemical.SetActive(true);
+                        if (!rFlg_Chemical)
+                        {
+                            removeB_Chemical.SetActive(true);
+                            rFlg_Chemical = true;
+                        }
+                        else
+                        {
+                            removeB_Chemical.SetActive(false);
+                            rFlg_Chemical = false;
+                        }
+                    }
+                    if (tagName == "Capacity")
+                    {
+                        if (!doorAnimation.GetBool("Touch"))
+                        {
+                            if (!rFlg_Door)
+                            {
+                                removeB_Door.SetActive(true);
+                                rFlg_Door = true;
+                            }
+                            else
+                            {
+                                removeB_Door.SetActive(false);
+                                rFlg_Door = false;
+                            }
+                        }
                     }
                     #endregion
 
@@ -281,6 +331,16 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         }
                         #endregion
                     }
+                    if (tagName == "Remove_Door")
+                    {
+                        #region Remove Items when STAGE 2
+                        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
+                        {
+                            PointingDeskCapacity();
+                            removeB_Door.SetActive(false);
+                        }
+                        #endregion
+                    }
 
                 }
                 #region Catching Object's gravity is false;
@@ -315,7 +375,6 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                 }*/
                 if (lightTagName == "HeavyTarget_Vase")
                 {
-                    //hitFlg2_3 = true;
                     if (lightObjNam == "Vase001")
                     {
                         hitFlg2_1 = true;
@@ -323,7 +382,6 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                 }
                 if (lightTagName == "HeavyTarget_Chemical")
                 {
-                    //hitFlg2_3 = true;
                     if (lightObjNam == "Chemicals001v2")
                     {
                         hitFlg2_2 = true;
@@ -331,10 +389,12 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                 }
                 if (lightTagName == "Capacity")
                 {
-                    //hitFlg2_3 = true;
                     if (lightObjNam == "Door003")
                     {
-                        hitFlg2_3 = true;
+                        if (!doorAnimation.GetBool("Touch"))
+                        {
+                            hitFlg2_3 = true;
+                        }
                     }
                 }
 
@@ -401,7 +461,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                 Stage2_Chemical_Check = true;
             }
 
-            Stage3_Door_Check = !doorAnimation.GetBool("Touch");
+            Stage3_Door_Check = doorAnimation.GetBool("Touch");
 
             /*ïsóvÇ»ÇÁçÌèú
             if (DoorCheck)
