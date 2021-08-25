@@ -18,12 +18,7 @@ public class HighlightObj : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-
-        /*MN_Add_Start*/
-        lightObjFlg = inputManager.lightObj;
-        heavyObjFlg = inputManager.heavyObj;
-        /*MN_Add_End*/
+        animator = GetComponent<Animator>();       
     }
 
     // Update is called once per frame
@@ -76,8 +71,12 @@ public class HighlightObj : MonoBehaviour
         //Stage3
     }
 
+    /*MN_Add_Start*/
     public void HighLightingOnStage0()
     {
+        lightObjFlg = inputManager.lightObj;
+        heavyObjFlg = inputManager.heavyObj;
+
         if (lightObjFlg == true)
         {
             animator.SetBool("LightObj01", true);
@@ -96,5 +95,7 @@ public class HighlightObj : MonoBehaviour
             animator.SetBool("HeavyObj01", false);
         }
     }
+    /*MN_Add_End*/
+
 
 }
