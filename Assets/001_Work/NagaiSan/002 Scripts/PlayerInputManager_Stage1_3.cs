@@ -9,7 +9,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     /// You shold search "Need to fix" before Finalize.
     /// If you can find it, we still have some things to fix 
     /// CAUTION !!! /////////////////////////////////////////////////
-    
+
     #region Require Values
     #region Player Values
     public GameObject playerRightController;
@@ -27,10 +27,11 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
 
     #region Other Scripts
     public GameObject tutorialManager;
+    public GameObject locomotionManager;
     public CatInputManager catInputManager;
     public SwitchViewManager switchViewManager;
     #endregion // Other Scripts
-    
+
     #region Flags
     private bool pFlg = false;
     private bool rFlg = false;
@@ -38,6 +39,9 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     public bool Stage1_LS_Check = default;
     public bool Stage1_PB_Check = default;
     public bool Stage1_Scissors_Check = default;
+
+    public bool lightObj = false;
+    public bool heavyObj = false;
 
     //Å¶UI
     //ÉXÉeÅ[ÉW1
@@ -76,7 +80,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             {
                 #region Create Start Point of Ray (Cat)
                 catInputManager.InitMyCatRay();
-                #endregion
+                #endregion // Create Start Point of Ray (Cat)
                 CatMode();
             }
         }
@@ -87,12 +91,12 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     {
         #region Open Desk Capacity when Start 
         capacityAnimation.SetBool("Touch", true);
-        #endregion
-        
+        #endregion // Open Desk Capacity when Start 
+
         #region Initialize UIs
         removeB.SetActive(false);
         pauseMenu.SetActive(false);
-        #endregion
+        #endregion // Initialize UIs
 
         iamCat = false;
     }
@@ -101,7 +105,9 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     {
         #region Close Desk
         capacityAnimation.SetBool("Touch", false);
-        #endregion
+        #endregion // Close Desk
+
+        locomotionManager.SetActive(false);
 
         catInputManager.CatMode();
 
@@ -116,7 +122,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
 
         // Set Vertex0 (Start point == position in RightController)
         rayObject.SetPosition(0, playerRightController.transform.position);
-        #endregion
+        #endregion // Create Start Point of Ray (Player)
     }
 
     public void PlayerMode()
@@ -156,12 +162,12 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
 
             // Set Width of Ray (This is 2 Demention)
             rayObject.SetWidth(0.01f, 0.01f);
-            #endregion
+            #endregion // Set Vertex1 and With of Ray (Player)
 
             #region Create Ray, this is same scale to Line Renderer (Player)
             RaycastHit[] hits;
             hits = Physics.RaycastAll(playerRightController.transform.position, playerRightController.transform.forward * 100.0f);
-            #endregion
+            #endregion // Create Ray, this is same scale to Line Renderer (Player)
 
             // Selecting
             if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
@@ -214,8 +220,9 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                             SceneManager.LoadScene("003 Stage1");// Need to fix "scene.name" when Finalize
                         }
                     }
-                    #endregion
-                    #endregion
+                    #endregion // Debug Button NextStage
+
+                    #endregion //Scene Transition
 
                     #region Checking dangerous items & Debug Cat Mode
                     else if (tagName == "Debug_CatMode")
@@ -223,8 +230,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                         CheckRemoving();
                         switchViewManager.SwitchViewer();
                     }
-                    #endregion
-                    #endregion
+                    #endregion // Checking dangerous items & Debug Cat Mode
+                    #endregion // Menu Pointing
 
                     #region Interaction of Capacity
                     if (tagName == "Capacity")
@@ -232,7 +239,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                         PointingDeskCapacity();
                         break;
                     }
-                    #endregion
+                    #endregion // Interaction of Capacity
 
                     #region Interaction of Target
                     if (tagName == "Target")
@@ -240,7 +247,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                         hit.collider.transform.parent = playerRightController.transform;
                         break;
                     }
-                    #endregion
+                    #endregion //Interaction of Target
+
                     #region Interaction of HeavyTarget
                     #region Print "Remove" Button for tag.name == "HeavyTarget"
                     /*if (tagName == "HeavyTarget")
@@ -261,10 +269,19 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                             rFlg = false;
                         }
                     }
-                    #endregion
+                    #endregion // Print "Remove" Button for tag.name == "HeavyTarget"
 
                     if (tagName == "Remove")
                     {
+                        #region Remove Barrel when STAGE 0
+                        if (SceneManager.GetActiveScene().name == "002 Stage0") // Need to fix "scene.name" when Finalize
+                        {
+                            GameObject _B001 = GameObject.Find("Barrel001");
+
+                            _B001.SetActive(false);
+                            removeB.SetActive(false);
+                        }
+                        #endregion // Remove LightStand when STAGE 0
                         #region Remove LightStand when STAGE 1
                         if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
                         {
@@ -273,7 +290,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                             _LS001.SetActive(false);
                             removeB.SetActive(false);
                         }
-                        #endregion
+                        #endregion // Remove LightStand when STAGE 1
+                        // Does Stage 2 Need?
                         #region Remove Items when STAGE 2
                         if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
                         {
@@ -284,14 +302,14 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                             _001.SetActive(false);
                             removeB.SetActive(false);
                         }
-                        #endregion
+                        #endregion // Remove Items when STAGE 2
                     }
-                    #endregion
+                    #endregion // Interaction of HeavyTarget
                 }
                 #region Catching Object's gravity is false;
                 GameObject go = playerRightController.transform.GetChild(3).gameObject;
                 go.GetComponent<Rigidbody>().useGravity = false;
-                #endregion
+                #endregion //Catching Object's gravity is false;
             }
             // Release Object
             if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
@@ -305,25 +323,56 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                 string lightTagName = hit.collider.tag;
                 string lightObjNam = hit.collider.name;
 
-                if (lightTagName == "Target")
+                #region HighLighting on Stage 0
+                if (SceneManager.GetActiveScene().name == "002 Stage0")
                 {
-                    if (lightObjNam == "Bag001")
+                    if (lightTagName == "Target")
                     {
-                        hitFlg1_1 = true;
+                        if (lightObjNam == "Handgun001")
+                        {
+                            lightObj = true;
+                        }
                     }
-                    else if (lightObjNam == "Scissors001")
+                    else if (lightTagName == "HeavyTarget")
                     {
-                        hitFlg1_2 = true;
+                        if (lightObjNam == "Barrel001")
+                        {
+                            heavyObj = true;
+                        }
+                    }
+                    else
+                    {
+                        lightObj = false;
+                        heavyObj = false;
                     }
                 }
-                else if (lightTagName == "HeavyTarget")
+                #endregion // HighLighting on Stage 0
+
+                else if (SceneManager.GetActiveScene().name == "003 Stage1")
                 {
-                    hitFlg1_3 = true;
-                    if (lightObjNam == "LightStand001")
+                    if (lightTagName == "Target")
+                    {
+                        if (lightObjNam == "Bag001")
+                        {
+                            hitFlg1_1 = true;
+                        }
+                        else if (lightObjNam == "Scissors001")
+                        {
+                            hitFlg1_2 = true;
+                        }
+                    }
+                    else if (lightTagName == "HeavyTarget")
                     {
                         hitFlg1_3 = true;
+                        if (lightObjNam == "LightStand001")
+                        {
+                            hitFlg1_3 = true;
+                        }
                     }
                 }
+
+
+
             }
         }
         // When the RHandTrigger is released
@@ -337,6 +386,9 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             hitFlg1_2 = false;
             hitFlg1_3 = false;
 
+            lightObj = false;
+            heavyObj = false;
+
             #region Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
             int checkNG = 3;
             int childCheck = playerRightController.transform.childCount - 1;
@@ -349,7 +401,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             {
                 MyReleaseObject();
             }
-            #endregion
+            #endregion // Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
         }
     }
 
@@ -387,8 +439,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             {
                 Stage1_Scissors_Check = true;
             }
-            #endregion
-            #endregion
+            #endregion // Checking
+            #endregion // ÅyStage 1ÅzChecking that dangerous items have been removed.
 
         }
     }
@@ -407,7 +459,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         {
             capacityAnimation.SetBool("Touch", false);
         }
-        #endregion
+        #endregion // Open / Close Desk (with Decision Area)
     }
 
     public void MyReleaseObject()
@@ -415,7 +467,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         #region Deselect Object's gravity is true;
         GameObject go = playerRightController.transform.GetChild(3).gameObject;
         go.GetComponent<Rigidbody>().useGravity = true;
-        #endregion
+        #endregion // Deselect Object's gravity is true;
 
         #region Child Objects relased
         for (int i = 0; i < playerRightController.transform.childCount; i++)
@@ -426,9 +478,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                 child.parent = null;
             }
         }
-        #endregion
+        #endregion // Child Objects relased
     }
-
 
     public void TutorialPlayerMode()
     {
@@ -442,7 +493,7 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
 
         tutorialManager.GetComponent<TutorialManager>().GuideTexts_Welcome_to_No1();
 
-        
+
     }
 
 }
