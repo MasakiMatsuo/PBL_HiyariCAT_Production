@@ -324,7 +324,6 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                         hitFlg1_3 = true;
                     }
                 }
-
             }
         }
         // When the RHandTrigger is released
