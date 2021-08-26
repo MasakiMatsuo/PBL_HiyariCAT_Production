@@ -22,6 +22,8 @@ public class TourCatInputManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject sitOnPos1B;
     public GameObject sitOnPos2B;
+
+    public GameObject sitOnPos1S;
     #endregion
 
     #region Other Scripts
@@ -33,6 +35,7 @@ public class TourCatInputManager : MonoBehaviour
     private bool sobFlg = false;
     private bool socFlg = false;
 
+    private bool sosFlg = false;
     #endregion
     #endregion
 
@@ -46,7 +49,7 @@ public class TourCatInputManager : MonoBehaviour
         InitMyPlayerRay();
         TourMode();
 
-        if (tourSVM.player_SitOnPos1Flag || tourSVM.player_SitOnPos2Flag)
+        if (tourSVM.player_SitOnPos1Flag || tourSVM.player_SitOnPos2Flag || tourSVM.player_SitOnPos2_1Flag)
         {
             if (OVRInput.GetDown(OVRInput.RawButton.Y))
             {
@@ -66,6 +69,8 @@ public class TourCatInputManager : MonoBehaviour
         pauseMenu.SetActive(false);
         sitOnPos1B.SetActive(false);
         sitOnPos2B.SetActive(false);
+
+        sitOnPos1S.SetActive(false);
         #endregion
     }
 
@@ -239,6 +244,28 @@ public class TourCatInputManager : MonoBehaviour
                     }
                     #endregion // SitOnChair
 
+                    #region SitOnShelf
+                    if (tagName == "Stage2_Shelf")
+                    {
+                        if (!sosFlg)
+                        {
+                            sitOnPos1S.SetActive(true);
+                            sosFlg = true;
+                        }
+                        else
+                        {
+                            sitOnPos1S.SetActive(false);
+                            sosFlg = false;
+                        }
+                    }
+                    if (tagName == "Stage2_Shelf")
+                    {
+                        sitOnPos1S.SetActive(false);
+                        sosFlg = false;
+                        tourSVM.TourSwitchViewerOnStage2_Cat_SitOnShelf();
+                    }
+                    #endregion // SitOnBed
+
 
 
                     #endregion // Tour Mode Interaction
@@ -276,6 +303,10 @@ public class TourCatInputManager : MonoBehaviour
         sobFlg = false;
         sitOnPos2B.SetActive(false);
         socFlg = false;
+
+        sitOnPos1S.SetActive(false);
+        sosFlg = false;
+
         tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
     }
 
