@@ -41,6 +41,11 @@ public class TourPlayerInputManager : MonoBehaviour
     private bool mFlg2 = false;
     private bool mFlg3 = false;
 
+    //Å¶UI
+    public bool hitFlgD2_1 = false;
+    public bool hitFlgD2_2 = false;
+    public bool hitFlgD2_3 = false;
+
     #endregion
     #endregion
 
@@ -294,12 +299,47 @@ public class TourPlayerInputManager : MonoBehaviour
                     #endregion // Tour Mode Interaction
                 }
             }
+
+            //Å¶UI Highlight Object
+            foreach (var hit in hits)
+            {
+                string lightTagName = hit.collider.tag;
+                string lightObjNam = hit.collider.name;
+
+                if (lightTagName == "Door_Message1")
+                {
+                    if (lightObjNam == "Door001_part001")
+                    {
+                        hitFlgD2_1 = true;
+                    }
+                }
+
+                if (lightTagName == "Door_Message2")
+                {
+                    if (lightObjNam == "Door001_part")
+                    {
+                        hitFlgD2_2 = true;
+                    }
+                }
+                if (lightTagName == "Door_Message3")
+                {
+                    if (lightObjNam == "Door001_part002")
+                    {
+                        hitFlgD2_3 = true;
+                    }
+                }
+            }
         }
         // When the RHandTrigger is released
         else
         {
             // Remove the Echo of Ray (Player)
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
+
+            //Å¶UI Flae all highlight false
+            hitFlgD2_1 = false;
+            hitFlgD2_2 = false;
+            hitFlgD2_3 = false;
         }
     }
 

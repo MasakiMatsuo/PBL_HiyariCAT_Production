@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerInputManager_Stage1_3 : MonoBehaviour
+public class PlayerInputManager_Stage3 : MonoBehaviour
 {
     /// CAUTION !!! /////////////////////////////////////////////////
     /// You shold search "Need to fix" before Finalize.
@@ -28,26 +28,26 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     #region Other Scripts
     public GameObject tutorialManager;
     public GameObject locomotionManager;
-    public CatInputManager catInputManager;
-    public SwitchViewManager switchViewManager;
+    public CatInputManager_Stage3 catInputManager;
+    public SwitchViewManager_Stage3 switchViewManager;
     #endregion // Other Scripts
 
     #region Flags
     private bool pFlg = false;
     private bool rFlg = false;
 
-    public bool Stage1_LS_Check = default;
-    public bool Stage1_PB_Check = default;
-    public bool Stage1_Scissors_Check = default;
+    public bool Stage3_Chocolate_Check = default;
+    public bool Stage3_Code_Check = default;
+    public bool Stage3_SC_Check = default;
 
     public bool lightObj = false;
     public bool heavyObj = false;
 
     //Å¶UI
     //ÉXÉeÅ[ÉW1
-    public bool hitFlg1_1 = false;
-    public bool hitFlg1_2 = false;
-    public bool hitFlg1_3 = false;
+    public bool hitFlg_item1 = false;
+    public bool hitFlg_item2 = false;
+    public bool hitFlg_item3 = false;
 
     #endregion // Flags
     #endregion // Require Values
@@ -282,24 +282,22 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                             removeB.SetActive(false);
                         }
                         #endregion // Remove LightStand when STAGE 0
-                        #region Remove LightStand when STAGE 1
-                        if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
+                        #region Remove LightStand when STAGE3
+                        if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
                         {
-                            GameObject _LS001 = GameObject.Find("LightStand001");
+                            GameObject _SC001 = GameObject.Find("StorageCabinet001");
 
-                            _LS001.SetActive(false);
+                            _SC001.SetActive(false);
                             removeB.SetActive(false);
                         }
                         #endregion // Remove LightStand when STAGE 1
                         // Does Stage 2 Need?
                         #region Remove Items when STAGE 2
-                        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
+                        if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
                         {
-                            GameObject _001 = GameObject.Find("****");
-                            GameObject _002 = GameObject.Find("****");
-                            GameObject _003 = GameObject.Find("****");
+                            GameObject _SC001 = GameObject.Find("StorageCabinet001");
 
-                            _001.SetActive(false);
+                            _SC001.SetActive(false);
                             removeB.SetActive(false);
                         }
                         #endregion // Remove Items when STAGE 2
@@ -323,56 +321,35 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                 string lightTagName = hit.collider.tag;
                 string lightObjNam = hit.collider.name;
 
-                #region HighLighting on Stage 0
-                if (SceneManager.GetActiveScene().name == "002 Stage0")
+
+                if (SceneManager.GetActiveScene().name == "005 Stage3")
                 {
                     if (lightTagName == "Target")
                     {
-                        if (lightObjNam == "Handgun001")
+                        if (lightObjNam == "Chocolate001")
                         {
-                            lightObj = true;
+                            hitFlg_item1 = true;
+                        }
+                        else if (lightObjNam == "Code001")
+                        {
+                            hitFlg_item2 = true;
                         }
                     }
                     else if (lightTagName == "HeavyTarget")
                     {
-                        if (lightObjNam == "Barrel001")
+                        hitFlg_item3 = true;
+                        if (lightObjNam == "StorageCabinet001")
                         {
-                            heavyObj = true;
+                            hitFlg_item3 = true;
                         }
                     }
                     else
                     {
-                        lightObj = false;
-                        heavyObj = false;
+                        hitFlg_item1 = false;
+                        hitFlg_item2 = false;
+                        hitFlg_item3 = false;
                     }
                 }
-                #endregion // HighLighting on Stage 0
-
-                else if (SceneManager.GetActiveScene().name == "003 Stage1")
-                {
-                    if (lightTagName == "Target")
-                    {
-                        if (lightObjNam == "Bag001")
-                        {
-                            hitFlg1_1 = true;
-                        }
-                        else if (lightObjNam == "Scissors001")
-                        {
-                            hitFlg1_2 = true;
-                        }
-                    }
-                    else if (lightTagName == "HeavyTarget")
-                    {
-                        hitFlg1_3 = true;
-                        if (lightObjNam == "LightStand001")
-                        {
-                            hitFlg1_3 = true;
-                        }
-                    }
-                }
-
-
-
             }
         }
         // When the RHandTrigger is released
@@ -382,9 +359,9 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
 
             //Å¶UI Flae all highlight false
-            hitFlg1_1 = false;
-            hitFlg1_2 = false;
-            hitFlg1_3 = false;
+            hitFlg_item1 = false;
+            hitFlg_item2 = false;
+            hitFlg_item3 = false;
 
             lightObj = false;
             heavyObj = false;
@@ -407,37 +384,37 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
 
     public void CheckRemoving()
     {
-        if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
+        if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
         {
-            #region ÅyStage 1ÅzChecking that dangerous items have been removed.
-            GameObject LS = GameObject.Find("LightStand001");
-            GameObject PB = GameObject.Find("Bag001");
-            GameObject Scissors = GameObject.Find("Scissors001");
+            #region ÅyStage 3ÅzChecking that dangerous items have been removed.
+            GameObject LS = GameObject.Find("Chocolate001");
+            GameObject PB = GameObject.Find("Code001");
+            GameObject Scissors = GameObject.Find("StorageCabinet001");
 
             #region Checking
             if (LS)
             {
-                Stage1_LS_Check = false;
+                Stage3_Chocolate_Check = false;
             }
             else
             {
-                Stage1_LS_Check = true;
+                Stage3_Chocolate_Check = true;
             }
             if (PB)
             {
-                Stage1_PB_Check = false;
+                Stage3_Code_Check = false;
             }
             else
             {
-                Stage1_PB_Check = true;
+                Stage3_Code_Check = true;
             }
             if (Scissors)
             {
-                Stage1_Scissors_Check = false;
+                Stage3_SC_Check = false;
             }
             else
             {
-                Stage1_Scissors_Check = true;
+                Stage3_SC_Check = true;
             }
             #endregion // Checking
             #endregion // ÅyStage 1ÅzChecking that dangerous items have been removed.
