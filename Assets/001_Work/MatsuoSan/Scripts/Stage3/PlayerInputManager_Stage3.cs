@@ -81,6 +81,7 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
                 #region Create Start Point of Ray (Cat)
                 catInputManager.InitMyCatRay();
                 #endregion // Create Start Point of Ray (Cat)
+                Debug.LogError("Masaki Test : CatMode No5");
                 CatMode();
             }
         }
@@ -108,7 +109,7 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
         #endregion // Close Desk
 
         locomotionManager.SetActive(false);
-
+        Debug.LogError("Masaki Test : CatMode No3");
         catInputManager.CatMode();
 
 
@@ -332,6 +333,7 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
                         }
                         else if (lightObjNam == "Code001")
                         {
+                            Debug.LogError("Masaki Test : CatMode No6");
                             hitFlg_item2 = true;
                         }
                     }
@@ -394,10 +396,12 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
             #region Checking
             if (LS)
             {
+                Debug.LogError("Masaki Test : Chocolate -> No");
                 Stage3_Chocolate_Check = false;
             }
             else
             {
+                Debug.LogError("Masaki Test : Chocolate -> Yes");
                 Stage3_Chocolate_Check = true;
             }
             if (PB)
