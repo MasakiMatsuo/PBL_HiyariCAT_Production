@@ -60,6 +60,42 @@ public class CleanUpMenu : MonoBehaviour
                     cleanMenu2.SetActive(false);
                 }
             }
+            else if (targetScript[i].name == "Chocolate001")
+            {
+                if (cFlg == true)
+                {
+                    cleanMenu1.SetActive(true);
+
+                    time += Time.deltaTime;
+                    if (time >= life_time)
+                    {
+                        targetScript[i].cleanFlg = false;
+                        time = 0.0f;
+                    }
+                }
+                else
+                {
+                    cleanMenu1.SetActive(false);
+                }
+            }
+            else if (targetScript[i].name == "Code001")
+            {
+                if (cFlg == true)
+                {
+                    cleanMenu2.SetActive(true);
+
+                    time += Time.deltaTime;
+                    if (time >= life_time)
+                    {
+                        targetScript[i].cleanFlg = false;
+                        time = 0.0f;
+                    }
+                }
+                else
+                {
+                    cleanMenu2.SetActive(false);
+                }
+            }
         }
     }
 }

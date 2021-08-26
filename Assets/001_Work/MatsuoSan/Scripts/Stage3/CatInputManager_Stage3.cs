@@ -86,7 +86,6 @@ public class CatInputManager_Stage3 : MonoBehaviour
 
     public void CatMode()
     {
-        Debug.LogError("Masaki Test : CatMode No1");
         if (SceneManager.GetActiveScene().name == "002 Stage0")
         {
             stage1_LS_Point = true;
@@ -108,7 +107,6 @@ public class CatInputManager_Stage3 : MonoBehaviour
         #region On Stage 1
         if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
         {
-            Debug.LogError("Masaki Test : CatMode No2");
             switch (hasSeenPoints)
             {
                 case 0:

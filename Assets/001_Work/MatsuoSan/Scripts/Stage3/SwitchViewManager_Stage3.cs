@@ -21,7 +21,6 @@ public class SwitchViewManager_Stage3 : MonoBehaviour
         // Cat move the first point near by Light Stand
         if (ovrc)
         {
-            Debug.LogError("Masaki Test : CatMode No4");
             ovrc.SetActive(false);
             playerInputManagerS3.iamCat = true;
             catOVRC_LS.SetActive(true);
