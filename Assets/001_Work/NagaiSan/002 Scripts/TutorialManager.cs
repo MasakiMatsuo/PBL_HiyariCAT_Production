@@ -9,7 +9,7 @@ public class TutorialManager : MonoBehaviour
     #region UIs
     // Texts
     //public List<GameObject> guideTexts;
-    public GameObject[] guideTexts = new GameObject[9];
+    public GameObject[] guideTexts = new GameObject[18];
 
     // Images
     //public List<GameObject> guideImages;
@@ -69,14 +69,29 @@ public class TutorialManager : MonoBehaviour
             case 6:
             case 7:
             case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
                 if (OVRInput.GetDown(OVRInput.RawButton.A) && !readDone)
                 {
                     if (readNum == 1){}
-                    else
+                    else if(1 < readNum && readNum <= 8)
                     {
                         guideImages[0].SetActive(false);
                         guideImages[1].SetActive(true);
-                    }
+                    }/*
+                    else if (8 < readNum && readNum <= 12)
+                    {
+                        guideImages[1].SetActive(false);
+                        guideImages[2].SetActive(true);
+                    }*/
 
                     guideTexts[readNum -1].SetActive(false);
                     guideTexts[readNum].SetActive(true);
