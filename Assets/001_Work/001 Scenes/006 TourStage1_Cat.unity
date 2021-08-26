@@ -10906,6 +10906,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9046544245403747311, guid: 90afb509097cab941956799407b55247, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90afb509097cab941956799407b55247, type: 3}
 --- !u!4 &3347015940687310989
@@ -10959,6 +10963,9 @@ MonoBehaviour:
   message2: {fileID: 0}
   message3: {fileID: 0}
   tourSVM: {fileID: 3398442374506463846}
+  hitFlgD2_1: 0
+  hitFlgD2_2: 0
+  hitFlgD2_3: 0
 --- !u!4 &3398442373655200820
 Transform:
   m_ObjectHideFlags: 0
@@ -11009,6 +11016,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 271321664}
   sitOnPos1B: {fileID: 5792846961323667362}
   sitOnPos2B: {fileID: 5792846962039126290}
+  sitOnPos1S: {fileID: 0}
   tourSVM: {fileID: 3398442374506463846}
 --- !u!1 &3398442373663465764
 GameObject:
@@ -11168,6 +11176,8 @@ MonoBehaviour:
   playerOVRC_Pos2: {fileID: 1068701810}
   player_SitOnPos1Flag: 0
   player_SitOnPos2Flag: 0
+  playerOVRC_Pos2_1: {fileID: 0}
+  player_SitOnPos2_1Flag: 0
 --- !u!4 &3398442374506463847
 Transform:
   m_ObjectHideFlags: 0
