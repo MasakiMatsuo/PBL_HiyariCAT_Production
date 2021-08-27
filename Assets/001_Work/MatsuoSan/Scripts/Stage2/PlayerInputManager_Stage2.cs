@@ -25,6 +25,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     public GameObject removeB_Vase;
     public GameObject removeB_Chemical;
     public GameObject removeB_Door;
+    public GameObject removeB_Door2;
     public GameObject pauseMenu;
     #endregion
 
@@ -85,6 +86,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
         removeB_Vase.SetActive(false);
         removeB_Chemical.SetActive(false);
         removeB_Door.SetActive(false);
+        removeB_Door2.SetActive(false);
         pauseMenu.SetActive(false);
         #endregion
 
@@ -186,6 +188,13 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                     else if (tagName == "AbortThisStage")
                     {
                         CheckRemoving();
+
+                        //Before moving to cat mode delate removeB masaki
+                        removeB_Vase.SetActive(false);
+                        removeB_Chemical.SetActive(false);
+                        removeB_Door.SetActive(false);
+                        removeB_Door2.SetActive(false);
+
                         switchViewManager.SwitchViewer();
                     }
 
@@ -282,11 +291,13 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                             if (!rFlg_Door)
                             {
                                 removeB_Door.SetActive(true);
+                                removeB_Door2.SetActive(true);
                                 rFlg_Door = true;
                             }
                             else
                             {
                                 removeB_Door.SetActive(false);
+                                removeB_Door2.SetActive(false);
                                 rFlg_Door = false;
                             }
                         }
@@ -338,6 +349,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         {
                             PointingDeskCapacity();
                             removeB_Door.SetActive(false);
+                            removeB_Door2.SetActive(false);
                         }
                         #endregion
                     }
@@ -397,7 +409,6 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         }
                     }
                 }
-
             }
 
 
@@ -439,7 +450,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             #region ÅyStage2ÅzChecking that dangerous items have been removed.
             GameObject VaseCheck = GameObject.Find("Vase001");
             GameObject PChemicalCheck = GameObject.Find("Chemicals001v2");
-            GameObject DoorCheck = GameObject.Find("Door003");
+            //GameObject DoorCheck = GameObject.Find("Door003");
 
 
             #region Checking
