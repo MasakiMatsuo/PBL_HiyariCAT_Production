@@ -108,7 +108,6 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
         #endregion // Close Desk
 
         locomotionManager.SetActive(false);
-
         catInputManager.CatMode();
 
 

@@ -24,7 +24,6 @@ public class HighlightObj_Stage2 : MonoBehaviour
         //Stage2
         if (hFlg2_1 == true)
         {
-            Debug.Log("Masaki Test : Higtlight");
             animator.SetBool("VaseFlg", true);
         }
         else

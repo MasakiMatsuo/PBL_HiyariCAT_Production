@@ -81,17 +81,39 @@ public class TutorialManager : MonoBehaviour
             case 18:
                 if (OVRInput.GetDown(OVRInput.RawButton.A) && !readDone)
                 {
+                    #region Display Images
                     if (readNum == 1){}
                     else if(1 < readNum && readNum <= 8)
                     {
                         guideImages[0].SetActive(false);
                         guideImages[1].SetActive(true);
-                    }/*
-                    else if (8 < readNum && readNum <= 12)
+                    }
+                    else if (8 < readNum && readNum <= 11)
                     {
                         guideImages[1].SetActive(false);
                         guideImages[2].SetActive(true);
-                    }*/
+                    }
+                    else if (readNum == 12)
+                    {
+                        guideImages[2].SetActive(false);
+                        guideImages[3].SetActive(true);
+                    }
+                    else if (readNum == 13)
+                    {
+                        guideImages[3].SetActive(false);
+                        guideImages[4].SetActive(true);
+                    }
+                    else if (readNum == 14 || readNum == 15)
+                    {
+                        guideImages[4].SetActive(false);
+                        guideImages[5].SetActive(true);
+                    }
+                    else if (15 < readNum && readNum <= 18)
+                    {
+                        guideImages[5].SetActive(false);
+                        guideImages[6].SetActive(true);
+                    }
+                    #endregion // Display Images
 
                     guideTexts[readNum -1].SetActive(false);
                     guideTexts[readNum].SetActive(true);
