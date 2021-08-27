@@ -99,6 +99,12 @@ public class TimerManager_Stage2 : MonoBehaviour
 
             if (seconds <= 0)
             {
+                //Before moving to cat mode delate removeB masaki
+                playerInputManagerS2.removeB_Vase.SetActive(false);
+                playerInputManagerS2.removeB_Chemical.SetActive(false);
+                playerInputManagerS2.removeB_Door.SetActive(false);
+                playerInputManagerS2.removeB_Door2.SetActive(false);
+
                 playerInputManagerS2.CheckRemoving();
                 switchViewManager.SwitchViewer();
             }

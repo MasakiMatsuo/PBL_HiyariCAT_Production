@@ -23,7 +23,7 @@ public class TimerManager_Stage3 : MonoBehaviour
     #region Other Scripts
     public CatInputManager_Stage3 catInputManager;
     public SwitchViewManager_Stage3 switchViewManager;
-    public PlayerInputManager_Stage3 playerInputManagerS13;
+    public PlayerInputManager_Stage3 playerInputManagerS3;
 
     #endregion
 
@@ -31,7 +31,7 @@ public class TimerManager_Stage3 : MonoBehaviour
     void Update()
     {
         // Cat Mode
-        if (playerInputManagerS13.iamCat == true)
+        if (playerInputManagerS3.iamCat == true)
         {
             RemoveTimer();
         }
@@ -105,7 +105,7 @@ public class TimerManager_Stage3 : MonoBehaviour
 
             if (seconds <= 0)
             {
-                playerInputManagerS13.CheckRemoving();
+                playerInputManagerS3.CheckRemoving();
                 switchViewManager.SwitchViewer();
             }
 

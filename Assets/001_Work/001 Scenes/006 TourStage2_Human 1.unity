@@ -20735,39 +20735,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &7559491757519582912
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7559491757519582914}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b07bc04f88f31748af1b3246239898f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7559491757519582913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7559491757519582914}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7559491757519582912}
-  inputManager: {fileID: 0}
 --- !u!1 &7559491757519582914
 GameObject:
   m_ObjectHideFlags: 0
@@ -20780,8 +20747,6 @@ GameObject:
   - component: {fileID: 4053962781819788281}
   - component: {fileID: 7595557161488344632}
   - component: {fileID: 7559491757519582915}
-  - component: {fileID: 7559491757519582912}
-  - component: {fileID: 7559491757519582913}
   m_Layer: 0
   m_Name: Door003
   m_TagString: Capacity
@@ -21294,6 +21259,7 @@ GameObject:
   - component: {fileID: 3185429993673231571}
   - component: {fileID: 8057497410842985889}
   - component: {fileID: 8057497410842985891}
+  - component: {fileID: 8057497410842985890}
   m_Layer: 0
   m_Name: Door001_part
   m_TagString: Door_Message2
@@ -21315,6 +21281,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6785389807623607749, guid: 4b38cff11e1b0ed498213079ba283069, type: 3}
+--- !u!114 &8057497410842985890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057497410842985888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d655e2f7fdf4cbb40809d0ff785650e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8057497410842985891}
+  inputManager: {fileID: 1385530315}
 --- !u!95 &8057497410842985891
 Animator:
   serializedVersion: 3

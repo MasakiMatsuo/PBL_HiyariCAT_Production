@@ -28,6 +28,8 @@ public class TourCatInputManager : MonoBehaviour
 
     #region Other Scripts
     public TourSwitchViewManager tourSVM;
+
+    public PlayerInputManager_Stage1_3 playerIM;
     #endregion
 
     #region Flags
@@ -199,7 +201,18 @@ public class TourCatInputManager : MonoBehaviour
                     }
                     #endregion
 
+
+
                     #region Tour Mode Interaction
+
+                    #region Interaction of Target
+                    if (tagName == "Target")
+                    {
+                        Debug.LogWarning("hit");
+                        hit.collider.transform.parent = playerRightController.transform;
+                        break;
+                    }
+                    #endregion
 
                     #region SitOnBed
                     if (tagName == "Bed_Stage1")
@@ -270,6 +283,11 @@ public class TourCatInputManager : MonoBehaviour
 
                     #endregion // Tour Mode Interaction
                 }
+            }
+
+            if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
+            {
+                playerIM.MyReleaseObject();
             }
         }
         // When the RHandTrigger is released
