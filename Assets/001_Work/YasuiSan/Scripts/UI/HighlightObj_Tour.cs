@@ -16,7 +16,6 @@ public class HighlightObj_Tour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ステージ1
         bool hFlg1_1 = inputManager.hitFlgD2_1;
         bool hFlg1_2 = inputManager.hitFlgD2_2;
         bool hFlg1_3 = inputManager.hitFlgD2_3;
