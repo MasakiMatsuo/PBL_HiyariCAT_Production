@@ -8,18 +8,27 @@ public class TutorialManager : MonoBehaviour
     #region Require Values
     public GameObject[] tutorialObjects = new GameObject[3];
 
+
     #region UIs
+    public GameObject pauseMenu;
+    public GameObject tutorialEndScreen;
+
     // Texts
-    //public List<GameObject> guideTexts;
     public GameObject[] guideTexts = new GameObject[34];
 
     // Images
-    //public List<GameObject> guideImages;
     public GameObject[] guideImages = new GameObject[8];
     #endregion // UIs
 
+    #region OtherScripts
+    public PlayerInputManager_Stage1_3 playerIMS1_3;
+    public CleanUpMenu cleanUpMenu;
+    #endregion // OtherScripts
+
+    #region Flags
     private int readNum = 0;
     public bool endTutorialFlag = false;
+    #endregion // Flags
 
     #endregion // Require Values
 
@@ -29,14 +38,33 @@ public class TutorialManager : MonoBehaviour
         InitAppOnStage0();
     }
 
+    /*
+     * Creating now...
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "002 Stage0" && cleanUpMenu.officeKnifeRemoveFlag)
+        {
+            tutorialEndScreen.SetActive(true);
+        }
+        else
+        {
+            tutorialEndScreen.SetActive(false);
+        }
+
+        if (playerIMS1_3.iamCat)
+        {
+            cleanUpMenu.officeKnifeRemoveFlag = false;
+        }
+    }
+    */
+
     public void InitAppOnStage0()
     {
         if (SceneManager.GetActiveScene().name == "002 Stage0")
         {
-            /*
-            guideTexts = new List<GameObject>();
-            guideImages = new List<GameObject>();
-            */
+            playerIMS1_3.GetComponent<PlayerInputManager_Stage1_3>();
+            cleanUpMenu.GetComponent<CleanUpMenu>();
+
             for (int i = 0; i < tutorialObjects.Length; i++)
             {
                 tutorialObjects[i].SetActive(false);
@@ -51,7 +79,6 @@ public class TutorialManager : MonoBehaviour
                 guideImages[i].SetActive(false);
             }
 
-            GameObject pauseMenu = GameObject.Find("PauseMenu");
             if (pauseMenu)
             {
                 pauseMenu.SetActive(false);
@@ -111,9 +138,7 @@ public class TutorialManager : MonoBehaviour
             case 34:
                 if (OVRInput.GetDown(OVRInput.RawButton.A) && !readDone)
                 {
-                    
-
-                    #region Display Images
+                    #region Display Media
                     if (readNum == 1){}
                     else if(1 < readNum && readNum <= 8)
                     {
@@ -150,8 +175,10 @@ public class TutorialManager : MonoBehaviour
                         guideImages[6].SetActive(false);
                         guideImages[7].SetActive(true);
                     }
-                    #endregion // Display Images
-                    else if (readNum == 26)
+                    #endregion // Display Media
+
+                    // Release Tutorial Objects: Handgun and Barrel
+                    if (readNum == 26)
                     {
                         for (int i = 0; i < tutorialObjects.Length -1; i++)
                         {
@@ -159,20 +186,24 @@ public class TutorialManager : MonoBehaviour
                         }
                     }
 
+                    #region Switch the message to be displayed
                     guideTexts[readNum -1].SetActive(false);
 
                     if (0 < readNum && readNum < 34)
                     {
                         guideTexts[readNum].SetActive(true);
                     }
-                    
+                    #endregion // Switch the message to be displayed
                     readDone = true;
 
+                    #region Open Operate Pause Menu
                     if (readDone && readNum == 32)
                     {
                         endTutorialFlag = true;
                     }
+                    #endregion // Open Operate Pause Menu
 
+                    #region Closing Guide Texts and Release a Tutorial Target: Cutter knife
                     if (readDone && readNum == 34)
                     {
                         GameObject messages = GameObject.Find("Messages");
@@ -183,8 +214,9 @@ public class TutorialManager : MonoBehaviour
 
                         tutorialObjects[2].SetActive(true);
                     }
+                    #endregion // Closing Guide Texts and Release a Tutorial Target: Cutter knife
                 }
-                
+
                 break;
             #endregion // case 1~34
 

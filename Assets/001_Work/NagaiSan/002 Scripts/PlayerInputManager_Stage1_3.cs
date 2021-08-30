@@ -493,7 +493,6 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
 
         tutorialManager.GetComponent<TutorialManager>().GuideTexts_Welcome_to_No1();
 
-
     }
 
 }
