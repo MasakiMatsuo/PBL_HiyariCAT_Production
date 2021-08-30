@@ -373,18 +373,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             {
                 string lightTagName = hit.collider.tag;
                 string lightObjNam = hit.collider.name;
-                /*
-                if (lightTagName == "Target")
-                {
-                    if (lightObjNam == "Bag001")
-                    {
-                        hitFlg2_1 = true;
-                    }
-                    else if (lightObjNam == "Scissors001")
-                    {
-                        hitFlg2_2 = true;
-                    }
-                }*/
+
                 if (lightTagName == "HeavyTarget_Vase")
                 {
                     if (lightObjNam == "Vase001")
@@ -392,14 +381,14 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         hitFlg2_1 = true;
                     }
                 }
-                if (lightTagName == "HeavyTarget_Chemical")
+                else if (lightTagName == "HeavyTarget_Chemical")
                 {
                     if (lightObjNam == "Chemicals001v2")
                     {
                         hitFlg2_2 = true;
                     }
                 }
-                if (lightTagName == "Capacity")
+                else if (lightTagName == "Capacity")
                 {
                     if (lightObjNam == "Door003")
                     {
@@ -409,6 +398,14 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         }
                     }
                 }
+                else
+                {
+                    Debug.LogError("Masaki Test : no4");
+                    hitFlg2_1 = false;
+                    hitFlg2_2 = false;
+                    hitFlg2_3 = false;
+                }
+                
             }
 
 
