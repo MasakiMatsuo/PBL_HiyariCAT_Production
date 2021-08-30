@@ -49,8 +49,13 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
     public bool hitFlg_item2 = false;
     public bool hitFlg_item3 = false;
 
+    //Audio
+    public AudioSource audioData;
+
     #endregion // Flags
     #endregion // Require Values
+
+
 
     void Start()
     {
@@ -286,6 +291,9 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
                         {
                             GameObject _SC001 = GameObject.Find("StorageCabinet001");
 
+                            //Remove Audio
+                            audioData.Play();
+
                             _SC001.SetActive(false);
                             removeB.SetActive(false);
                         }
@@ -336,7 +344,7 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
                     }
                     else if (lightTagName == "HeavyTarget")
                     {
-                        hitFlg_item3 = true;
+                        //hitFlg_item3 = true;
                         if (lightObjNam == "StorageCabinet001")
                         {
                             hitFlg_item3 = true;

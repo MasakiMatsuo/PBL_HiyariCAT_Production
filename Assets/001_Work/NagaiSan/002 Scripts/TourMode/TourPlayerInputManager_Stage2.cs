@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TourPlayerInputManager : MonoBehaviour
+public class TourPlayerInputManager_Stage2 : MonoBehaviour
 {
     /// CAUTION !!! /////////////////////////////////////////////////
     /// You shold search "Need to fix" before Finalize.
@@ -22,6 +22,12 @@ public class TourPlayerInputManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject sitOnPos1B;
     public GameObject sitOnPos2B;
+
+    public GameObject sitOnPos1S;
+
+    public GameObject message1;
+    public GameObject message2;
+    public GameObject message3;
     #endregion
 
     #region Other Scripts
@@ -33,9 +39,16 @@ public class TourPlayerInputManager : MonoBehaviour
     private bool sobFlg = false;
     private bool socFlg = false;
 
+    private bool sosFlg = false;
+
     private bool mFlg1 = false;
     private bool mFlg2 = false;
     private bool mFlg3 = false;
+
+    //Å¶UI
+    public bool hitFlgD2_1 = false;
+    public bool hitFlgD2_2 = false;
+    public bool hitFlgD2_3 = false;
 
     #endregion
     #endregion
@@ -71,6 +84,8 @@ public class TourPlayerInputManager : MonoBehaviour
         pauseMenu.SetActive(false);
         sitOnPos1B.SetActive(false);
         sitOnPos2B.SetActive(false);
+
+        sitOnPos1S.SetActive(false);
         #endregion
     }
 
@@ -201,50 +216,104 @@ public class TourPlayerInputManager : MonoBehaviour
 
                     #region Tour Mode Interaction
 
-                    #region SitOnBed
-                    if (tagName == "Bed_Stage1")
+       
+
+                    #region SitOnShelf
+                    if (tagName == "Stage2_Shelf")
                     {
-                        if (!sobFlg)
+                        if (!sosFlg)
                         {
-                            sitOnPos1B.SetActive(true);
-                            sobFlg = true;
+                            sitOnPos1S.SetActive(true);
+                            sosFlg = true;
                         }
                         else
                         {
-                            sitOnPos1B.SetActive(false);
-                            sobFlg = false;
+                            sitOnPos1S.SetActive(false);
+                            sosFlg = false;
                         }
                     }
-                    if (tagName == "SitOnBed")
+                    if (tagName == "Stage2_Shelf")
                     {
-                        sitOnPos1B.SetActive(false);
-                        sobFlg = false;
-                        tourSVM.TourSwitchViewerOnStage1_Player_SitOnBed();
+                        sitOnPos1S.SetActive(false);
+                        sosFlg = false;
+                        tourSVM.TourSwitchViewerOnStage2_Cat_SitOnShelf();
                     }
                     #endregion // SitOnBed
-                    #region SitOnChair
-                    if (tagName == "Chair_Stage1")
+
+                    #region DoorActmessage
+                    if (tagName == "Door_Message1")
                     {
-                        if (!socFlg)
+                        if (!mFlg1)
                         {
-                            sitOnPos2B.SetActive(true);
-                            socFlg = true;
+                            message1.SetActive(true);
+                            mFlg1 = true;
                         }
                         else
                         {
-                            sitOnPos2B.SetActive(false);
-                            socFlg = false;
+                            message1.SetActive(false);
+                            mFlg1 = false;
                         }
                     }
-                    if (tagName == "SitOnChair")
+                    if (tagName == "Door_Message2")
                     {
-                        sitOnPos2B.SetActive(false);
-                        socFlg = false;
-                        tourSVM.TourSwitchViewerOnStage1_Player_SitOnChair();
+                        if (!mFlg2)
+                        {
+                            message2.SetActive(true);
+                            mFlg2 = true;
+                        }
+                        else
+                        {
+                            message2.SetActive(false);
+                            mFlg2 = false;
+                        }
                     }
-                    #endregion // SitOnChair
+                    if (tagName == "Door_Message3")
+                    {
+                        if (!mFlg3)
+                        {
+                            message3.SetActive(true);
+                            mFlg3 = true;
+                        }
+                        else
+                        {
+                            message3.SetActive(false);
+                            mFlg3 = false;
+                        }
+                    }
+
+                    #endregion //Door Act message
 
                     #endregion // Tour Mode Interaction
+                }
+            }
+
+            //Å¶UI Highlight Object
+            foreach (var hit in hits)
+            {
+                string lightTagName = hit.collider.tag;
+                string lightObjNam = hit.collider.name;
+
+                if (lightTagName == "Door_Message1")
+                {
+                    if (lightObjNam == "Door001_part001")
+                    {
+                        hitFlgD2_1 = true;
+                    }
+                }
+
+                if (lightTagName == "Door_Message2")
+                {
+                    if (lightObjNam == "Door001_part")
+                    {
+                        hitFlgD2_2 = true;
+                    }
+                }
+                if (lightTagName == "Door_Message3")
+                {
+                    if (lightObjNam == "Door001_part002")
+                    {
+                        hitFlgD2_3 = true;
+                    }
                 }
             }
         }
@@ -253,6 +322,11 @@ public class TourPlayerInputManager : MonoBehaviour
         {
             // Remove the Echo of Ray (Player)
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
+
+            //Å¶UI Flae all highlight false
+            hitFlgD2_1 = false;
+            hitFlgD2_2 = false;
+            hitFlgD2_3 = false;
         }
     }
 
@@ -275,10 +349,9 @@ public class TourPlayerInputManager : MonoBehaviour
 
     public void ReturnToPosition()
     {
-        sitOnPos1B.SetActive(false);
-        sobFlg = false;
-        sitOnPos2B.SetActive(false);
-        socFlg = false;
+        sitOnPos1S.SetActive(false);
+        sosFlg = false;
+
         tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
             
     }
