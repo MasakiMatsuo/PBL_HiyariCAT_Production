@@ -49,8 +49,13 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
     public bool hitFlg_item2 = false;
     public bool hitFlg_item3 = false;
 
+    //Audio
+    public AudioSource audioData;
+
     #endregion // Flags
     #endregion // Require Values
+
+
 
     void Start()
     {
@@ -285,6 +290,9 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
                         if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
                         {
                             GameObject _SC001 = GameObject.Find("StorageCabinet001");
+
+                            //Remove Audio
+                            audioData.Play();
 
                             _SC001.SetActive(false);
                             removeB.SetActive(false);

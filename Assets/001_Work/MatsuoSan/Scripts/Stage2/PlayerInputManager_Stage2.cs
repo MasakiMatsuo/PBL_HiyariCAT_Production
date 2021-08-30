@@ -381,14 +381,14 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         hitFlg2_1 = true;
                     }
                 }
-                if (lightTagName == "HeavyTarget_Chemical")
+                else if (lightTagName == "HeavyTarget_Chemical")
                 {
                     if (lightObjNam == "Chemicals001v2")
                     {
                         hitFlg2_2 = true;
                     }
                 }
-                if (lightTagName == "Capacity")
+                else if (lightTagName == "Capacity")
                 {
                     if (lightObjNam == "Door003")
                     {
@@ -398,15 +398,14 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         }
                     }
                 }
-                /*
-                if(lightObjNam != "Capacity" && lightTagName != "HeavyTarget_Vase" && lightTagName != "HeavyTarget_Chemical")
+                else
                 {
                     Debug.LogError("Masaki Test : no4");
                     hitFlg2_1 = false;
                     hitFlg2_2 = false;
                     hitFlg2_3 = false;
                 }
-                */
+                
             }
 
 
