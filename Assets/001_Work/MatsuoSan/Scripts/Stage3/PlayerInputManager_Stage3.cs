@@ -336,7 +336,7 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
                     }
                     else if (lightTagName == "HeavyTarget")
                     {
-                        hitFlg_item3 = true;
+                        //hitFlg_item3 = true;
                         if (lightObjNam == "StorageCabinet001")
                         {
                             hitFlg_item3 = true;

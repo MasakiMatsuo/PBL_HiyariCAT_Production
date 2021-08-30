@@ -1,19 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class TargetScript_Stage3 : MonoBehaviour
 {
-    //Å¶UI
+    //Audio
+    public AudioSource audioData;
+
+    //UI
     public bool cleanFlg = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.LogError($"Masaki Test : Object name is {other.name} !");
         if (other.tag == "Capacity")
         {
-            //Å¶UI
-            cleanFlg = true;
+            //Audio
+            audioData.Play();
+
+            cleanFlg = true; //UI
+
             gameObject.SetActive(false);
         }
     }
