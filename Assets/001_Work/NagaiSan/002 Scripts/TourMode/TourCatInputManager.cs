@@ -23,7 +23,6 @@ public class TourCatInputManager : MonoBehaviour
     public GameObject sitOnPos1B;
     public GameObject sitOnPos2B;
 
-    public GameObject sitOnPos1S;
     #endregion
 
     #region Other Scripts
@@ -71,8 +70,6 @@ public class TourCatInputManager : MonoBehaviour
         pauseMenu.SetActive(false);
         sitOnPos1B.SetActive(false);
         sitOnPos2B.SetActive(false);
-
-        sitOnPos1S.SetActive(false);
         #endregion
     }
 
@@ -257,37 +254,13 @@ public class TourCatInputManager : MonoBehaviour
                     }
                     #endregion // SitOnChair
 
-                    #region SitOnShelf
-                    if (tagName == "Stage2_Shelf")
-                    {
-                        if (!sosFlg)
-                        {
-                            sitOnPos1S.SetActive(true);
-                            sosFlg = true;
-                        }
-                        else
-                        {
-                            sitOnPos1S.SetActive(false);
-                            sosFlg = false;
-                        }
-                    }
-                    if (tagName == "Stage2_Shelf")
-                    {
-                        sitOnPos1S.SetActive(false);
-                        sosFlg = false;
-                        tourSVM.TourSwitchViewerOnStage2_Cat_SitOnShelf();
-                    }
-                    #endregion // SitOnBed
-
-
-
                     #endregion // Tour Mode Interaction
                 }
             }
 
             if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
             {
-                playerIM.MyReleaseObject();
+                MyReleaseObject();
             }
         }
         // When the RHandTrigger is released
@@ -295,7 +268,40 @@ public class TourCatInputManager : MonoBehaviour
         {
             // Remove the Echo of Ray (Player)
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
+
+            #region Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
+            int checkNG = 3;
+            int childCheck = playerRightController.transform.childCount - 1;
+
+            if (childCheck != checkNG)
+            {
+                return;
+            }
+            else
+            {
+                MyReleaseObject();
+            }
+            #endregion
         }
+    }
+
+    public void MyReleaseObject()
+    {
+        #region Deselect Object's gravity is true;
+        GameObject go = playerRightController.transform.GetChild(3).gameObject;
+        go.GetComponent<Rigidbody>().useGravity = true;
+        #endregion // Deselect Object's gravity is true;
+
+        #region Child Objects relased
+        for (int i = 0; i < playerRightController.transform.childCount; i++)
+        {
+            var child = playerRightController.transform.GetChild(i);
+            if (child.tag == "Target")
+            {
+                child.parent = null;
+            }
+        }
+        #endregion // Child Objects relased
     }
 
     public void PointingDeskCapacity()
@@ -321,9 +327,6 @@ public class TourCatInputManager : MonoBehaviour
         sobFlg = false;
         sitOnPos2B.SetActive(false);
         socFlg = false;
-
-        sitOnPos1S.SetActive(false);
-        sosFlg = false;
 
         tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
     }

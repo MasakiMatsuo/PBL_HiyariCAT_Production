@@ -5,7 +5,7 @@ using UnityEngine;
 public class HighlightObj_Tour : MonoBehaviour
 {    
     public Animator animator;
-    public TourPlayerInputManager inputManager;
+    public TourPlayerInputManager_Stage2 inputManager;
 
     // Start is called before the first frame update
     void Start()
