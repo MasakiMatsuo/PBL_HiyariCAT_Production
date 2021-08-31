@@ -50,6 +50,11 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     public bool hitFlg1_3 = false;
 
     #endregion // Flags
+
+    #region Audio
+    public AudioSource audioData;
+    #endregion // UIs
+
     #endregion // Require Values
 
     void Start()
@@ -278,6 +283,9 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                         {
                             GameObject _B001 = GameObject.Find("Barrel001");
 
+                            //Remove Audio
+                            audioData.Play();
+
                             _B001.SetActive(false);
                             removeB.SetActive(false);
                         }
@@ -286,6 +294,9 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                         if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
                         {
                             GameObject _LS001 = GameObject.Find("LightStand001");
+
+                            //Remove Audio
+                            audioData.Play();
 
                             _LS001.SetActive(false);
                             removeB.SetActive(false);
