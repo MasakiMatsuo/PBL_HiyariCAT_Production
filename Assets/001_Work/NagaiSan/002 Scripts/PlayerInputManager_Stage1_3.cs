@@ -40,7 +40,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
     public bool Stage1_PB_Check = default;
     public bool Stage1_Scissors_Check = default;
 
-    public bool lightObj = false;
+    public bool lightObj01 = false;
+    public bool lightObj02 = false;
     public bool heavyObj = false;
 
     //Å¶UI
@@ -59,13 +60,41 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
 
     void Update()
     {
-        // When Stage 0
+        if (!iamCat)
+        {
+            InitMyPlayerRay();
+
+            // When Stage 0
+            if (SceneManager.GetActiveScene().name == "002 Stage0")
+            {
+                TutorialPlayerMode();
+            }
+
+            // When Stage 1 or Stage 3
+            else
+            {
+                PlayerMode();
+            }
+        }
+
+        else
+        {
+            CatMode();
+        }
+
+        #region old Update()
+        /*
+         // When Stage 0
         if (SceneManager.GetActiveScene().name == "002 Stage0")// Need to fix "scene.name" when Finalize
         {
             if (!iamCat)
             {
                 InitMyPlayerRay();
                 TutorialPlayerMode();
+            }
+            else
+            {
+                CatMode();
             }
         }
         // When Stage 1 or Stage 3
@@ -78,12 +107,11 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             }
             else
             {
-                #region Create Start Point of Ray (Cat)
-                catInputManager.InitMyCatRay();
-                #endregion // Create Start Point of Ray (Cat)
                 CatMode();
             }
         }
+         */
+        #endregion // old Update()
 
     }
 
@@ -106,6 +134,10 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
         #region Close Desk
         capacityAnimation.SetBool("Touch", false);
         #endregion // Close Desk
+
+        #region Create Start Point of Ray (Cat)
+        catInputManager.InitMyCatRay();
+        #endregion // Create Start Point of Ray (Cat)
 
         locomotionManager.SetActive(false);
 
@@ -200,8 +232,15 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                     }
                     else if (tagName == "AbortThisStage")
                     {
-                        CheckRemoving();
-                        switchViewManager.SwitchViewer();
+                        if (SceneManager.GetActiveScene().name == "002 Stage0")
+                        {
+                            switchViewManager.SwitchViewerOnStage0();
+                        }
+                        else
+                        {
+                            CheckRemoving();
+                            switchViewManager.SwitchViewer();
+                        }
                     }
 
                     #region Debug Button NextStage
@@ -330,7 +369,11 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                     {
                         if (lightObjNam == "Handgun001")
                         {
-                            lightObj = true;
+                            lightObj01 = true;
+                        }
+                        if (lightObjNam == "OfficeKnife001")
+                        {
+                            lightObj02 = true;
                         }
                     }
                     else if (lightTagName == "HeavyTarget")
@@ -342,7 +385,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
                     }
                     else
                     {
-                        lightObj = false;
+                        lightObj01 = false;
+                        lightObj02 = false;
                         heavyObj = false;
                     }
                 }
@@ -386,7 +430,8 @@ public class PlayerInputManager_Stage1_3 : MonoBehaviour
             hitFlg1_2 = false;
             hitFlg1_3 = false;
 
-            lightObj = false;
+            lightObj01 = false;
+            lightObj02 = false;
             heavyObj = false;
 
             #region Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)

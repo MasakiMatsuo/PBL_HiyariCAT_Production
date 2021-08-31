@@ -36,8 +36,8 @@ public class CleanUpMenu : MonoBehaviour
                 else if (targetScript[i].name == "OfficeKnife001")
                 {
                     GenerateCM2(cFlg, i);
-                    officeKnifeRemoveFlag = true;
                 }
+                else { officeKnifeRemoveFlag = false; }
             }
 
             if (targetScript[i].name == "Bag001")
@@ -135,6 +135,7 @@ public class CleanUpMenu : MonoBehaviour
         {
             cleanMenu2.SetActive(true);
             DisplayTextTime(cnt);
+            officeKnifeRemoveFlag = true;
         }
         else
         {

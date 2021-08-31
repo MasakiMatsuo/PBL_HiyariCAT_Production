@@ -99,7 +99,8 @@ public class CatInputManager : MonoBehaviour
                 stage1_Scissors_Point = true;
                 catMemoStage1_Scissors_delight.SetActive(false);
 
-                //resultMenu.SetActive(true);
+                hasSeenPoints = -1;
+                resultMenu.SetActive(true);
 
             }
         }
