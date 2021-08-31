@@ -24,6 +24,7 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
     public GameObject sitOnPos2B;
 
     public GameObject sitOnPos1S;
+    public GameObject sitOnPos1D;
 
     public GameObject message1;
     public GameObject message2;
@@ -40,6 +41,7 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
     private bool socFlg = false;
 
     private bool sosFlg = false;
+    private bool sodFlg = false;
 
     private bool mFlg1 = false;
     private bool mFlg2 = false;
@@ -238,7 +240,29 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
                         sosFlg = false;
                         tourSVM.TourSwitchViewerOnStage2_Cat_SitOnShelf();
                     }
-                    #endregion // SitOnBed
+                    #endregion // SitOnShelf
+
+                    #region Doma
+                    if (tagName == "Stage2_Doma")
+                    {
+                        if (!sodFlg)
+                        {
+                            sitOnPos1D.SetActive(true);
+                            sodFlg = true;
+                        }
+                        else
+                        {
+                            sitOnPos1D.SetActive(false);
+                            sodFlg = false;
+                        }
+                    }
+                    if (tagName == "Stage2_Doma")
+                    {
+                        sitOnPos1D.SetActive(false);
+                        sodFlg = false;
+                        tourSVM.TourSwitchViewerOnStage2_Cat_SitOnDoma();
+                    }
+                    #endregion // Doma
 
                     #region DoorActmessage
                     if (tagName == "Door_Message1")
@@ -352,7 +376,7 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
         sitOnPos1S.SetActive(false);
         sosFlg = false;
 
-        tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
+        tourSVM.TourSwitchViewerOnStage2_Player_ReturnWalk();
             
     }
 
