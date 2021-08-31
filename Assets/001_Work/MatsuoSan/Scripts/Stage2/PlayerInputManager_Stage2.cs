@@ -52,6 +52,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
 
     //Audio
     public AudioSource audioData;
+    public AudioSource audioAnime;
 
     #endregion
     #endregion
@@ -516,6 +517,9 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             doorAnimation.SetBool("Touch", false);
         }
         #endregion
+
+        //Audio Masaki
+        audioAnime.Play();
     }
 
     /*
