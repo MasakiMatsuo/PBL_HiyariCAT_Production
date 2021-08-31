@@ -10,7 +10,8 @@ public class HighlightObj : MonoBehaviour
 
     /*MN_Add_Start*/
     #region Flags
-    public bool lightObjFlg = default;
+    public bool lightObjFlg01 = default;
+    public bool lightObjFlg02 = default;
     public bool heavyObjFlg = default;
     #endregion
     /*MN_Add_End*/
@@ -74,16 +75,22 @@ public class HighlightObj : MonoBehaviour
     /*MN_Add_Start*/
     public void HighLightingOnStage0()
     {
-        lightObjFlg = inputManager.lightObj;
+        lightObjFlg01 = inputManager.lightObj01;
+        lightObjFlg02 = inputManager.lightObj02;
         heavyObjFlg = inputManager.heavyObj;
 
-        if (lightObjFlg == true)
+        if (lightObjFlg01 == true)
         {
             animator.SetBool("LightObj01", true);
+        }
+        else if (lightObjFlg02 == true)
+        {
+            animator.SetBool("LightObj02", true);
         }
         else
         {
             animator.SetBool("LightObj01", false);
+            animator.SetBool("LightObj02", false);
         }
 
         if (heavyObjFlg == true)

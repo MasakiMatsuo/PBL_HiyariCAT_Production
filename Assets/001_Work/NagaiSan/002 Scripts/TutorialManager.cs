@@ -8,7 +8,6 @@ public class TutorialManager : MonoBehaviour
     #region Require Values
     public GameObject[] tutorialObjects = new GameObject[3];
 
-
     #region UIs
     public GameObject pauseMenu;
     public GameObject tutorialEndScreen;
@@ -17,7 +16,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject[] guideTexts = new GameObject[34];
 
     // Images
-    public GameObject[] guideImages = new GameObject[8];
+    public GameObject[] guideImages = new GameObject[11];
     #endregion // UIs
 
     #region OtherScripts
@@ -32,17 +31,14 @@ public class TutorialManager : MonoBehaviour
 
     #endregion // Require Values
 
-
     void Start()
     {
         InitAppOnStage0();
     }
 
-    /*
-     * Creating now...
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "002 Stage0" && cleanUpMenu.officeKnifeRemoveFlag)
+        if (SceneManager.GetActiveScene().name == "002 Stage0" && readNum == -1 && cleanUpMenu.officeKnifeRemoveFlag)
         {
             tutorialEndScreen.SetActive(true);
         }
@@ -56,7 +52,6 @@ public class TutorialManager : MonoBehaviour
             cleanUpMenu.officeKnifeRemoveFlag = false;
         }
     }
-    */
 
     public void InitAppOnStage0()
     {
@@ -136,6 +131,7 @@ public class TutorialManager : MonoBehaviour
             case 32:
             case 33:
             case 34:
+            #endregion // case 1~34 
                 if (OVRInput.GetDown(OVRInput.RawButton.A) && !readDone)
                 {
                     #region Display Media
@@ -170,10 +166,30 @@ public class TutorialManager : MonoBehaviour
                         guideImages[5].SetActive(false);
                         guideImages[6].SetActive(true);
                     }
-                    else if (17 < readNum && readNum <= 27)
+                    else if (17 < readNum && readNum <= 20)
                     {
                         guideImages[6].SetActive(false);
                         guideImages[7].SetActive(true);
+                    }
+                    else if (20 < readNum && readNum <= 23)
+                    {
+                        guideImages[7].SetActive(false);
+                        guideImages[8].SetActive(true);
+                    }
+                    else if (23 < readNum && readNum <= 26)
+                    {
+                        guideImages[8].SetActive(false);
+                        guideImages[9].SetActive(true);
+                    }
+                    else if (26 < readNum && readNum <= 32)
+                    {
+                        guideImages[9].SetActive(false);
+                        guideImages[10].SetActive(true);
+                    }
+                    else if (readNum == 33)
+                    {
+                        guideImages[10].SetActive(false);
+                        guideImages[0].SetActive(true);
                     }
                     #endregion // Display Media
 
@@ -203,7 +219,7 @@ public class TutorialManager : MonoBehaviour
                     }
                     #endregion // Open Operate Pause Menu
 
-                    #region Closing Guide Texts and Release a Tutorial Target: Cutter knife
+                    #region Closing Guide Texts and Release a Tutorial Target: Office knife
                     if (readDone && readNum == 34)
                     {
                         GameObject messages = GameObject.Find("Messages");
@@ -214,11 +230,9 @@ public class TutorialManager : MonoBehaviour
 
                         tutorialObjects[2].SetActive(true);
                     }
-                    #endregion // Closing Guide Texts and Release a Tutorial Target: Cutter knife
+                    #endregion // Closing Guide Texts and Release a Tutorial Target: Office knife
                 }
-
                 break;
-            #endregion // case 1~34
 
             default:
                 break;

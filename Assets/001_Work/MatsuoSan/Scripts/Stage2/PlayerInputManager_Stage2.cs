@@ -45,9 +45,13 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     public bool Stage2_Chemical_Check = default;
     public bool Stage3_Door_Check = default;
 
+    //Higtlight
     public bool hitFlg2_1 = false;
     public bool hitFlg2_2 = false;
     public bool hitFlg2_3 = false;
+
+    //Audio
+    public AudioSource audioData;
 
     #endregion
     #endregion
@@ -325,6 +329,9 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         {
                             GameObject _Vase001 = GameObject.Find("Vase001");
 
+                            //Remove Audio
+                            audioData.Play();
+
                             _Vase001.SetActive(false);
                             removeB_Vase.SetActive(false);
                         }
@@ -337,6 +344,9 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         {
                             GameObject _Chemical002 = GameObject.Find("Chemicals001v2");
 
+                            //Remove Audio
+                            audioData.Play();
+
                             _Chemical002.SetActive(false);
                             removeB_Chemical.SetActive(false);
                         }
@@ -347,6 +357,9 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         #region Remove Items when STAGE 2
                         if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
                         {
+                            //Remove Audio
+                            audioData.Play();
+
                             PointingDeskCapacity();
                             removeB_Door.SetActive(false);
                             removeB_Door2.SetActive(false);
@@ -398,6 +411,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                         }
                     }
                 }
+                /*
                 else
                 {
                     Debug.LogError("Masaki Test : no4");
@@ -405,6 +419,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                     hitFlg2_2 = false;
                     hitFlg2_3 = false;
                 }
+                */
                 
             }
 
