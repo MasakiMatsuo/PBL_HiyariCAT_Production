@@ -98,6 +98,16 @@ public class TourSwitchViewManager : MonoBehaviour
             playerOVRC_Walk.SetActive(true);
         }
         #endregion
+
+        #region Player sit on Pos(Doma).
+        if (player_SitOnPos2_2Flag)
+        {
+            playerOVRC_Pos2_2.SetActive(false);
+            player_SitOnPos2_2Flag = false;
+
+            playerOVRC_Walk.SetActive(true);
+        }
+        #endregion
     }
 
     // Cat sits on Bed.

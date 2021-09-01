@@ -65,7 +65,8 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
         InitMyPlayerRay();
         TourMode();
 
-        if (tourSVM.player_SitOnPos1Flag || tourSVM.player_SitOnPos2Flag)
+        //if (tourSVM.player_SitOnPos1Flag || tourSVM.player_SitOnPos2Flag)
+        if (tourSVM.player_SitOnPos2_2Flag)
         {
             if (OVRInput.GetDown(OVRInput.RawButton.Y))
             {
@@ -375,6 +376,9 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
     {
         sitOnPos1S.SetActive(false);
         sosFlg = false;
+
+        sitOnPos1D.SetActive(false);
+        sodFlg = false;
 
         tourSVM.TourSwitchViewerOnStage2_Player_ReturnWalk();
             
