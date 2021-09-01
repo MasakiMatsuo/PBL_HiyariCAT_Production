@@ -14,8 +14,10 @@ public class TourSwitchViewManager : MonoBehaviour
 
     //ステージ2
     public GameObject playerOVRC_Pos2_1;
+    public GameObject playerOVRC_Pos2_2;
 
     public bool player_SitOnPos2_1Flag = false;
+    public bool player_SitOnPos2_2Flag = false;
     /*
     public GameObject catOVRC_LS;
     public GameObject catOVRC_PB;
@@ -84,6 +86,20 @@ public class TourSwitchViewManager : MonoBehaviour
         #endregion
     }
 
+    // Player returns walking.
+    public void TourSwitchViewerOnStage2_Player_ReturnWalk()
+    {
+        #region Player sit on Pos(Shelf).
+        if (player_SitOnPos2_1Flag)
+        {
+            playerOVRC_Pos2_1.SetActive(false);
+            player_SitOnPos2_1Flag = false;
+
+            playerOVRC_Walk.SetActive(true);
+        }
+        #endregion
+    }
+
     // Cat sits on Bed.
     public void TourSwitchViewerOnStage1_Cat_SitOnBed()
     {
@@ -118,7 +134,20 @@ public class TourSwitchViewManager : MonoBehaviour
             playerOVRC_Pos2_1.SetActive(true);
 
             player_SitOnPos2_1Flag = true;
-            Debug.Log($"playerOVRC_Pos2_1 is {playerOVRC_Pos2}");
+            //Debug.Log($"playerOVRC_Pos2_1 is {playerOVRC_Pos2}");
+        }
+    }
+
+    // Cat sits on Doma.
+    public void TourSwitchViewerOnStage2_Cat_SitOnDoma()
+    {
+        if (playerOVRC_Walk)
+        {
+            playerOVRC_Walk.SetActive(false);
+            playerOVRC_Pos2_2.SetActive(true);
+
+            player_SitOnPos2_1Flag = true;
+            //Debug.Log($"playerOVRC_Pos2_1 is {playerOVRC_Pos2}");
         }
     }
 

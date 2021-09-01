@@ -19,8 +19,16 @@ public class TeleportTransitionInstant : TeleportTransition
     /// When the teleport state is entered, simply move the player to the new location
     /// without any delay or other side effects.
     /// </summary>
+    /// 
+
+    //Masaki add Audio
+    public AudioSource audioData;
+
     protected override void LocomotionTeleportOnEnterStateTeleporting()
 	{
-		LocomotionTeleport.DoTeleport();
+        //Masaki add Remove Audio
+        audioData.Play();
+
+        LocomotionTeleport.DoTeleport();
 	}
 }
