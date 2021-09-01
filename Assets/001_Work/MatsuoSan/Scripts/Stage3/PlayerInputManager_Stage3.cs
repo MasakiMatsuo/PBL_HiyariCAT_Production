@@ -51,6 +51,7 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
 
     //Audio
     public AudioSource audioData;
+    public AudioSource audioAnime;
 
     #endregion // Flags
     #endregion // Require Values
@@ -444,6 +445,10 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
             capacityAnimation.SetBool("Touch", false);
         }
         #endregion // Open / Close Desk (with Decision Area)
+
+        //Audio
+        audioAnime.Play();
+
     }
 
     public void MyReleaseObject()
