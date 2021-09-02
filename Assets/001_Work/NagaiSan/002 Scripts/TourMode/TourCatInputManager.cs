@@ -28,7 +28,7 @@ public class TourCatInputManager : MonoBehaviour
     #region Other Scripts
     public TourSwitchViewManager tourSVM;
 
-    public PlayerInputManager_Stage1_3 playerIM;
+    //public PlayerInputManager_Stage1_3 playerIM;
     #endregion
 
     #region Flags
@@ -189,7 +189,7 @@ public class TourCatInputManager : MonoBehaviour
                     #endregion
                     #endregion // Scene Transition
                     #endregion // Menu Pointing
-
+                    /*
                     #region Interaction of Capacity
                     if (tagName == "Capacity")
                     {
@@ -197,7 +197,7 @@ public class TourCatInputManager : MonoBehaviour
                         break;
                     }
                     #endregion
-
+                    */
 
 
                     #region Tour Mode Interaction
@@ -217,6 +217,7 @@ public class TourCatInputManager : MonoBehaviour
                         if (!sobFlg)
                         {
                             sitOnPos1B.SetActive(true);
+                            sitOnPos2B.SetActive(false);
                             sobFlg = true;
                         }
                         else
@@ -227,17 +228,18 @@ public class TourCatInputManager : MonoBehaviour
                     }
                     if (tagName == "SitOnBed")
                     {
-                        sitOnPos1B.SetActive(false);
+                        SittingNow();
                         sobFlg = false;
                         tourSVM.TourSwitchViewerOnStage1_Cat_SitOnBed();
                     }
                     #endregion // SitOnBed
-                    #region SitOnChair
+                    #region SitOnTable
                     if (tagName == "Table_Stage1")
                     {
                         if (!socFlg)
                         {
                             sitOnPos2B.SetActive(true);
+                            sitOnPos1B.SetActive(false);
                             socFlg = true;
                         }
                         else
@@ -248,11 +250,11 @@ public class TourCatInputManager : MonoBehaviour
                     }
                     if (tagName == "SitOnTable")
                     {
-                        sitOnPos2B.SetActive(false);
+                        SittingNow();
                         socFlg = false;
                         tourSVM.TourSwitchViewerOnStage1_Cat_SitOnTable();
                     }
-                    #endregion // SitOnChair
+                    #endregion // SitOnTable
 
                     #endregion // Tour Mode Interaction
                 }
@@ -269,19 +271,8 @@ public class TourCatInputManager : MonoBehaviour
             // Remove the Echo of Ray (Player)
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
 
-            #region Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
-            int checkNG = 3;
-            int childCheck = playerRightController.transform.childCount - 1;
-
-            if (childCheck != checkNG)
-            {
-                return;
-            }
-            else
-            {
-                MyReleaseObject();
-            }
-            #endregion
+            // Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
+            BugFix_HoldingObjectsReleaser();
         }
     }
 
@@ -303,7 +294,7 @@ public class TourCatInputManager : MonoBehaviour
         }
         #endregion // Child Objects relased
     }
-
+    /*
     public void PointingDeskCapacity()
     {
         // Get Status in "Touch" (True or False)
@@ -320,7 +311,7 @@ public class TourCatInputManager : MonoBehaviour
         }
         #endregion
     }
-
+    */
     public void ReturnToPosition()
     {
         sitOnPos1B.SetActive(false);
@@ -331,4 +322,24 @@ public class TourCatInputManager : MonoBehaviour
         tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
     }
 
+    public void SittingNow()
+    {
+        sitOnPos1B.SetActive(false);
+        sitOnPos2B.SetActive(false);
+    }
+
+    public void BugFix_HoldingObjectsReleaser()
+    {
+        int checkNG = 3;
+        int childCheck = playerRightController.transform.childCount - 1;
+
+        if (childCheck != checkNG)
+        {
+            return;
+        }
+        else
+        {
+            MyReleaseObject();
+        }
+    }
 }
