@@ -65,7 +65,8 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
         InitMyPlayerRay();
         TourMode();
 
-        if (tourSVM.player_SitOnPos1Flag || tourSVM.player_SitOnPos2Flag)
+        //if (tourSVM.player_SitOnPos1Flag || tourSVM.player_SitOnPos2Flag)
+        if (tourSVM.player_SitOnPos2_1Flag)
         {
             if (OVRInput.GetDown(OVRInput.RawButton.Y))
             {
@@ -177,14 +178,14 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
                     #region Debug Cat Mode
                     else if (tagName == "Debug_CatMode")
                     {
-                        SceneManager.LoadScene("006 TourStage1_Cat");// Need to fix "scene.name" when Finalize
+                        SceneManager.LoadScene("006 TourStage2_Cat");// Need to fix "scene.name" when Finalize
                     }
                     #endregion // Debug Cat Mode
 
                     #region Debug Human Mode
                     else if (tagName == "Debug_HumanMode")
                     {
-                        SceneManager.LoadScene("006 TourStage1_Human");// Need to fix "scene.name" when Finalize
+                        SceneManager.LoadScene("006 TourStage2_Human");// Need to fix "scene.name" when Finalize
                     }
                     #endregion // Debug Human Mode
 
@@ -242,27 +243,7 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
                     }
                     #endregion // SitOnShelf
 
-                    #region Doma
-                    if (tagName == "Stage2_Doma")
-                    {
-                        if (!sodFlg)
-                        {
-                            sitOnPos1D.SetActive(true);
-                            sodFlg = true;
-                        }
-                        else
-                        {
-                            sitOnPos1D.SetActive(false);
-                            sodFlg = false;
-                        }
-                    }
-                    if (tagName == "Stage2_Doma")
-                    {
-                        sitOnPos1D.SetActive(false);
-                        sodFlg = false;
-                        tourSVM.TourSwitchViewerOnStage2_Cat_SitOnDoma();
-                    }
-                    #endregion // Doma
+                    
 
                     #region DoorActmessage
                     if (tagName == "Door_Message1")
@@ -373,6 +354,7 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
 
     public void ReturnToPosition()
     {
+        Debug.LogWarning("Return");
         sitOnPos1S.SetActive(false);
         sosFlg = false;
 

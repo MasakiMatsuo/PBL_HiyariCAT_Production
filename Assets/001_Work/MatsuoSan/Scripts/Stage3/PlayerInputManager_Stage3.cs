@@ -53,6 +53,9 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
     public AudioSource audioData;
     public AudioSource audioAnime;
 
+    //cat modle
+    public GameObject catModle;
+
     #endregion // Flags
     #endregion // Require Values
 
@@ -112,6 +115,9 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
         #region Close Desk
         capacityAnimation.SetBool("Touch", false);
         #endregion // Close Desk
+
+        //Cat modle false
+        catModle.SetActive(false);
 
         locomotionManager.SetActive(false);
         catInputManager.CatMode();
