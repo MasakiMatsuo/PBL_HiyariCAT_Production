@@ -50,7 +50,7 @@ public class TourCatInputManager : MonoBehaviour
         InitMyPlayerRay();
         TourMode();
 
-        if (tourSVM.player_SitOnPos1Flag || tourSVM.player_SitOnPos2Flag || tourSVM.player_SitOnPos2_1Flag)
+        if (tourSVM.player_SitOnPos1Flag || tourSVM.player_SitOnPos2Flag )
         {
             if (OVRInput.GetDown(OVRInput.RawButton.Y))
             {
