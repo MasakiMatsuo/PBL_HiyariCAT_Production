@@ -68,6 +68,12 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
 
     void Update()
     {
+        // Forced Initialize
+        if (OVRInput.Get(OVRInput.RawButton.B) && OVRInput.Get(OVRInput.RawButton.X) && OVRInput.Get(OVRInput.RawButton.Y) && OVRInput.Get(OVRInput.RawButton.LHandTrigger))
+        {
+            SceneManager.LoadScene("001 Title");
+        }
+
         // When Stage 0
         if (SceneManager.GetActiveScene().name == "002 Stage0")// Need to fix "scene.name" when Finalize
         {
@@ -207,7 +213,7 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
                     }
                     else if (tagName == "Quit")
                     {
-                        SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
+                        SceneManager.LoadScene("009 EndScene");// Need to fix "scene.name" when Finalize
                     }
                     else if (tagName == "AbortThisStage")
                     {

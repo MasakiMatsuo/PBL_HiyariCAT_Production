@@ -87,23 +87,34 @@ public class CatInputManager : MonoBehaviour
 
     public void CatMode()
     {
+        #region On Stage 0
         if (SceneManager.GetActiveScene().name == "002 Stage0")
         {
+            #region For Tutorial Setting
             stage1_LS_Point = true;
             stage1_PB_Point = true;
 
-            catMemoStage1_Scissors_delight.SetActive(true);
+            #region Display CatMemo
+            if (!stage1_Scissors_Point)
+            {
+                catMemoStage1_Scissors_delight.SetActive(true);
+            }
+            else
+            {
+                catMemoStage1_Scissors_delight.SetActive(false);
+            }
+            #endregion // Display CatMemo
+            #endregion // For Tutorial Setting
 
             if (catMemoStage1_Scissors_delight && OVRInput.GetDown(OVRInput.RawButton.A))
             {
                 stage1_Scissors_Point = true;
-                catMemoStage1_Scissors_delight.SetActive(false);
-
                 hasSeenPoints = -1;
-                resultMenu.SetActive(true);
 
+                resultMenu.SetActive(true);
             }
         }
+        #endregion // On Stage 0
 
         #region Patrol Dangerous Points
         #region On Stage 1
@@ -212,21 +223,8 @@ public class CatInputManager : MonoBehaviour
             }
         }
         #endregion
-        /*
-        else if (SceneManager.GetActiveScene().name == "ÅyÅ¶è„ãLÇéQçlÇ…SceneÇÃñºëOÇèëÇ¢ÇƒÇ≠ÇæÇ≥Ç¢ÅBÅz")
-        {
-            if (!read)
-                {
-                    Åyï\é¶ÇµÇΩÇ¢ÉÅÉÇñºÅz.SetActive(true);
-                }
+        #endregion // Patrol Dangerous Points
 
-                if (OVRInput.GetDown(OVRInput.RawButton.A))
-                {
-                    read = true;
-                    Åyï\é¶ÇµÇΩÇ¢ÉÅÉÇñºÅz.SetActive(false);
-                }
-        }*/
-        #endregion
         PointingInteractionOnCatMode();
     }
 
@@ -246,13 +244,25 @@ public class CatInputManager : MonoBehaviour
             hits = Physics.RaycastAll(catRightController.transform.position, catRightController.transform.forward * 100.0f);
             #endregion
 
+            #region Remove Ray when point on Target of forgotten to remove.
+            foreach (var hit in hits)
+            {
+                string tagName = hit.collider.tag;
+                if (tagName == "Target")
+                {
+                    // Remove Ray
+                    catRayObject.SetPosition(1, catRightController.transform.position + catRightController.transform.forward * 0.0f);
+                }
+            }
+            #endregion // Remove Ray when point on Target of forgotten to remove.
+
             // Selecting
             if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
             {
                 foreach (var hit in hits)
                 {
                     string tagName = hit.collider.tag;
-
+                    #region Scene Transitions
                     #region Debug Button NextStage
                     if (tagName == "Debug_NextStage")
                     {
@@ -275,26 +285,26 @@ public class CatInputManager : MonoBehaviour
                         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                     }
 
-                    //
                     else if (tagName == "TourHere")
                     {
                         SceneManager.LoadScene("006 TourStage1_Human");
-                        /* Coming Soon.... */
-                        //SceneManager.LoadScene("**Tour Mode**"); // Need to fix "scene.name" when Finalize
                     }
 
                     else if (tagName == "Quit")
                     {
-                        SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
+                        SceneManager.LoadScene("009 EndScene");// Need to fix "scene.name" when Finalize
                     }
                     playerInputManagerS13.iamCat = false;
+                    #endregion // Scene Transitions
                 }
             }
         }
+
         else
         {
             // Remove the Echo of Ray
             catRayObject.SetPosition(1, catRightController.transform.position + catRightController.transform.forward * 0.0f);
         }
     }
+
 }
