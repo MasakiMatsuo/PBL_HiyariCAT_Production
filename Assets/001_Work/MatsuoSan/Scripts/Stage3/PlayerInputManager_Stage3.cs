@@ -336,6 +336,13 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
             }
 
             //Å¶UI Highlight Object
+            if (hits.Length == 0)
+            {
+                hitFlg_item1 = false;
+                hitFlg_item2 = false;
+                hitFlg_item3 = false;
+            }
+
             foreach (var hit in hits)
             {
                 string lightTagName = hit.collider.tag;
@@ -362,12 +369,6 @@ public class PlayerInputManager_Stage3 : MonoBehaviour
                         {
                             hitFlg_item3 = true;
                         }
-                    }
-                    else
-                    {
-                        hitFlg_item1 = false;
-                        hitFlg_item2 = false;
-                        hitFlg_item3 = false;
                     }
                 }
             }
