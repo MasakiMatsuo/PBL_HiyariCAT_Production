@@ -33,6 +33,10 @@ public class TourPlayerInputManager : MonoBehaviour
     private bool sobFlg = false;
     private bool socFlg = false;
 
+    private bool mFlg1 = false;
+    private bool mFlg2 = false;
+    private bool mFlg3 = false;
+
     #endregion
     #endregion
 

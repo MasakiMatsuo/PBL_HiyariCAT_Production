@@ -22,10 +22,13 @@ public class TourCatInputManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject sitOnPos1B;
     public GameObject sitOnPos2B;
+
     #endregion
 
     #region Other Scripts
     public TourSwitchViewManager tourSVM;
+
+    //public PlayerInputManager_Stage1_3 playerIM;
     #endregion
 
     #region Flags
@@ -33,6 +36,7 @@ public class TourCatInputManager : MonoBehaviour
     private bool sobFlg = false;
     private bool socFlg = false;
 
+    private bool sosFlg = false;
     #endregion
     #endregion
 
@@ -46,7 +50,7 @@ public class TourCatInputManager : MonoBehaviour
         InitMyPlayerRay();
         TourMode();
 
-        if (tourSVM.player_SitOnPos1Flag || tourSVM.player_SitOnPos2Flag)
+        if (tourSVM.player_SitOnPos1Flag || tourSVM.player_SitOnPos2Flag )
         {
             if (OVRInput.GetDown(OVRInput.RawButton.Y))
             {
@@ -185,7 +189,7 @@ public class TourCatInputManager : MonoBehaviour
                     #endregion
                     #endregion // Scene Transition
                     #endregion // Menu Pointing
-
+                    /*
                     #region Interaction of Capacity
                     if (tagName == "Capacity")
                     {
@@ -193,8 +197,19 @@ public class TourCatInputManager : MonoBehaviour
                         break;
                     }
                     #endregion
+                    */
+
 
                     #region Tour Mode Interaction
+
+                    #region Interaction of Target
+                    if (tagName == "Target")
+                    {
+                        Debug.LogWarning("hit");
+                        hit.collider.transform.parent = playerRightController.transform;
+                        break;
+                    }
+                    #endregion
 
                     #region SitOnBed
                     if (tagName == "Bed_Stage1")
@@ -202,6 +217,7 @@ public class TourCatInputManager : MonoBehaviour
                         if (!sobFlg)
                         {
                             sitOnPos1B.SetActive(true);
+                            sitOnPos2B.SetActive(false);
                             sobFlg = true;
                         }
                         else
@@ -212,17 +228,18 @@ public class TourCatInputManager : MonoBehaviour
                     }
                     if (tagName == "SitOnBed")
                     {
-                        sitOnPos1B.SetActive(false);
+                        SittingNow();
                         sobFlg = false;
                         tourSVM.TourSwitchViewerOnStage1_Cat_SitOnBed();
                     }
                     #endregion // SitOnBed
-                    #region SitOnChair
+                    #region SitOnTable
                     if (tagName == "Table_Stage1")
                     {
                         if (!socFlg)
                         {
                             sitOnPos2B.SetActive(true);
+                            sitOnPos1B.SetActive(false);
                             socFlg = true;
                         }
                         else
@@ -233,16 +250,19 @@ public class TourCatInputManager : MonoBehaviour
                     }
                     if (tagName == "SitOnTable")
                     {
-                        sitOnPos2B.SetActive(false);
+                        SittingNow();
                         socFlg = false;
                         tourSVM.TourSwitchViewerOnStage1_Cat_SitOnTable();
                     }
-                    #endregion // SitOnChair
-
-
+                    #endregion // SitOnTable
 
                     #endregion // Tour Mode Interaction
                 }
+            }
+
+            if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
+            {
+                MyReleaseObject();
             }
         }
         // When the RHandTrigger is released
@@ -250,9 +270,31 @@ public class TourCatInputManager : MonoBehaviour
         {
             // Remove the Echo of Ray (Player)
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
+
+            // Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
+            BugFix_HoldingObjectsReleaser();
         }
     }
 
+    public void MyReleaseObject()
+    {
+        #region Deselect Object's gravity is true;
+        GameObject go = playerRightController.transform.GetChild(3).gameObject;
+        go.GetComponent<Rigidbody>().useGravity = true;
+        #endregion // Deselect Object's gravity is true;
+
+        #region Child Objects relased
+        for (int i = 0; i < playerRightController.transform.childCount; i++)
+        {
+            var child = playerRightController.transform.GetChild(i);
+            if (child.tag == "Target")
+            {
+                child.parent = null;
+            }
+        }
+        #endregion // Child Objects relased
+    }
+    /*
     public void PointingDeskCapacity()
     {
         // Get Status in "Touch" (True or False)
@@ -269,14 +311,35 @@ public class TourCatInputManager : MonoBehaviour
         }
         #endregion
     }
-
+    */
     public void ReturnToPosition()
     {
         sitOnPos1B.SetActive(false);
         sobFlg = false;
         sitOnPos2B.SetActive(false);
         socFlg = false;
+
         tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
     }
 
+    public void SittingNow()
+    {
+        sitOnPos1B.SetActive(false);
+        sitOnPos2B.SetActive(false);
+    }
+
+    public void BugFix_HoldingObjectsReleaser()
+    {
+        int checkNG = 3;
+        int childCheck = playerRightController.transform.childCount - 1;
+
+        if (childCheck != checkNG)
+        {
+            return;
+        }
+        else
+        {
+            MyReleaseObject();
+        }
+    }
 }
