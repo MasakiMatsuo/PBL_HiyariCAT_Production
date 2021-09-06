@@ -9019,7 +9019,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110597392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c62d2b7647cf30b42a3a92f2f7233af8, type: 3}
   m_Name: 
@@ -9031,7 +9031,6 @@ MonoBehaviour:
   sitOnPos1B: {fileID: 0}
   sitOnPos2B: {fileID: 0}
   tourSVM: {fileID: 2139035971}
-  playerIM: {fileID: 0}
 --- !u!114 &1110597395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9039,7 +9038,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110597392}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d94726969f7a1784782646f92ead6e25, type: 3}
   m_Name: 
@@ -15116,6 +15115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39fbe3faa8f659944b47b2bb36927a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioData: {fileID: 0}
 --- !u!114 &1903352958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16991,9 +16991,7 @@ MonoBehaviour:
   player_SitOnPos1Flag: 0
   player_SitOnPos2Flag: 0
   playerOVRC_Pos2_1: {fileID: 908793983}
-  playerOVRC_Pos2_2: {fileID: 984090462}
   player_SitOnPos2_1Flag: 0
-  player_SitOnPos2_2Flag: 0
 --- !u!1 &2139497258
 GameObject:
   m_ObjectHideFlags: 0
