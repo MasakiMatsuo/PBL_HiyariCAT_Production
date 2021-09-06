@@ -64,6 +64,12 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
 
     void Update()
     {
+        // Forced Initialize
+        if (OVRInput.Get(OVRInput.RawButton.B) && OVRInput.Get(OVRInput.RawButton.X) && OVRInput.Get(OVRInput.RawButton.Y) && OVRInput.Get(OVRInput.RawButton.LHandTrigger))
+        {
+            SceneManager.LoadScene("001 Title");
+        }
+
         if (!iamCat)
         {
             InitMyPlayerRay();
