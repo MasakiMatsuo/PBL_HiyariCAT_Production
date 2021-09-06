@@ -276,14 +276,14 @@ public class CatInputManager_Stage3 : MonoBehaviour
                     //
                     else if (tagName == "TourHere")
                     {
-                        SceneManager.LoadScene("006 TourStage1_Human");
+                        //SceneManager.LoadScene("006 TourStage1_Human");
                         /* Coming Soon.... */
                         //SceneManager.LoadScene("**Tour Mode**"); // Need to fix "scene.name" when Finalize
                     }
 
                     else if (tagName == "Quit")
                     {
-                        SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
+                        SceneManager.LoadScene("009 EndScene");// Need to fix "scene.name" when Finalize
                     }
                     playerInputManagerS3.iamCat = false;
                 }

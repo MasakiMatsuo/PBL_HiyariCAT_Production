@@ -61,7 +61,7 @@ public class TitleAndEndSceneInputManager : MonoBehaviour
                     }
                     else if (tagName == "Quit")
                     {
-                        SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
+                        SceneManager.LoadScene("009 EndScene");// Need to fix "scene.name" when Finalize
                     }
                     else if (tagName == "ReturnTitle")
                     {

@@ -64,6 +64,12 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
 
     void Update()
     {
+        // Forced Initialize
+        if (OVRInput.Get(OVRInput.RawButton.B) && OVRInput.Get(OVRInput.RawButton.X) && OVRInput.Get(OVRInput.RawButton.Y) && OVRInput.Get(OVRInput.RawButton.LHandTrigger))
+        {
+            SceneManager.LoadScene("001 Title");
+        }
+
         if (!iamCat)
         {
             InitMyPlayerRay();
@@ -188,7 +194,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                     }
                     else if (tagName == "Quit")
                     {
-                        SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
+                        SceneManager.LoadScene("009 EndScene");// Need to fix "scene.name" when Finalize
                     }
                     else if (tagName == "AbortThisStage")
                     {
@@ -369,10 +375,12 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
                     }
 
                 }
+                /* Masaki comment out
                 #region Catching Object's gravity is false;
                 GameObject go = playerRightController.transform.GetChild(3).gameObject;
                 go.GetComponent<Rigidbody>().useGravity = false;
                 #endregion
+                */
             }
             // Release Object
             /*
@@ -383,6 +391,13 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             */
 
             //UI Highlight Object
+            if (hits.Length == 0)
+            {
+                hitFlg2_1 = false;
+                hitFlg2_2 = false;
+                hitFlg2_3 = false;
+            }
+
             foreach (var hit in hits)
             {
                 string lightTagName = hit.collider.tag;
@@ -390,41 +405,23 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
 
                 if (lightTagName == "HeavyTarget_Vase")
                 {
-                    if (lightObjNam == "Vase001")
+                    hitFlg2_1 = true;
+
+                }
+
+                if (lightTagName == "HeavyTarget_Chemical")
+                {
+                    hitFlg2_2 = true;
+                }
+
+                if (lightTagName == "Capacity")
+                {
+                    if (!doorAnimation.GetBool("Touch"))
                     {
-                        hitFlg2_1 = true;
+                        hitFlg2_3 = true;
                     }
                 }
-                else if (lightTagName == "HeavyTarget_Chemical")
-                {
-                    if (lightObjNam == "Chemicals001v2")
-                    {
-                        hitFlg2_2 = true;
-                    }
-                }
-                else if (lightTagName == "Capacity")
-                {
-                    if (lightObjNam == "Door003")
-                    {
-                        if (!doorAnimation.GetBool("Touch"))
-                        {
-                            hitFlg2_3 = true;
-                        }
-                    }
-                }
-                /*
-                else
-                {
-                    Debug.LogError("Masaki Test : no4");
-                    hitFlg2_1 = false;
-                    hitFlg2_2 = false;
-                    hitFlg2_3 = false;
-                }
-                */
-                
             }
-
-
         }
         // When the RHandTrigger is released
         else
@@ -487,15 +484,6 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
 
             Stage3_Door_Check = doorAnimation.GetBool("Touch");
 
-            /*ïsóvÇ»ÇÁçÌèú
-            if (DoorCheck)
-            {
-                Stage3_Door_Check = false;
-            }
-            else
-            {
-                Stage3_Door_Check = true;
-            }*/
             #endregion
             #endregion
 
