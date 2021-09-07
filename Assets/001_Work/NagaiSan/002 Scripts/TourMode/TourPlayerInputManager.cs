@@ -33,6 +33,8 @@ public class TourPlayerInputManager : MonoBehaviour
     private bool sobFlg = false;
     private bool socFlg = false;
 
+    public bool tFlg = false;
+
     private bool mFlg1 = false;
     private bool mFlg2 = false;
     private bool mFlg3 = false;
@@ -243,6 +245,20 @@ public class TourPlayerInputManager : MonoBehaviour
                         tourSVM.TourSwitchViewerOnStage1_Player_SitOnChair();
                     }
                     #endregion // SitOnChair
+
+                    #region TV
+                    if (tagName == "TV")
+                    {
+                        if (!tFlg)
+                        {
+                            tFlg = true;
+                        }
+                        else
+                        {
+                            tFlg = false;
+                        }
+                    }
+                    #endregion // TV
 
                     #endregion // Tour Mode Interaction
                 }
