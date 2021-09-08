@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: LightObj01
+    m_ConditionEvent: HitObjFlg01
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8607002937827255153}
@@ -34,7 +34,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: LightObj01
+    m_ConditionEvent: HitObjFlg01
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4400363679126069188}
@@ -86,7 +86,7 @@ AnimatorController:
   m_Name: HandgunSliderController
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: LightObj01
+  - m_Name: HitObjFlg01
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
