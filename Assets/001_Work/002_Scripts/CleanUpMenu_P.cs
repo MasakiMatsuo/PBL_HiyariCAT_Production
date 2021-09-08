@@ -15,10 +15,21 @@ public class CleanUpMenu_P : MonoBehaviour
     float life_time = 3.0f;
     float time = 0.0f;
 
-    // Update is called once per frame
+    void Start()
+    {
+        InitCleanMenu();
+    }
+
     void Update()
     {
         PrintCleanMenu();
+    }
+
+    void InitCleanMenu()
+    {
+        officeKnifeRemoveFlag = false;
+        cleanMenu1.SetActive(false);
+        cleanMenu2.SetActive(false);
     }
 
     void PrintCleanMenu()

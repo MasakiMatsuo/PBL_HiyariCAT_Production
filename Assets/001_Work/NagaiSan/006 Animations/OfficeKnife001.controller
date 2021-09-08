@@ -61,7 +61,7 @@ AnimatorController:
   m_Name: OfficeKnife001
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: LightObj02
+  - m_Name: HitObjFlg02
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -89,7 +89,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: LightObj02
+    m_ConditionEvent: HitObjFlg02
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6223267961758772095}
@@ -141,7 +141,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: LightObj02
+    m_ConditionEvent: HitObjFlg02
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7651163411210668620}

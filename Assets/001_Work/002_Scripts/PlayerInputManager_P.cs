@@ -21,6 +21,7 @@ public class PlayerInputManager_P : MonoBehaviour
     public bool iamCat = false;
 
     #region UIs
+    public GameObject startMenu;
     public GameObject removeB;
     public GameObject pauseMenu;
     #endregion // UIs
@@ -53,7 +54,7 @@ public class PlayerInputManager_P : MonoBehaviour
     #endregion // Flags
 
     #region Audio
-    public AudioSource audioData;
+    public AudioSource audioRemove;
     public AudioSource audioAnime;
     #endregion // Audio
 
@@ -107,6 +108,12 @@ public class PlayerInputManager_P : MonoBehaviour
         #region Initialize UIs
         removeB.SetActive(false);
         pauseMenu.SetActive(false);
+
+        if (SceneManager.GetActiveScene().name == "002 Stage0") { }
+        else
+        {
+            startMenu.SetActive(true);
+        }
         #endregion // Initialize UIs
 
         iamCat = false;
@@ -162,7 +169,6 @@ public class PlayerInputManager_P : MonoBehaviour
             pFlg = false;
         }
     }
-
 
     public void PointingInteraction()
     {
@@ -295,7 +301,7 @@ public class PlayerInputManager_P : MonoBehaviour
                             GameObject _B001 = GameObject.Find("Barrel001");
 
                             //Remove Audio
-                            //audioData.Play();
+                            //audioRemove.Play();
 
                             _B001.SetActive(false);
                             //removeB.SetActive(false);
@@ -307,7 +313,7 @@ public class PlayerInputManager_P : MonoBehaviour
                             GameObject _LS001 = GameObject.Find("LightStand001");
 
                             //Remove Audio
-                            //audioData.Play();
+                            //audioRemove.Play();
 
                             _LS001.SetActive(false);
                             //removeB.SetActive(false);
@@ -332,7 +338,7 @@ public class PlayerInputManager_P : MonoBehaviour
                             GameObject _SC001 = GameObject.Find("StorageCabinet001");
 
                             //Remove Audio
-                            //audioData.Play();
+                            //audioRemove.Play();
 
                             _SC001.SetActive(false);
                             //removeB.SetActive(false);
@@ -340,7 +346,7 @@ public class PlayerInputManager_P : MonoBehaviour
                         #endregion // Remove StorageCabinet001 when STAGE3
 
                         //Remove Audio
-                        audioData.Play();
+                        audioRemove.Play();
 
                         removeB.SetActive(false);
                     }
@@ -360,9 +366,7 @@ public class PlayerInputManager_P : MonoBehaviour
             //When Ray is not hitting anything.
             if (hits.Length == 0)
             {
-                hitFlg_item1 = false;
-                hitFlg_item2 = false;
-                hitFlg_item3 = false;
+                HitFlagFalser();
             }
 
             //Highlight Judge
@@ -378,25 +382,23 @@ public class PlayerInputManager_P : MonoBehaviour
                     {
                         if (lightObjNam == "Handgun001")
                         {
-                            lightObj01 = true;
+                            hitFlg_item1 = true;
                         }
                         if (lightObjNam == "OfficeKnife001")
                         {
-                            lightObj02 = true;
+                            hitFlg_item2 = true;
                         }
                     }
                     else if (lightTagName == "HeavyTarget")
                     {
                         if (lightObjNam == "Barrel001")
                         {
-                            heavyObj = true;
+                            hitFlg_item3 = true;
                         }
                     }
                     else
                     {
-                        lightObj01 = false;
-                        lightObj02 = false;
-                        heavyObj = false;
+                        HitFlagFalser();
                     }
                 }
                 #endregion // HighLighting on Stage 0
@@ -416,11 +418,11 @@ public class PlayerInputManager_P : MonoBehaviour
                     }
                     else if (lightTagName == "HeavyTarget")
                     {
-                        hitFlg_item3 = true; //Need?
-                        /*if (lightObjNam == "LightStand001")
-                        {
-                            hitFlg_item3 = true;
-                        }*/
+                        hitFlg_item3 = true;
+                    }
+                    else
+                    {
+                        HitFlagFalser();
                     }
                 }
                 #endregion // HighLighting on Stage 1
@@ -446,6 +448,10 @@ public class PlayerInputManager_P : MonoBehaviour
                             hitFlg_item3 = true;
                         }
                     }
+                    else
+                    {
+                        HitFlagFalser();
+                    }
                 }
                 #endregion // HighLighting on Stage 3
 
@@ -458,9 +464,7 @@ public class PlayerInputManager_P : MonoBehaviour
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
 
             //all highlight flag are falsed
-            hitFlg_item1 = false;
-            hitFlg_item2 = false;
-            hitFlg_item3 = false;
+            HitFlagFalser();
 
             lightObj01 = false;
             lightObj02 = false;
@@ -490,45 +494,22 @@ public class PlayerInputManager_P : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
         {
-            #region ÅyStage 1ÅzChecking that dangerous items have been removed.
+            #region Stage1: Find the active objects
             pos01 = GameObject.Find("LightStand001");
             pos02 = GameObject.Find("Bag001");
             pos03 = GameObject.Find("Scissors001");
-            #endregion // ÅyStage 1ÅzChecking that dangerous items have been removed.
+            #endregion // Stage1: Find the active objects
         }
         else if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
         {
+            #region Stage3: Find the active objects
             pos01 = GameObject.Find("Chocolate001");
             pos02 = GameObject.Find("Code001");
             pos03 = GameObject.Find("StorageCabinet001");
+            #endregion // Stage3: Find the active objects
         }
 
-            #region Checking
-            if (pos01)
-        {
-            dangerPos01_Check = false;
-        }
-        else
-        {
-            dangerPos01_Check = true;
-        }
-        if (pos02)
-        {
-            dangerPos02_Check = false;
-        }
-        else
-        {
-            dangerPos02_Check = true;
-        }
-        if (pos03)
-        {
-            dangerPos03_Check = false;
-        }
-        else
-        {
-            dangerPos03_Check = true;
-        }
-        #endregion // Checking
+        Checking(pos01, pos02, pos03);
     }
 
     public void PointingCapacity()
@@ -570,17 +551,46 @@ public class PlayerInputManager_P : MonoBehaviour
         #endregion // Child Objects relased
     }
 
+    public void Checking(GameObject p01, GameObject p02, GameObject p03)
+    {
+        #region pos01
+        if (p01)
+                dangerPos01_Check = false;
+        else
+                dangerPos01_Check = true;
+        #endregion // pos01
+        #region pos02
+        if (p02)
+                dangerPos02_Check = false;
+        else
+                dangerPos02_Check = true;
+        #endregion // pos02
+        #region pos03
+        if (p03)
+                dangerPos03_Check = false;
+        else
+                dangerPos03_Check = true;
+        #endregion // pos03
+    }
+
+    public void HitFlagFalser()
+    {
+        hitFlg_item1 = false;
+        hitFlg_item2 = false;
+        hitFlg_item3 = false;
+    }
+
     public void TutorialPlayerMode()
     {
         PointingInteraction();
 
         // PauseMenu (Player Clears Tutorial and Press "X")
-        if (tutorialManager.GetComponent<TutorialManager>().endTutorialFlag && OVRInput.GetDown(OVRInput.RawButton.X))
+        if (tutorialManager.GetComponent<TutorialManager_P>().endTutorialFlag && OVRInput.GetDown(OVRInput.RawButton.X))
         {
             PauseMenu();
         }
 
-        tutorialManager.GetComponent<TutorialManager>().GuideTexts_Welcome_to_No1();
+        tutorialManager.GetComponent<TutorialManager_P>().GuidanceApp();
     }
 
 }

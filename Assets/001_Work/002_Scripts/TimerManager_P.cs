@@ -124,6 +124,8 @@ public class TimerManager_P : MonoBehaviour
     IEnumerator TimerEnd()
     {
         timeEndMemo.SetActive(true);
+        playerInputManager_P.removeB.SetActive(false);
+        playerInputManager_P.pauseMenu.SetActive(false);
 
         yield return new WaitForSeconds(3.5f);
 
