@@ -59,7 +59,7 @@ public class PlayerInputManager_P : MonoBehaviour
     #endregion // Audio
 
     // Cat Model
-    //public GameObject catModel;  // Need to fix after add on her model on all stages.
+    public GameObject catModel;  // Need to fix after add on her model on all stages.
 
     #endregion // Require Values
 
@@ -102,17 +102,18 @@ public class PlayerInputManager_P : MonoBehaviour
     {
         #region Initialized Eliminate Mode
         capacityAnimation.SetBool("Touch", true);
-        //catModel.SetActive(true);  // "Need to fix"
-        #endregion // Open Desk Capacity when Start 
+        #endregion // Initialized Eliminate Mode
 
         #region Initialize UIs
         removeB.SetActive(false);
         pauseMenu.SetActive(false);
 
         if (SceneManager.GetActiveScene().name == "002 Stage0") { }
+        // Stage1~3
         else
         {
             startMenu.SetActive(true);
+            catModel.SetActive(true);  // "Need to fix"
         }
         #endregion // Initialize UIs
 
@@ -123,8 +124,14 @@ public class PlayerInputManager_P : MonoBehaviour
     {
         #region Initialized Cat Mode
         capacityAnimation.SetBool("Touch", false);
-        //catModel.SetActive(false);  // "Need to fix"
         #endregion // Initialized Cat Mode
+
+        if (SceneManager.GetActiveScene().name == "002 Stage0") { }
+        // Stage1~3
+        else
+        {
+            catModel.SetActive(false);  // "Need to fix"
+        }
 
         #region Create Start Point of Ray (Cat)
         catInputManager_P.InitMyCatRay();

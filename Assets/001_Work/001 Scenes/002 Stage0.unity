@@ -9176,8 +9176,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1110597393}
-  - component: {fileID: 1110597394}
-  - component: {fileID: 1110597395}
   - component: {fileID: 1110597396}
   - component: {fileID: 1110597397}
   m_Layer: 0
@@ -9201,66 +9199,6 @@ Transform:
   m_Father: {fileID: 1445682082}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1110597394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110597392}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a0be13d8f5a469489d901f77d9e534d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerRightController: {fileID: 285513277}
-  rayObject: {fileID: 505335534}
-  capacityAnimation: {fileID: 7878710845444596073}
-  iamCat: 0
-  removeB: {fileID: 847265306}
-  pauseMenu: {fileID: 8669211498766561381}
-  tutorialManager: {fileID: 1661219373}
-  locomotionManager: {fileID: 1903352956}
-  catInputManager: {fileID: 1110597395}
-  switchViewManager: {fileID: 0}
-  Stage1_LS_Check: 0
-  Stage1_PB_Check: 0
-  Stage1_Scissors_Check: 0
-  lightObj01: 0
-  lightObj02: 0
-  heavyObj: 0
-  hitFlg1_1: 0
-  hitFlg1_2: 0
-  hitFlg1_3: 0
-  audioData: {fileID: 8970787679850068842}
-  audioAnime: {fileID: 1106415031664221954}
---- !u!114 &1110597395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110597392}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95175fae0762ab84e9b4771333904dd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  catRightController: {fileID: 388139053}
-  catRayObject: {fileID: 1367964849}
-  catMemoStage1_LS_delight: {fileID: 807709712}
-  catMemoStage1_LS_cranky: {fileID: 807709712}
-  catMemoStage1_PB_delight: {fileID: 807709712}
-  catMemoStage1_PB_cranky: {fileID: 807709712}
-  catMemoStage1_Scissors_delight: {fileID: 752624898}
-  catMemoStage1_Ssers_cranky: {fileID: 807709712}
-  resultMenu: {fileID: 1290597664}
-  resultText: {fileID: 21750164}
-  switchViewManager: {fileID: 0}
-  playerInputManagerS13: {fileID: 1110597394}
-  stage1_LS_Point: 0
-  stage1_PB_Point: 0
-  stage1_Scissors_Point: 0
 --- !u!114 &1110597396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9295,6 +9233,7 @@ MonoBehaviour:
   hitFlg_item3: 0
   audioRemove: {fileID: 8970787679850068842}
   audioAnime: {fileID: 1106415031664221954}
+  catModel: {fileID: 807709712}
 --- !u!114 &1110597397
 MonoBehaviour:
   m_ObjectHideFlags: 0
