@@ -34,6 +34,9 @@ public class TourPlayerInputManager : MonoBehaviour
     private bool socFlg = false;
 
     public bool tFlg = false;
+    public bool tFlgAct = false;
+    public bool trFlg = false;
+    public bool trFlgAct = false;
 
     private bool mFlg1 = false;
     private bool mFlg2 = false;
@@ -247,21 +250,63 @@ public class TourPlayerInputManager : MonoBehaviour
                     #endregion // SitOnChair
 
                     #region TV
-                    if (tagName == "TV")
+                    /*if (tagName == "TV")
                     {
-                        if (!tFlg)
+                        if (!tFlgAct)
                         {
-                            tFlg = true;
+                            tFlgAct = true;
                         }
                         else
                         {
-                            tFlg = false;
+                            tFlgAct = false;
                         }
-                    }
+                    }*/
                     #endregion // TV
+
+                    #region TVRemoteActive
+                    if (tagName == "TVRemote")
+                    {
+                        if (!trFlgAct)
+                        {
+                            trFlgAct = true;
+                        }
+                        
+                    }
+                    #endregion // TVRemoteActive
 
                     #endregion // Tour Mode Interaction
                 }
+            }
+
+            if (hits.Length == 0)
+            {
+                trFlg = false;
+                tFlg = false;
+            }
+
+            foreach (var hit in hits)
+            {
+                string tagName2 = hit.collider.tag;
+
+                #region TV
+                if (tagName2 == "TV")
+                {
+                    if (!tFlg)
+                    {
+                        tFlg = true;
+                    }
+                }
+                #endregion // TV
+                #region TVRemote
+                if (tagName2 == "TVRemote")
+                {
+                    if (!trFlg)
+                    {
+                        trFlg = true;
+                    }                    
+                }
+                #endregion // TVRemote
+
             }
         }
         // When the RHandTrigger is released
@@ -269,6 +314,11 @@ public class TourPlayerInputManager : MonoBehaviour
         {
             // Remove the Echo of Ray (Player)
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
+
+            trFlg = false;
+            //tFlg = false;
+
+            trFlgAct = false;
         }
     }
 
