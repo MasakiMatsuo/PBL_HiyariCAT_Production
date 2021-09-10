@@ -17,10 +17,8 @@ public class ChangeTVScreen : MonoBehaviour
 
     public GameObject controller1;
     public GameObject controller2;
-    public GameObject controller1S;
-    public GameObject controller2S;
 
-    bool sflag;
+    private bool sflag = false;
 
     public TourPlayerInputManager tourPIM;
 
@@ -46,13 +44,25 @@ public class ChangeTVScreen : MonoBehaviour
 
         if (tourPIM.tFlg)
         {
-            if (OVRInput.GetDown(OVRInput.RawButton.B) || tvImage.enabled == false)
+            Debug.LogWarning("TV");
+
+            if (OVRInput.GetDown(OVRInput.RawButton.B))
             {
-                tvImage.enabled = true;
+                if (!sflag)
+                {
+                    tvImage.enabled = true;
+                    sflag = true;
+                }
+                else
+                {
+                    tvImage.enabled = false;
+                    sflag = false;
+                }
+                
             }
-            else if(OVRInput.GetDown(OVRInput.RawButton.B) || tvImage.enabled == true)
+            if(OVRInput.GetDown(OVRInput.RawButton.B))
             {
-                tvImage.enabled = false;
+                //vImage.enabled = false;
             }
 
             if (OVRInput.GetDown(OVRInput.RawButton.A))
@@ -60,22 +70,28 @@ public class ChangeTVScreen : MonoBehaviour
                 id = id < screens.Length - 1 ? id + 1 : 0;
                 s_Image.sprite = screens[id];
             }
+
+            tvText.SetActive(true);
         }
 
         if (!tourPIM.tFlgAct)
         {
-            tvImage.enabled = false;
+            //tvImage.enabled = false;
         }
 
         if (tourPIM.tFlg)
         {
-            tvText.SetActive(true);
+            //tvText.SetActive(true);
         }
 
         if (!tourPIM.tFlg)
         {
-            tvText.SetActive(false);
+            if (OVRInput.GetDown(OVRInput.RawButton.B))
+            {
+                tvImage.enabled = false;
+            }
 
+            tvText.SetActive(false);
         }
     }
 
@@ -96,20 +112,15 @@ public class ChangeTVScreen : MonoBehaviour
 
         if (tourPIM.trFlgAct)
         {
-            controller1.SetActive(false);
-            controller2.SetActive(true);
-
-            controller1S.SetActive(true);
-            controller2S.SetActive(false);
+            
+            controller1.SetActive(true);
+            controller2.SetActive(false);
         }
 
         if (!tourPIM.trFlgAct)
         {
-            controller1.SetActive(true);
-            controller2.SetActive(false);
-
-            controller1S.SetActive(false);
-            controller2S.SetActive(true);
+            controller1.SetActive(false);
+            controller2.SetActive(true);
         }
     }
 
