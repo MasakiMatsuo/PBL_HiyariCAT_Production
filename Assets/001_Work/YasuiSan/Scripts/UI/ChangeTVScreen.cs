@@ -19,6 +19,7 @@ public class ChangeTVScreen : MonoBehaviour
     public GameObject controller2;
 
     private bool sflag = false;
+    private bool rflag = false;
 
     public TourPlayerInputManager tourPIM;
 
@@ -40,38 +41,34 @@ public class ChangeTVScreen : MonoBehaviour
 
     void ChangeScreens()
     {
-        //if (Input.GetKeyDown(KeyCode.A)OVRInput.GetDown(OVRInput.RawButton.A))
-
         if (tourPIM.tFlg)
         {
-            Debug.LogWarning("TV");
-
-            if (OVRInput.GetDown(OVRInput.RawButton.B))
+            if (tourPIM.trFlgAct)
             {
-                if (!sflag)
+                if (OVRInput.GetDown(OVRInput.RawButton.B))
                 {
-                    tvImage.enabled = true;
-                    sflag = true;
+                    if (!sflag)
+                    {
+                        tvImage.enabled = true;
+                        sflag = true;
+                    }
+                    else
+                    {
+                        tvImage.enabled = false;
+                        sflag = false;
+                    }
+
                 }
-                else
+
+                if (OVRInput.GetDown(OVRInput.RawButton.A))
                 {
-                    tvImage.enabled = false;
-                    sflag = false;
+                    id = id < screens.Length - 1 ? id + 1 : 0;
+                    s_Image.sprite = screens[id];
                 }
-                
-            }
-            if(OVRInput.GetDown(OVRInput.RawButton.B))
-            {
-                //vImage.enabled = false;
-            }
 
-            if (OVRInput.GetDown(OVRInput.RawButton.A))
-            {
-                id = id < screens.Length - 1 ? id + 1 : 0;
-                s_Image.sprite = screens[id];
+                tvText.SetActive(true);
             }
-
-            tvText.SetActive(true);
+            
         }
 
         if (!tourPIM.tFlgAct)
