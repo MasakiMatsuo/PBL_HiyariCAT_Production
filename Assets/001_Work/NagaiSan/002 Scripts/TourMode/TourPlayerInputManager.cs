@@ -212,6 +212,7 @@ public class TourPlayerInputManager : MonoBehaviour
                         if (!sobFlg)
                         {
                             sitOnPos1B.SetActive(true);
+                            sitOnPos2B.SetActive(false);
                             sobFlg = true;
                         }
                         else
@@ -222,7 +223,7 @@ public class TourPlayerInputManager : MonoBehaviour
                     }
                     if (tagName == "SitOnBed")
                     {
-                        sitOnPos1B.SetActive(false);
+                        SittingNow();
                         sobFlg = false;
                         tourSVM.TourSwitchViewerOnStage1_Player_SitOnBed();
                     }
@@ -233,6 +234,7 @@ public class TourPlayerInputManager : MonoBehaviour
                         if (!socFlg)
                         {
                             sitOnPos2B.SetActive(true);
+                            sitOnPos1B.SetActive(false);
                             socFlg = true;
                         }
                         else
@@ -243,7 +245,7 @@ public class TourPlayerInputManager : MonoBehaviour
                     }
                     if (tagName == "SitOnChair")
                     {
-                        sitOnPos2B.SetActive(false);
+                        SittingNow();
                         socFlg = false;
                         tourSVM.TourSwitchViewerOnStage1_Player_SitOnChair();
                     }
@@ -347,6 +349,12 @@ public class TourPlayerInputManager : MonoBehaviour
         socFlg = false;
         tourSVM.TourSwitchViewerOnStage1_Player_ReturnWalk();
             
+    }
+
+    public void SittingNow()
+    {
+        sitOnPos1B.SetActive(false);
+        sitOnPos2B.SetActive(false);
     }
 
 }
