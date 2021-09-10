@@ -156,19 +156,26 @@ public class TourCatInputManager : MonoBehaviour
                         SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
                     }
 
-                    #region Cat Mode2
-                    else if (tagName == "CatMode")
-                    {
-                        SceneManager.LoadScene("007 TourStage2_Cat");// Need to fix "scene.name" when Finalize
-                    }
-                    #endregion // Debug Cat Mode
-
-                    #region Human Mode2
+                    #region Change Human Mode
                     else if (tagName == "HumanMode")
                     {
-                        SceneManager.LoadScene("007 TourStage2_Human");// Need to fix "scene.name" when Finalize
+                        if (SceneManager.GetActiveScene().name == "006 TourStage1_Cat")
+                        {
+                            SceneManager.LoadScene("006 TourStage1_Human");// Need to fix "scene.name" when Finalize
+                        }
+                        else if (SceneManager.GetActiveScene().name == "007 TourStage2_Cat")
+                        {
+                            SceneManager.LoadScene("007 TourStage2_Human");// Need to fix "scene.name" when Finalize
+                        }
+                        // 下記、Stage3 実装時にコメントアウト外してください
+                        /*
+                        else if (SceneManager.GetActiveScene().name == "008 TourStage3_Cat")
+                        {
+                            SceneManager.LoadScene("008 TourStage3_Human");// Need to fix "scene.name" when Finalize
+                        }
+                        */
                     }
-                    #endregion // Debug Human Mode
+                    #endregion // Change Human Mode
 
                     #region Debug Button NextStage
                     else if (tagName == "Debug_NextStage")

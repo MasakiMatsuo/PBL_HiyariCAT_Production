@@ -162,12 +162,25 @@ public class TourPlayerInputManager : MonoBehaviour
                         SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
                     }
 
+                    #region Cat Mode
+                    else if (tagName == "CatMode")
+                    {
+                        if (SceneManager.GetActiveScene().name == "006 TourStage1_Human")
+                        {
+                            SceneManager.LoadScene("006 TourStage1_Cat");// Need to fix "scene.name" when Finalize
+                        }
+                        
+                    }
+
+                    /*
                     #region Debug Cat Mode
                     else if (tagName == "Debug_CatMode")
                     {
                         SceneManager.LoadScene("006 TourStage1_Cat");// Need to fix "scene.name" when Finalize
                     }
                     #endregion // Debug Cat Mode
+                    */
+                    #endregion // Cat Mode
 
                     #region Debug Human Mode
                     else if (tagName == "Debug_HumanMode")
