@@ -55,7 +55,7 @@ public class CatInputManager_P : MonoBehaviour
 
     void InitApp()
     {
-        /*Cat Memo -> SetActive(false) */
+        #region Cat Memo Initialized
         catMemo_Pos01_delight.SetActive(false);
         catMemo_Pos01_cranky.SetActive(false);
 
@@ -64,6 +64,8 @@ public class CatInputManager_P : MonoBehaviour
 
         catMemo_Pos03_delight.SetActive(false);
         catMemo_Pos03_cranky.SetActive(false);
+        #endregion // Cat Memo Initialized
+        resultMenu.SetActive(false);
     }
 
     public void InitMyCatRay()
@@ -122,7 +124,7 @@ public class CatInputManager_P : MonoBehaviour
                     // If player has not never read it, show CatMemo 01
                     if (!pos01_ReadFlag)
                     {
-                        //catMemo_Pos01_delight.SetActive(true);
+                        #region catMemo_Pos01.SetActive(true);
                         if (playerInputManager_P.dangerPos01_Check == true)
                         {
                             catMemo_Pos01_delight.SetActive(true);
@@ -131,10 +133,12 @@ public class CatInputManager_P : MonoBehaviour
                         {
                             catMemo_Pos01_cranky.SetActive(true);
                         }
+                        #endregion // catMemo_Pos01.SetActive(true);
                     }
 
                     if (catMemo_Pos01_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
+                        #region After read catMemo_Pos01
                         pos01_ReadFlag = true;
 
                         catMemo_Pos01_delight.SetActive(false);
@@ -143,6 +147,7 @@ public class CatInputManager_P : MonoBehaviour
                         // Move next point
                         switchViewManager_P.ViewNextDangerousPoint();
                         hasSeenPoints = 1;
+                        #endregion // After read catMemo_Pos01
                     }
                     break;
                 #endregion // Near LightStand
@@ -151,9 +156,7 @@ public class CatInputManager_P : MonoBehaviour
                     #region Near Plastic Bag
                     if (pos01_ReadFlag && !pos02_ReadFlag)
                     {
-                        //catMemo_Pos02_delight.SetActive(true);
-
-                        //Are there any interactive objects left?
+                        #region catMemo_Pos02.SetActive(true);
                         if (playerInputManager_P.dangerPos02_Check == true)
                         {
                             catMemo_Pos02_delight.SetActive(true);
@@ -162,41 +165,43 @@ public class CatInputManager_P : MonoBehaviour
                         {
                             catMemo_Pos02_cranky.SetActive(true);
                         }
+                        #endregion // catMemo_Pos02.SetActive(true);
                     }
 
                     if (catMemo_Pos02_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
+                        #region After read catMemo_Pos02
                         pos02_ReadFlag = true;
 
                         catMemo_Pos02_delight.SetActive(false);
-                        catMemo_Pos01_cranky.SetActive(false);
-
+                        catMemo_Pos02_cranky.SetActive(false);
 
                         switchViewManager_P.ViewNextDangerousPoint();
                         hasSeenPoints = 2;
-
+                        #endregion // After read catMemo_Pos02
                     }
                     break;
-                #endregion
+                #endregion // Near Plastic Bag
 
                 case 2:
                     #region Near Scissors
                     if (pos01_ReadFlag && pos02_ReadFlag && !pos03_ReadFlag)
                     {
-                        //catMemo_Pos03_delight.SetActive(true);
+                        #region catMemo_Pos03.SetActive(true);
                         if (playerInputManager_P.dangerPos03_Check == true)
                         {
                             catMemo_Pos03_delight.SetActive(true);
-
                         }
                         else
                         {
                             catMemo_Pos03_cranky.SetActive(true);
                         }
+                        #endregion // catMemo_Pos03.SetActive(true);
                     }
 
                     if (catMemo_Pos03_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
+                        #region After read catMemo_Pos03
                         pos03_ReadFlag = true;
 
                         catMemo_Pos03_delight.SetActive(false);
@@ -208,10 +213,10 @@ public class CatInputManager_P : MonoBehaviour
                         resultText.text = achievementNum + "/3";
 
                         hasSeenPoints = -1;
-
+                        #endregion // After read catMemo_Pos03
                     }
                     break;
-                #endregion
+                #endregion // Near Scissors
 
                 default:
                     break;
@@ -228,6 +233,7 @@ public class CatInputManager_P : MonoBehaviour
                     // If player has not never read it, show CatMemo 01
                     if (!pos01_ReadFlag)
                     {
+                        #region catMemo_Pos01.SetActive(true);
                         if (playerInputManager_P.dangerPos01_Check == true)
                         {
                             catMemo_Pos01_delight.SetActive(true);
@@ -236,10 +242,12 @@ public class CatInputManager_P : MonoBehaviour
                         {
                             catMemo_Pos01_cranky.SetActive(true);
                         }
+                        #endregion // catMemo_Pos01.SetActive(true);
                     }
 
                     if (catMemo_Pos01_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
+                        #region After read catMemo_Pos01
                         pos01_ReadFlag = true;
 
                         catMemo_Pos01_delight.SetActive(false);
@@ -248,6 +256,7 @@ public class CatInputManager_P : MonoBehaviour
                         // Move next point
                         switchViewManager_P.ViewNextDangerousPoint();
                         hasSeenPoints = 1;
+                        #endregion // After read catMemo_Pos01
                     }
                     break;
                 #endregion // Near Chocolate
@@ -256,6 +265,7 @@ public class CatInputManager_P : MonoBehaviour
                     #region Near Plastic Bag
                     if (pos01_ReadFlag && !pos02_ReadFlag)
                     {
+                        #region catMemo_Pos02.SetActive(true);
                         if (playerInputManager_P.dangerPos02_Check == true)
                         {
                             catMemo_Pos02_delight.SetActive(true);
@@ -264,10 +274,12 @@ public class CatInputManager_P : MonoBehaviour
                         {
                             catMemo_Pos02_cranky.SetActive(true);
                         }
+                        #endregion // catMemo_Pos02.SetActive(true);
                     }
 
                     if (catMemo_Pos02_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
+                        #region After read catMemo_Pos02
                         pos02_ReadFlag = true;
 
                         catMemo_Pos02_delight.SetActive(false);
@@ -275,6 +287,7 @@ public class CatInputManager_P : MonoBehaviour
 
                         switchViewManager_P.ViewNextDangerousPoint();
                         hasSeenPoints = 2;
+                        #endregion // After read catMemo_Pos02
                     }
                     break;
                 #endregion // Near Plastic Bag
@@ -283,6 +296,7 @@ public class CatInputManager_P : MonoBehaviour
                     #region Near Storage Cabinet
                     if (pos01_ReadFlag && pos02_ReadFlag && !pos03_ReadFlag)
                     {
+                        #region catMemo_Pos03.SetActive(true);
                         if (playerInputManager_P.dangerPos03_Check == true)
                         {
                             catMemo_Pos03_delight.SetActive(true);
@@ -291,10 +305,12 @@ public class CatInputManager_P : MonoBehaviour
                         {
                             catMemo_Pos03_cranky.SetActive(true);
                         }
+                        #endregion // catMemo_Pos03.SetActive(true);
                     }
 
                     if (catMemo_Pos03_delight && OVRInput.GetDown(OVRInput.RawButton.A))
                     {
+                        #region After read catMemo_Pos03
                         pos03_ReadFlag = true;
 
                         catMemo_Pos03_delight.SetActive(false);
@@ -306,6 +322,7 @@ public class CatInputManager_P : MonoBehaviour
                         resultText.text = achievementNum + "/3";
 
                         hasSeenPoints = -1;
+                        #endregion // After read catMemo_Pos03
                     }
                     break;
                 #endregion // Near Storage Cabinet

@@ -30,6 +30,7 @@ public class TimerManager_P : MonoBehaviour
     void Start()
     {
         InitTimerMemo();
+        playerInputManager_P.GetComponent<PlayerInputManager_P>();
     }
 
     void Update()
@@ -71,14 +72,17 @@ public class TimerManager_P : MonoBehaviour
         }
         else
         {
-            #region CountDownTimer
-            totalTime -= Time.deltaTime;
-            seconds = (int)totalTime;
-            #endregion // CountDownTimer
+            if (playerInputManager_P.countDownStart)
+            {
+                #region CountDownTimer
+                totalTime -= Time.deltaTime;
+                seconds = (int)totalTime;
+                #endregion // CountDownTimer
+            }
 
             #region Display Memo
             #region  Left 2:00
-            if (seconds >= 115)
+            if (120 > seconds && seconds >= 115)
             {
                 timeLimit_L2M.SetActive(true);
             }

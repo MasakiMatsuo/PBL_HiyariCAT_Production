@@ -189,16 +189,6 @@ public class TourCatInputManager : MonoBehaviour
                     #endregion
                     #endregion // Scene Transition
                     #endregion // Menu Pointing
-                    /*
-                    #region Interaction of Capacity
-                    if (tagName == "Capacity")
-                    {
-                        PointingDeskCapacity();
-                        break;
-                    }
-                    #endregion
-                    */
-
 
                     #region Tour Mode Interaction
 
@@ -294,24 +284,7 @@ public class TourCatInputManager : MonoBehaviour
         }
         #endregion // Child Objects relased
     }
-    /*
-    public void PointingDeskCapacity()
-    {
-        // Get Status in "Touch" (True or False)
-        bool nowTransDeskCap = capacityAnimation.GetBool("Touch");
 
-        #region Open / Close Desk (with Decision Area)
-        if (!nowTransDeskCap)
-        {
-            capacityAnimation.SetBool("Touch", true);
-        }
-        else
-        {
-            capacityAnimation.SetBool("Touch", false);
-        }
-        #endregion
-    }
-    */
     public void ReturnToPosition()
     {
         sitOnPos1B.SetActive(false);

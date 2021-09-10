@@ -37,6 +37,8 @@ public class PlayerInputManager_P : MonoBehaviour
     private bool pFlg = false;
     private bool rFlg = false;
 
+    public bool countDownStart = false;
+
     public bool dangerPos01_Check = default;
     public bool dangerPos02_Check = default;
     public bool dangerPos03_Check = default;
@@ -89,7 +91,15 @@ public class PlayerInputManager_P : MonoBehaviour
             // When Stage 1 or Stage 3
             else
             {
-                PlayerMode();
+                if (!countDownStart && OVRInput.GetDown(OVRInput.RawButton.A))
+                {
+                    startMenu.SetActive(false);
+                    countDownStart = true;
+                }
+                else
+                {
+                    PlayerMode();
+                }
             }
         }
         else
@@ -130,6 +140,7 @@ public class PlayerInputManager_P : MonoBehaviour
         // Stage1~3
         else
         {
+            HitFlagFalser();
             catModel.SetActive(false);  // "Need to fix"
         }
 
