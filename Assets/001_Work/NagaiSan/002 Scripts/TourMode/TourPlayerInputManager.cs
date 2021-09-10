@@ -318,8 +318,7 @@ public class TourPlayerInputManager : MonoBehaviour
             rayObject.SetPosition(1, playerRightController.transform.position + playerRightController.transform.forward * 0.0f);
 
             trFlg = false;
-            //tFlg = false;
-
+            tFlg = false;
             trFlgAct = false;
         }
     }
