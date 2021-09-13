@@ -16,10 +16,9 @@ public class CatInputManager_P : MonoBehaviour
     #region Cat Values
     public GameObject catRightController;
     public LineRenderer catRayObject;
-    #endregion
+    #endregion // Cat Values
 
     #region UIs
-    // Cat Memo
     public GameObject catMemo_Pos01_delight;
     public GameObject catMemo_Pos01_cranky;
 
@@ -32,12 +31,12 @@ public class CatInputManager_P : MonoBehaviour
     public GameObject resultMenu;
     public Text resultText;
     private int achievementNum = 0;
-    #endregion
+    #endregion // UIs
 
     #region Other Scripts
     public SwitchViewManager_P switchViewManager_P;
     public PlayerInputManager_P playerInputManager_P;
-    #endregion
+    #endregion // Other Scripts
 
     #region Flags
     private int hasSeenPoints = 0;
@@ -45,8 +44,8 @@ public class CatInputManager_P : MonoBehaviour
     public bool pos01_ReadFlag = false;
     public bool pos02_ReadFlag = false;
     public bool pos03_ReadFlag = false;
-    #endregion
-    #endregion
+    #endregion // Flags
+    #endregion // Require Values
 
     void Start()
     {
@@ -78,7 +77,7 @@ public class CatInputManager_P : MonoBehaviour
 
             // Set Vertex0 (Start point == position in RightController)
             catRayObject.SetPosition(0, catRightController.transform.position);
-            #endregion
+            #endregion // Create Start Point of Ray (Cat)
         }
     }
 
@@ -223,6 +222,104 @@ public class CatInputManager_P : MonoBehaviour
             }
         }
         #endregion // On Stage 1
+        #region On Stage 2
+        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
+        {
+            switch (hasSeenPoints)
+            {
+                case 0:
+                    #region Near Vase
+                    // If player has not never read it, show CatMemo 01
+                    if (!pos01_ReadFlag)
+                    {
+                        if (playerInputManager_P.dangerPos01_Check == true)
+                        {
+                            catMemo_Pos01_delight.SetActive(true);
+                        }
+                        else
+                        {
+                            catMemo_Pos01_cranky.SetActive(true);
+                        }
+                    }
+
+                    if (catMemo_Pos01_delight && OVRInput.GetDown(OVRInput.RawButton.A))
+                    {
+                        pos01_ReadFlag = true;
+                        catMemo_Pos01_delight.SetActive(false);
+                        catMemo_Pos01_cranky.SetActive(false);
+
+                        // Move next point
+                        switchViewManager_P.ViewNextDangerousPoint();
+                        hasSeenPoints = 1;
+                    }
+                    break;
+                #endregion // Near Vase
+
+                case 1:
+                    #region Near Chemicals
+                    if (pos01_ReadFlag && !pos02_ReadFlag)
+                    {
+                        if (playerInputManager_P.dangerPos02_Check == true)
+                        {
+                            catMemo_Pos02_delight.SetActive(true);
+                        }
+                        else
+                        {
+                            catMemo_Pos02_cranky.SetActive(true);
+                        }
+                    }
+
+                    if (catMemo_Pos02_delight && OVRInput.GetDown(OVRInput.RawButton.A))
+                    {
+                        pos02_ReadFlag = true;
+                        catMemo_Pos02_delight.SetActive(false);
+                        catMemo_Pos02_cranky.SetActive(false);
+
+                        switchViewManager_P.ViewNextDangerousPoint();
+                        hasSeenPoints = 2;
+
+                    }
+                    break;
+                #endregion // Near Chemicals
+
+                case 2:
+                    #region Near Door
+                    if (pos01_ReadFlag && pos02_ReadFlag && !pos03_ReadFlag)
+                    {
+                        if (playerInputManager_P.dangerPos03_Check == true)
+                        {
+                            catMemo_Pos03_delight.SetActive(true);
+                        }
+                        else
+                        {
+                            catMemo_Pos03_cranky.SetActive(true);
+                        }
+                    }
+
+                    if (catMemo_Pos03_delight && OVRInput.GetDown(OVRInput.RawButton.A))
+                    {
+                        pos03_ReadFlag = true;
+                        catMemo_Pos03_delight.SetActive(false);
+                        catMemo_Pos03_cranky.SetActive(false);
+
+                        resultMenu.SetActive(true);
+                        achievementNum = Convert.ToInt32(playerInputManager_P.dangerPos01_Check)
+                            + Convert.ToInt32(playerInputManager_P.dangerPos02_Check)
+                            + Convert.ToInt32(playerInputManager_P.dangerPos03_Check);
+                        resultText.text = achievementNum + "/3";
+
+                        hasSeenPoints = -1;
+
+                    }
+                    break;
+                #endregion // Near Door
+
+                default:
+                    break;
+            }
+        }
+        #endregion // On Stage 2
+
         #region On Stage 3
         if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
         {
