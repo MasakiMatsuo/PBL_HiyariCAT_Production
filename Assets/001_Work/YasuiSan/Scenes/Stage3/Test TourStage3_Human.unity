@@ -11967,6 +11967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4054379997891521782}
+  - component: {fileID: 3679403014427620941}
   m_Layer: 0
   m_Name: Door004
   m_TagString: Untagged
@@ -11974,6 +11975,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!65 &3679403014427620941
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3679403014427620940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9999999, y: 0.040683072, z: 1}
+  m_Center: {x: 0, y: 0.019669302, z: 5.8743323e-18}
 --- !u!222 &3682963075874252804
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16218,6 +16232,7 @@ GameObject:
   - component: {fileID: 6645242977753511904}
   - component: {fileID: 9124536088549594488}
   - component: {fileID: 39249328232126882}
+  - component: {fileID: 8742363573539220853}
   m_Layer: 0
   m_Name: Stage3LD001_Wall
   m_TagString: Untagged
@@ -16225,6 +16240,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &8742363573539220853
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742363573539220852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3612887611324084429, guid: a5fc2bd3f91c20b4fb02d5a08e5307df, type: 3}
 --- !u!114 &8750994983640486647
 MonoBehaviour:
   m_ObjectHideFlags: 0
