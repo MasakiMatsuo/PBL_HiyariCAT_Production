@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimerManager_P : MonoBehaviour
 {
@@ -128,8 +129,18 @@ public class TimerManager_P : MonoBehaviour
     IEnumerator TimerEnd()
     {
         timeEndMemo.SetActive(true);
-        playerInputManager_P.removeB.SetActive(false);
         playerInputManager_P.pauseMenu.SetActive(false);
+        if (SceneManager.GetActiveScene().name == "Stage2")
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                playerInputManager_P.removeBs[i].SetActive(false);
+            }
+        }
+        else
+        {
+            playerInputManager_P.removeBs[0].SetActive(false);
+        }
 
         yield return new WaitForSeconds(3.5f);
 

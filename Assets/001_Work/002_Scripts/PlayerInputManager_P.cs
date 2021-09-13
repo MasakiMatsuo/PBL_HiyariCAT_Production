@@ -18,12 +18,12 @@ public class PlayerInputManager_P : MonoBehaviour
 
     public Animator capacityAnimation;
 
-    public bool iamCat = false;
-
     #region UIs
     public GameObject startMenu;
-    public GameObject removeB;
     public GameObject pauseMenu;
+    //public GameObject removeB;
+
+    public GameObject[] removeBs = new GameObject[1];
     #endregion // UIs
 
     #region Other Scripts
@@ -34,6 +34,8 @@ public class PlayerInputManager_P : MonoBehaviour
     #endregion // Other Scripts
 
     #region Flags
+    public bool iamCat = false;
+
     private bool pFlg = false;
     private bool rFlg = false;
 
@@ -47,8 +49,6 @@ public class PlayerInputManager_P : MonoBehaviour
     public bool lightObj02 = false;
     public bool heavyObj = false;
 
-    //※UI
-    //ステージ1
     public bool hitFlg_item1 = false;
     public bool hitFlg_item2 = false;
     public bool hitFlg_item3 = false;
@@ -115,8 +115,12 @@ public class PlayerInputManager_P : MonoBehaviour
         #endregion // Initialized Eliminate Mode
 
         #region Initialize UIs
-        removeB.SetActive(false);
         pauseMenu.SetActive(false);
+        //removeB.SetActive(false);
+        for (int i = 0; i < removeBs.Length; i++)
+        {
+            removeBs[i].SetActive(false);
+        }
 
         if (SceneManager.GetActiveScene().name == "002 Stage0") { }
         // Stage1~3
@@ -212,6 +216,7 @@ public class PlayerInputManager_P : MonoBehaviour
                 foreach (var hit in hits)
                 {
                     string tagName = hit.collider.tag;
+                    string objName = hit.collider.name;
 
                     #region Menu Pointing
                     #region Scene Transition
@@ -298,15 +303,22 @@ public class PlayerInputManager_P : MonoBehaviour
                     #region Print "Remove" Button for tag.name == "HeavyTarget"
                     if (tagName == "HeavyTarget")
                     {
-                        if (!rFlg)
+                        if (SceneManager.GetActiveScene().name == "004 Stage2")
                         {
-                            removeB.SetActive(true); ;
-                            rFlg = true;
+
                         }
                         else
                         {
-                            removeB.SetActive(false);
-                            rFlg = false;
+                            if (!rFlg)
+                            {
+                                removeBs[0].SetActive(true); ;
+                                rFlg = true;
+                            }
+                            else
+                            {
+                                removeBs[0].SetActive(false);
+                                rFlg = false;
+                            }
                         }
                     }
                     #endregion // Print "Remove" Button for tag.name == "HeavyTarget"
@@ -337,36 +349,67 @@ public class PlayerInputManager_P : MonoBehaviour
                             //removeB.SetActive(false);
                         }
                         #endregion // Remove LightStand when STAGE 1
-                        // Does Stage 2 Need?
-                        /*#region Remove Items when STAGE 2
+                        #region Remove Items when STAGE 2
                         if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
                         {
-                            GameObject _001 = GameObject.Find("****");
-                            GameObject _002 = GameObject.Find("****");
-                            GameObject _003 = GameObject.Find("****");
+                            GameObject obj = default;
+                            bool thisIsObj = false;
+                            int objIndex = -1;
 
-                            _001.SetActive(false);
-                            removeB.SetActive(false);
+                            if (objName == "Vase001")
+                            {
+                                obj = GameObject.Find("Vase001");
+                                objIndex = 0;
+                                thisIsObj = true;
+                            }
+                            else if (objName == "Chemicals001v2")
+                            {
+                                obj = GameObject.Find("Chemicals001v2");
+                                objIndex = 1;
+                                thisIsObj = true;
+                            }
+                            else if (objName == "Door003")
+                            {
+                                //Remove Audio
+                                audioAnime.Play();
+
+                                PointingCapacity();
+                                objIndex = 2;
+                            }
+                            #region Remove Vase or Chemicals
+                            if (thisIsObj)
+                            {
+                                //Remove Audio
+                                audioRemove.Play();
+
+                                obj.SetActive(false);
+                                thisIsObj = false;
+                            }
+                            #endregion // Remove Vase or Chemicals
+
+                            Remove_RemoveButtons(objIndex);
                         }
-                        #endregion*/ // Remove Items when STAGE 2
+                        #endregion // Remove Items when STAGE 2
 
                         #region Remove StorageCabinet001 when STAGE3
                         if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
                         {
                             GameObject _SC001 = GameObject.Find("StorageCabinet001");
-
-                            //Remove Audio
-                            //audioRemove.Play();
-
                             _SC001.SetActive(false);
-                            //removeB.SetActive(false);
                         }
                         #endregion // Remove StorageCabinet001 when STAGE3
 
                         //Remove Audio
                         audioRemove.Play();
 
-                        removeB.SetActive(false);
+                        if (SceneManager.GetActiveScene().name == "004 Stage2")
+                        {
+
+                        }
+                        else
+                        {
+                            removeBs[0].SetActive(false);
+                        }
                     }
                     #endregion // Interaction of HeavyTarget
                 }
@@ -460,11 +503,7 @@ public class PlayerInputManager_P : MonoBehaviour
                     }
                     else if (lightTagName == "HeavyTarget")
                     {
-                        //hitFlg_item3 = true; //Need?
-                        if (lightObjNam == "StorageCabinet001")
-                        {
-                            hitFlg_item3 = true;
-                        }
+                        hitFlg_item3 = true;
                     }
                     else
                     {
@@ -589,6 +628,24 @@ public class PlayerInputManager_P : MonoBehaviour
         else
                 dangerPos03_Check = true;
         #endregion // pos03
+    }
+
+    public void Remove_RemoveButtons(int index)
+    {
+        if (SceneManager.GetActiveScene().name == "004 Stage2")
+        {
+            if (0 <= index && index <= 2)
+            {
+                removeBs[index].SetActive(false);
+
+                if (index == 2)
+                {
+                    removeBs[index + 1].SetActive(false);
+                }
+                index = -1;
+            }
+        }
+        
     }
 
     public void HitFlagFalser()
