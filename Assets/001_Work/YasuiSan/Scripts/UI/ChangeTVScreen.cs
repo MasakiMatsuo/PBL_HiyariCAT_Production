@@ -13,7 +13,8 @@ public class ChangeTVScreen : MonoBehaviour
 
     public GameObject remoteText1;
     public GameObject remoteText2;
-    public GameObject tvText;
+    public GameObject tvText1;
+    public GameObject tvText2;
 
     public GameObject controller1;
     public GameObject controller2;
@@ -32,7 +33,8 @@ public class ChangeTVScreen : MonoBehaviour
 
         remoteText1.SetActive(true);
         remoteText2.SetActive(false);
-        tvText.SetActive(false);
+        tvText1.SetActive(false);
+        tvText2.SetActive(false);
 
         //controller2.SetActive(false);
 
@@ -43,8 +45,12 @@ public class ChangeTVScreen : MonoBehaviour
     {
         if (tourPIM.tFlg)
         {
+            tvText1.SetActive(false);
+            
             if (tourPIM.trFlgAct)
             {
+                tvText2.SetActive(true);
+
                 if (OVRInput.GetDown(OVRInput.RawButton.B))
                 {
                     if (!sflag)
@@ -66,7 +72,7 @@ public class ChangeTVScreen : MonoBehaviour
                     s_Image.sprite = screens[id];
                 }
 
-                tvText.SetActive(true);
+                
             }
             
         }
@@ -88,7 +94,7 @@ public class ChangeTVScreen : MonoBehaviour
                 tvImage.enabled = false;
             }
 
-            tvText.SetActive(false);
+            tvText2.SetActive(false);
         }
     }
 
@@ -109,15 +115,21 @@ public class ChangeTVScreen : MonoBehaviour
 
         if (tourPIM.trFlgAct)
         {
-            
             controller1.SetActive(true);
             controller2.SetActive(false);
+
+            if (!tourPIM.tFlg)
+            {
+                tvText1.SetActive(true);
+            }
         }
 
         if (!tourPIM.trFlgAct)
         {
             controller1.SetActive(false);
             controller2.SetActive(true);
+
+            tvText1.SetActive(false);
         }
     }
 

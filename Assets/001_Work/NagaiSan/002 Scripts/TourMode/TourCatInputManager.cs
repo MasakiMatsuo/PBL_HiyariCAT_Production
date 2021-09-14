@@ -167,6 +167,11 @@ public class TourCatInputManager : MonoBehaviour
                         {
                             SceneManager.LoadScene("007 TourStage2_Human");// Need to fix "scene.name" when Finalize
                         }
+                        else if (SceneManager.GetActiveScene().name == "Test TourStage3_Cat 1")// 本番環境に移行後シーン名修正
+                        {
+                            SceneManager.LoadScene("Test TourStage3_Human");
+                        }
+
                         // 下記、Stage3 実装時にコメントアウト外してください
                         /*
                         else if (SceneManager.GetActiveScene().name == "008 TourStage3_Cat")

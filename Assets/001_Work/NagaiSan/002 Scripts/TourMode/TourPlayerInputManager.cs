@@ -169,7 +169,11 @@ public class TourPlayerInputManager : MonoBehaviour
                         {
                             SceneManager.LoadScene("006 TourStage1_Cat");// Need to fix "scene.name" when Finalize
                         }
-                        
+
+                        if (SceneManager.GetActiveScene().name == "Test TourStage3_Human")// 本番環境に移行後シーン名修正
+                        {
+                            SceneManager.LoadScene("Test TourStage3_Cat 1");
+                        }
                     }
 
                     /*
