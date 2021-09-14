@@ -4049,7 +4049,6 @@ GameObject:
   - component: {fileID: 1424312976}
   - component: {fileID: 1424312979}
   - component: {fileID: 1424312980}
-  - component: {fileID: 1424312981}
   m_Layer: 0
   m_Name: Door001_part_out
   m_TagString: Capacity
@@ -4160,30 +4159,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424312974}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1424312979}
   inputManager: {fileID: 8506171100790870471}
---- !u!114 &1424312981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1424312974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ad30ca739dda94da84744ce736efea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1424312979}
-  playerInputManager_P: {fileID: 8506171100790870473}
-  hitObj01: 0
-  hitObj02: 0
-  hitObj03: 0
 --- !u!1 &1453284059
 GameObject:
   m_ObjectHideFlags: 0
@@ -20129,7 +20111,7 @@ RectTransform:
   m_GameObject: {fileID: 3921269141319066700}
   m_LocalRotation: {x: -0, y: 0.258819, z: -0, w: 0.9659259}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.04, y: 0.02, z: 0.04}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 3921269141554094593}
   m_Father: {fileID: 3921269142857672371}
@@ -20745,7 +20727,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 220, y: 40, z: 1}
+  m_Size: {x: 270, y: 30, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3921269141371417954
 MonoBehaviour:
@@ -21311,7 +21293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.2, y: 50}
+  m_AnchoredPosition: {x: -13.2, y: 79}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3921269141613934087
@@ -23040,7 +23022,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 220, y: 40, z: 1}
+  m_Size: {x: 270, y: 30, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3921269142107510247
 MonoBehaviour:
@@ -24061,7 +24043,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 220, y: 40, z: 1}
+  m_Size: {x: 270, y: 30, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3921269142397362011
 MonoBehaviour:
@@ -24308,8 +24290,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3921269142422052440}
   m_LocalRotation: {x: 0, y: -0.13052624, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: -1.044, y: 1.578, z: 1.755}
-  m_LocalScale: {x: 0.2, y: 0.17, z: 0.2}
+  m_LocalPosition: {x: -1.014, y: 1.578, z: 1.803}
+  m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_Children:
   - {fileID: 3921269141256886254}
   - {fileID: 3921269141192856182}
@@ -24419,8 +24401,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3921269142432752154}
   m_LocalRotation: {x: -0, y: 0.6183793, z: -0, w: 0.78587985}
-  m_LocalPosition: {x: -1.333, y: 0.37, z: 0.502}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: -1.333, y: 0.38, z: 0.502}
+  m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_Children:
   - {fileID: 3921269141926264661}
   - {fileID: 3921269141209917794}
@@ -26042,7 +26024,7 @@ Transform:
   m_GameObject: {fileID: 3921269142857672370}
   m_LocalRotation: {x: -0, y: -0.04743753, z: -0, w: 0.99887425}
   m_LocalPosition: {x: -1.643, y: 0.71, z: 1.962}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.5, y: 0.2, z: 0.5}
   m_Children:
   - {fileID: 3921269141113642379}
   - {fileID: 3921269141266178443}
@@ -26876,7 +26858,6 @@ GameObject:
   - component: {fileID: 979742306823736842}
   - component: {fileID: 4459838112307259920}
   - component: {fileID: 4459838112307259922}
-  - component: {fileID: 4459838112307259921}
   m_Layer: 0
   m_Name: Chemicals_cap01
   m_TagString: Untagged
@@ -26903,23 +26884,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4459838112307259921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4459838112307259919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ad30ca739dda94da84744ce736efea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 4459838112307259920}
-  playerInputManager_P: {fileID: 8506171100790870473}
-  hitObj01: 0
-  hitObj02: 0
-  hitObj03: 0
 --- !u!114 &4459838112307259922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26927,7 +26891,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4459838112307259919}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
   m_Name: 
@@ -29464,7 +29428,6 @@ GameObject:
   - component: {fileID: 154863653321304281}
   - component: {fileID: 5739164802717630472}
   - component: {fileID: 5739164802717630474}
-  - component: {fileID: 5739164802717630473}
   m_Layer: 0
   m_Name: Chemicals_cap02
   m_TagString: Untagged
@@ -29491,23 +29454,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5739164802717630473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5739164802717630471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ad30ca739dda94da84744ce736efea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5739164802717630472}
-  playerInputManager_P: {fileID: 8506171100790870473}
-  hitObj01: 0
-  hitObj02: 0
-  hitObj03: 0
 --- !u!114 &5739164802717630474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29515,7 +29461,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5739164802717630471}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
   m_Name: 
@@ -36340,7 +36286,6 @@ GameObject:
   - component: {fileID: 7101240676057383015}
   - component: {fileID: 7101240676057383016}
   - component: {fileID: 7101240676057383017}
-  - component: {fileID: 7101240676057383018}
   m_Layer: 0
   m_Name: Door001_part_in
   m_TagString: Capacity
@@ -36388,30 +36333,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7101240676057383014}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7101240676057383016}
   inputManager: {fileID: 8506171100790870471}
---- !u!114 &7101240676057383018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7101240676057383014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ad30ca739dda94da84744ce736efea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7101240676057383016}
-  playerInputManager_P: {fileID: 8506171100790870473}
-  hitObj01: 0
-  hitObj02: 0
-  hitObj03: 0
 --- !u!4 &7114087252464114037
 Transform:
   m_ObjectHideFlags: 0
@@ -36674,7 +36602,6 @@ GameObject:
   - component: {fileID: 7329012744503112453}
   - component: {fileID: 7329012744503112454}
   - component: {fileID: 7329012744503112456}
-  - component: {fileID: 7329012744503112455}
   m_Layer: 0
   m_Name: Door003
   m_TagString: Capacity
@@ -36714,23 +36641,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7329012744503112455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7329012744503112452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ad30ca739dda94da84744ce736efea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7329012744503112454}
-  playerInputManager_P: {fileID: 8506171100790870473}
-  hitObj01: 0
-  hitObj02: 0
-  hitObj03: 0
 --- !u!114 &7329012744503112456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36738,7 +36648,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7329012744503112452}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
   m_Name: 
@@ -36860,7 +36770,6 @@ GameObject:
   - component: {fileID: 7455478229038236103}
   - component: {fileID: 7455478229038236105}
   - component: {fileID: 7455478229038236106}
-  - component: {fileID: 7455478229038236104}
   m_Layer: 0
   m_Name: Chemicals_body
   m_TagString: Untagged
@@ -36887,23 +36796,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7455478229038236104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7455478229038236102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ad30ca739dda94da84744ce736efea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7455478229038236103}
-  playerInputManager_P: {fileID: 8506171100790870473}
-  hitObj01: 0
-  hitObj02: 0
-  hitObj03: 0
 --- !u!65 &7455478229038236105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36924,7 +36816,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7455478229038236102}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
   m_Name: 
@@ -42157,7 +42049,6 @@ GameObject:
   - component: {fileID: 5923293090134651831}
   - component: {fileID: 7991009549971889094}
   - component: {fileID: 7991009549971889096}
-  - component: {fileID: 7991009549971889095}
   m_Layer: 0
   m_Name: Vase001
   m_TagString: HeavyTarget_Vase
@@ -42184,23 +42075,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7991009549971889095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7991009549971889093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ad30ca739dda94da84744ce736efea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7991009549971889094}
-  playerInputManager_P: {fileID: 8506171100790870473}
-  hitObj01: 0
-  hitObj02: 0
-  hitObj03: 0
 --- !u!114 &7991009549971889096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42208,7 +42082,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7991009549971889093}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a772b612ac1464045afc6528065b4e4e, type: 3}
   m_Name: 
@@ -43115,7 +42989,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8506171099330843725}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a94d5a29b2a4d344fbeccf0e61113c94, type: 3}
   m_Name: 
@@ -43126,7 +43000,7 @@ MonoBehaviour:
   timeEndMemo: {fileID: 1913670744}
   playerInputManagerS2: {fileID: 8506171100790870471}
   catInputManager: {fileID: 8506171100790870470}
-  switchViewManager: {fileID: 0}
+  switchViewManager: {fileID: 8506171100300318614}
   totalTime: 120
 --- !u!4 &8506171099330843727
 Transform:
@@ -43149,7 +43023,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8506171099330843725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c0fd7cfcd9debd4fa9ed9ced1418258, type: 3}
   m_Name: 
@@ -43159,7 +43033,7 @@ MonoBehaviour:
   timeLimit_LHalfM: {fileID: 8461000047145112154}
   timeEndMemo: {fileID: 1913670744}
   totalTime: 120
-  switchViewManager_P: {fileID: 8506171100300318614}
+  switchViewManager_P: {fileID: 0}
   playerInputManager_P: {fileID: 8506171100790870473}
 --- !u!1 &8506171100300318613
 GameObject:
@@ -43187,14 +43061,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8506171100300318613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886eaf2a05946a64aa01057d3aa8faf2, type: 3}
+  m_Script: {fileID: 11500000, guid: 032a84df366527642895612e95f0d84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catOVRC_Pos01: {fileID: 3921269142422052440}
-  catOVRC_Pos02: {fileID: 3921269142432752154}
-  catOVRC_Pos03: {fileID: 3921269142857672370}
-  playerInputManager_P: {fileID: 8506171100790870473}
-  catInputManager_P: {fileID: 8506171100790870472}
+  catOVRC_Vase: {fileID: 3921269142422052440}
+  catOVRC_Chemical: {fileID: 3921269142432752154}
+  catOVRC_Door: {fileID: 3921269142857672370}
+  playerInputManager: {fileID: 8506171100790870471}
+  catInputManager: {fileID: 8506171100790870470}
 --- !u!4 &8506171100300318615
 Transform:
   m_ObjectHideFlags: 0
@@ -43423,7 +43297,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8506171100790870469}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c182e732e435a1e40b26aea8d8a9745c, type: 3}
   m_Name: 
@@ -43438,7 +43312,7 @@ MonoBehaviour:
   catMemoStage2_Door_cranky: {fileID: 334046397}
   resultMenu: {fileID: 3921269141554094592}
   resultText: {fileID: 174584634}
-  switchViewManager: {fileID: 0}
+  switchViewManager: {fileID: 8506171100300318614}
   playerInputManagerS2: {fileID: 8506171100790870471}
   stage2_Vase_Point: 0
   stage2_Chemical_Point: 0
@@ -43450,7 +43324,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8506171100790870469}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6debd919339728949880259512b50ae0, type: 3}
   m_Name: 
@@ -43467,7 +43341,7 @@ MonoBehaviour:
   startMenu: {fileID: 302924915}
   pauseMenu: {fileID: 598812653285655541}
   catInputManager: {fileID: 8506171100790870470}
-  switchViewManager: {fileID: 0}
+  switchViewManager: {fileID: 8506171100300318614}
   countDownStart: 0
   Stage2_Vase_Check: 0
   Stage2_Chemical_Check: 0
@@ -43485,7 +43359,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8506171100790870469}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 005124c51c0a42f469ace3d66e6cd457, type: 3}
   m_Name: 
@@ -43500,7 +43374,7 @@ MonoBehaviour:
   catMemo_Pos03_cranky: {fileID: 334046397}
   resultMenu: {fileID: 3921269141554094592}
   resultText: {fileID: 174584634}
-  switchViewManager_P: {fileID: 8506171100300318614}
+  switchViewManager_P: {fileID: 0}
   playerInputManager_P: {fileID: 8506171100790870473}
   pos01_ReadFlag: 0
   pos02_ReadFlag: 0
@@ -43512,7 +43386,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8506171100790870469}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fdacd6fd5481a148b219295c01df9f1, type: 3}
   m_Name: 
@@ -43530,7 +43404,7 @@ MonoBehaviour:
   tutorialManager: {fileID: 1111820752}
   locomotionManager: {fileID: 8506171100535050921}
   catInputManager_P: {fileID: 8506171100790870472}
-  switchViewManager_P: {fileID: 8506171100300318614}
+  switchViewManager_P: {fileID: 0}
   iamCat: 0
   countDownStart: 0
   dangerPos01_Check: 0
@@ -43539,10 +43413,6 @@ MonoBehaviour:
   hitFlg_item1: 0
   hitFlg_item2: 0
   hitFlg_item3: 0
-  rFlg_Vase: 0
-  rFlg_Chemical: 0
-  rFlg_Door: 0
-  objIndex: -1
   audioRemove: {fileID: 1778576444}
   audioAnime: {fileID: 1485777410}
   catModel: {fileID: 462575489}

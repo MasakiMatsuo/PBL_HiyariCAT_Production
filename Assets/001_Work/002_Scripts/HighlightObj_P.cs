@@ -30,13 +30,7 @@ public class HighlightObj_P : MonoBehaviour
         hitObj01 = playerInputManager_P.hitFlg_item1;
         hitObj02 = playerInputManager_P.hitFlg_item2;
         hitObj03 = playerInputManager_P.hitFlg_item3;
-        /*
-        // Stage 0
-        if (SceneManager.GetActiveScene().name == "002 Stage0")
-        {
-            HighLightingOnStage0();
-        }
-        */
+
         if (hitObj01 == true)
         {
             animator.SetBool("HitObjFlg01", true);
@@ -52,43 +46,6 @@ public class HighlightObj_P : MonoBehaviour
         }
         else
         {
-            animator.SetBool("HitObjFlg02", false);
-        }
-
-        if (hitObj03 == true)
-        {
-            animator.SetBool("HitObjFlg03", true);
-        }
-        else
-        {
-            animator.SetBool("HitObjFlg03", false);
-        }
-
-        //Stage2
-
-
-        //Stage3
-    }
-
-    /*MN_Add_Start*/
-    public void HighLightingOnStage0()
-    {
-        /*
-        hitObj01 = playerInputManager_P.lightObj01;
-        hitObj02 = playerInputManager_P.lightObj02;
-        hitObj03 = playerInputManager_P.heavyObj;
-        */
-        if (hitObj01 == true)
-        {
-            animator.SetBool("HitObjFlg01", true);
-        }
-        else if (hitObj02 == true)
-        {
-            animator.SetBool("HitObjFlg02", true);
-        }
-        else
-        {
-            animator.SetBool("HitObjFlg01", false);
             animator.SetBool("HitObjFlg02", false);
         }
 
