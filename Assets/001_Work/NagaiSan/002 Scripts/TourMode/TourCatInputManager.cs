@@ -153,7 +153,7 @@ public class TourCatInputManager : MonoBehaviour
                     }
                     else if (tagName == "Quit")
                     {
-                        SceneManager.LoadScene("008 EndScene");// Need to fix "scene.name" when Finalize
+                        SceneManager.LoadScene("009 EndScene");// Need to fix "scene.name" when Finalize
                     }
 
                     #region Change Human Mode
