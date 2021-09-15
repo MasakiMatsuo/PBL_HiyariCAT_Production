@@ -21,8 +21,6 @@ public class PlayerInputManager_P : MonoBehaviour
     #region UIs
     public GameObject startMenu;
     public GameObject pauseMenu;
-    //public GameObject removeB;
-
     public GameObject[] removeBs = new GameObject[1];
     #endregion // UIs
 
@@ -45,14 +43,16 @@ public class PlayerInputManager_P : MonoBehaviour
     public bool dangerPos02_Check = default;
     public bool dangerPos03_Check = default;
 
-    public bool lightObj01 = false;
-    public bool lightObj02 = false;
-    public bool heavyObj = false;
-
     public bool hitFlg_item1 = false;
     public bool hitFlg_item2 = false;
     public bool hitFlg_item3 = false;
+    #region Stage 2 Bools
+    public bool rFlg_Vase = false;
+    public bool rFlg_Chemical = false;
+    public bool rFlg_Door = false;
 
+    public int objIndex = -1;
+    #endregion // Stage 2 Bools
     #endregion // Flags
 
     #region Audio
@@ -61,7 +61,7 @@ public class PlayerInputManager_P : MonoBehaviour
     #endregion // Audio
 
     // Cat Model
-    public GameObject catModel;  // Need to fix after add on her model on all stages.
+    public GameObject catModel;
 
     #endregion // Require Values
 
@@ -111,23 +111,29 @@ public class PlayerInputManager_P : MonoBehaviour
     public void InitApp()
     {
         #region Initialized Eliminate Mode
-        capacityAnimation.SetBool("Touch", true);
+        if (SceneManager.GetActiveScene().name == "004 Stage2")
+        {
+            capacityAnimation.SetBool("Touch", false);
+        }
+        else
+        {
+            capacityAnimation.SetBool("Touch", true);
+        }
         #endregion // Initialized Eliminate Mode
 
         #region Initialize UIs
         pauseMenu.SetActive(false);
-        //removeB.SetActive(false);
+
         for (int i = 0; i < removeBs.Length; i++)
         {
             removeBs[i].SetActive(false);
         }
 
-        if (SceneManager.GetActiveScene().name == "002 Stage0") { }
         // Stage1~3
-        else
+        if (SceneManager.GetActiveScene().name != "002 Stage0")
         {
             startMenu.SetActive(true);
-            catModel.SetActive(true);  // "Need to fix"
+            catModel.SetActive(true);
         }
         #endregion // Initialize UIs
 
@@ -137,15 +143,16 @@ public class PlayerInputManager_P : MonoBehaviour
     public void CatMode()
     {
         #region Initialized Cat Mode
-        capacityAnimation.SetBool("Touch", false);
+        if (SceneManager.GetActiveScene().name != "004 Stage2")
+        {
+            capacityAnimation.SetBool("Touch", false);
+        }
         #endregion // Initialized Cat Mode
 
-        if (SceneManager.GetActiveScene().name == "002 Stage0") { }
-        // Stage1~3
-        else
+        if (SceneManager.GetActiveScene().name != "002 Stage0")
         {
             HitFlagFalser();
-            catModel.SetActive(false);  // "Need to fix"
+            catModel.SetActive(false);
         }
 
         #region Create Start Point of Ray (Cat)
@@ -217,6 +224,7 @@ public class PlayerInputManager_P : MonoBehaviour
                 {
                     string tagName = hit.collider.tag;
                     string objName = hit.collider.name;
+                    //int objIndexOnStage2 = default;
 
                     #region Menu Pointing
                     #region Scene Transition
@@ -251,13 +259,17 @@ public class PlayerInputManager_P : MonoBehaviour
                             CheckRemoving();
                             switchViewManager_P.SwitchViewer();
                         }
+
+                        for (int i = 0; i < removeBs.Length; i++)
+                        {
+                            removeBs[i].SetActive(false);
+                        }
                     }
 
                     /*Remove soon "Debug Button"*/
                     #region Debug Button NextStage
                     else if (tagName == "Debug_NextStage")
                     {
-                        
                         if (SceneManager.GetActiveScene().name == "003 Stage1")// Need to fix "scene.name" when Finalize
                         {
                             SceneManager.LoadScene("004 Stage2");// Need to fix "scene.name" when Finalize
@@ -286,8 +298,11 @@ public class PlayerInputManager_P : MonoBehaviour
                     #region Interaction of Capacity
                     if (tagName == "Capacity")
                     {
-                        PointingCapacity();
-                        break;
+                        if (SceneManager.GetActiveScene().name != "004 Stage2")
+                        {
+                            PointingCapacity();
+                            break;
+                        }
                     }
                     #endregion // Interaction of Capacity
 
@@ -303,24 +318,70 @@ public class PlayerInputManager_P : MonoBehaviour
                     #region Print "Remove" Button for tag.name == "HeavyTarget"
                     if (tagName == "HeavyTarget")
                     {
-                        if (SceneManager.GetActiveScene().name == "004 Stage2")
+                        #region Stages Without Stage 2
+                        if (!rFlg)
                         {
-
+                            removeBs[0].SetActive(true); ;
+                            rFlg = true;
                         }
                         else
                         {
-                            if (!rFlg)
+                            removeBs[0].SetActive(false);
+                            rFlg = false;
+                        }
+                        #endregion // Stages Without Stage 2
+                    }
+                    #region Stage2
+                    
+                    if (SceneManager.GetActiveScene().name == "004 Stage2")
+                    {
+                        if (tagName == "HeavyTarget_Vase")
+                        {
+                            if (!rFlg_Vase)
                             {
-                                removeBs[0].SetActive(true); ;
-                                rFlg = true;
+                                removeBs[0].SetActive(true);
+                                rFlg_Vase = true;
                             }
                             else
                             {
                                 removeBs[0].SetActive(false);
-                                rFlg = false;
+                                rFlg_Vase = false;
+                            }
+                        }
+                        if (tagName == "HeavyTarget_Chemical")
+                        {
+                            if (!rFlg_Chemical)
+                            {
+                                removeBs[1].SetActive(true);
+                                rFlg_Chemical = true;
+                            }
+                            else
+                            {
+                                removeBs[1].SetActive(false);
+                                rFlg_Chemical = false;
+                            }
+                        }
+                        if (tagName == "Capacity")
+                        {
+                            if (!capacityAnimation.GetBool("Touch"))
+                            {
+                                if (!rFlg_Door)
+                                {
+                                    removeBs[2].SetActive(true);
+                                    removeBs[3].SetActive(true);
+                                    rFlg_Door = true;
+                                }
+                                else
+                                {
+                                    removeBs[2].SetActive(false);
+                                    removeBs[3].SetActive(false);
+                                    rFlg_Door = false;
+                                }
                             }
                         }
                     }
+                    
+                    #endregion // Stage2
                     #endregion // Print "Remove" Button for tag.name == "HeavyTarget"
 
                     if (tagName == "Remove")
@@ -329,68 +390,17 @@ public class PlayerInputManager_P : MonoBehaviour
                         if (SceneManager.GetActiveScene().name == "002 Stage0") // Need to fix "scene.name" when Finalize
                         {
                             GameObject _B001 = GameObject.Find("Barrel001");
-
-                            //Remove Audio
-                            //audioRemove.Play();
-
                             _B001.SetActive(false);
-                            //removeB.SetActive(false);
                         }
                         #endregion // Remove LightStand when STAGE 0
                         #region Remove LightStand when STAGE 1
                         if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
                         {
                             GameObject _LS001 = GameObject.Find("LightStand001");
-
-                            //Remove Audio
-                            //audioRemove.Play();
-
                             _LS001.SetActive(false);
-                            //removeB.SetActive(false);
                         }
                         #endregion // Remove LightStand when STAGE 1
-                        #region Remove Items when STAGE 2
-                        if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
-                        {
-                            GameObject obj = default;
-                            bool thisIsObj = false;
-                            int objIndex = -1;
-
-                            if (objName == "Vase001")
-                            {
-                                obj = GameObject.Find("Vase001");
-                                objIndex = 0;
-                                thisIsObj = true;
-                            }
-                            else if (objName == "Chemicals001v2")
-                            {
-                                obj = GameObject.Find("Chemicals001v2");
-                                objIndex = 1;
-                                thisIsObj = true;
-                            }
-                            else if (objName == "Door003")
-                            {
-                                //Remove Audio
-                                audioAnime.Play();
-
-                                PointingCapacity();
-                                objIndex = 2;
-                            }
-                            #region Remove Vase or Chemicals
-                            if (thisIsObj)
-                            {
-                                //Remove Audio
-                                audioRemove.Play();
-
-                                obj.SetActive(false);
-                                thisIsObj = false;
-                            }
-                            #endregion // Remove Vase or Chemicals
-
-                            Remove_RemoveButtons(objIndex);
-                        }
-                        #endregion // Remove Items when STAGE 2
-
+                        
                         #region Remove StorageCabinet001 when STAGE3
                         if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
                         {
@@ -399,37 +409,72 @@ public class PlayerInputManager_P : MonoBehaviour
                         }
                         #endregion // Remove StorageCabinet001 when STAGE3
 
-                        //Remove Audio
-                        audioRemove.Play();
-
-                        if (SceneManager.GetActiveScene().name == "004 Stage2")
+                        if (SceneManager.GetActiveScene().name != "004 Stage2")
                         {
+                            //Remove Audio
+                            audioRemove.Play();
 
-                        }
-                        else
-                        {
                             removeBs[0].SetActive(false);
                         }
                     }
+
+                    #region Remove HeavyItems when STAGE 2
+
+                    if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
+                    {
+                        GameObject obj = default;
+
+                        if (tagName == "Remove_Vase")
+                        {
+                            obj = GameObject.Find("Vase001");
+                            objIndex = 0;
+                        }
+                        else if (tagName == "Remove_Chemical")
+                        {
+                            obj = GameObject.Find("Chemicals001v2");
+                            objIndex = 1;
+                        }
+                        else if (tagName == "Remove_Door")
+                        {
+                            PointingCapacity();
+                            objIndex = 2;
+                        }
+                        #region Remove Vase or Chemicals
+                        if (objIndex == 0 || objIndex == 1)
+                        {
+                            //Remove Audio
+                            audioRemove.Play();
+
+                            obj.SetActive(false);
+                        }
+                        #endregion // Remove Vase or Chemicals
+
+                        objIndex = Remove_RemoveButtons(objIndex);
+                    }
+
+                    #endregion // Remove HeavyItems when STAGE 2
                     #endregion // Interaction of HeavyTarget
                 }
                 #region Catching Object's gravity is false;
-                GameObject go = playerRightController.transform.GetChild(3).gameObject;
-                go.GetComponent<Rigidbody>().useGravity = false;
-                #endregion //Catching Object's gravity is false;
+                if (SceneManager.GetActiveScene().name != "004 Stage2")
+                {
+                    GameObject go = playerRightController.transform.GetChild(3).gameObject;
+                    go.GetComponent<Rigidbody>().useGravity = false;
+                }
+                #endregion // Catching Object's gravity is false;
             }
             // Release Object
             if (OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
             {
                 MyReleaseObject();
             }
-
+            
             //When Ray is not hitting anything.
             if (hits.Length == 0)
             {
                 HitFlagFalser();
             }
-
+            
             //Highlight Judge
             foreach (var hit in hits)
             {
@@ -487,6 +532,28 @@ public class PlayerInputManager_P : MonoBehaviour
                     }
                 }
                 #endregion // HighLighting on Stage 1
+                #region HighLighting on Stage 2
+                
+                if (SceneManager.GetActiveScene().name == "004 Stage2")
+                {
+                    if (lightTagName == "HeavyTarget_Vase")
+                    {
+                        hitFlg_item1 = true;
+                    }
+                    if (lightTagName == "HeavyTarget_Chemical")
+                    {
+                        hitFlg_item2 = true;
+                    }
+                    if (lightTagName == "Capacity")
+                    {
+                        if (!capacityAnimation.GetBool("Touch"))
+                        {
+                            hitFlg_item3 = true;
+                        }
+                    }
+                }
+                
+                #endregion // HighLighting on Stage 2
                 #region HighLighting on Stage 3
                 if (SceneManager.GetActiveScene().name == "005 Stage3")
                 {
@@ -511,7 +578,6 @@ public class PlayerInputManager_P : MonoBehaviour
                     }
                 }
                 #endregion // HighLighting on Stage 3
-
             }
         }
         // When the RHandTrigger is released
@@ -523,23 +589,22 @@ public class PlayerInputManager_P : MonoBehaviour
             //all highlight flag are falsed
             HitFlagFalser();
 
-            lightObj01 = false;
-            lightObj02 = false;
-            heavyObj = false;
-
-            #region Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
-            int checkNG = 3;
-            int childCheck = playerRightController.transform.childCount - 1;
-
-            if (childCheck != checkNG)
+            #region Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.) without Stage2
+            if (SceneManager.GetActiveScene().name != "004 Stage2")
             {
-                return;
+                int checkNG = 3;
+                int childCheck = playerRightController.transform.childCount - 1;
+
+                if (childCheck != checkNG)
+                {
+                    return;
+                }
+                else
+                {
+                    MyReleaseObject();
+                }
             }
-            else
-            {
-                MyReleaseObject();
-            }
-            #endregion // Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.)
+            #endregion // Bug Fix (When Player released the RHandTrigger while holding an object, the process of leaving the Laser Pointer is performed.) without Stage2
         }
     }
 
@@ -548,25 +613,46 @@ public class PlayerInputManager_P : MonoBehaviour
         GameObject pos01 = default;
         GameObject pos02 = default;
         GameObject pos03 = default;
+        bool pos03_bool = default;
 
+        #region Stage1: Find the active objects
         if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
         {
-            #region Stage1: Find the active objects
             pos01 = GameObject.Find("LightStand001");
             pos02 = GameObject.Find("Bag001");
             pos03 = GameObject.Find("Scissors001");
-            #endregion // Stage1: Find the active objects
         }
+        #endregion // Stage1: Find the active objects
+        #region /* Stage2: Find the active objects */
+
+        else if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
+        {
+            #region Stage2: Checking that dangerous items have been removed.
+            pos01 = GameObject.Find("Vase001");
+            pos02 = GameObject.Find("Chemicals001v2");
+            pos03_bool = capacityAnimation.GetBool("Touch");
+            #endregion // Stage2: Checking that dangerous items have been removed.
+        }
+
+        #endregion //  /* Stage2: Find the active objects */
+        #region Stage3: Find the active objects
         else if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
         {
-            #region Stage3: Find the active objects
             pos01 = GameObject.Find("Chocolate001");
             pos02 = GameObject.Find("Code001");
             pos03 = GameObject.Find("StorageCabinet001");
-            #endregion // Stage3: Find the active objects
         }
+        #endregion // Stage3: Find the active objects
 
-        Checking(pos01, pos02, pos03);
+        if (SceneManager.GetActiveScene().name != "004 Stage2")
+        {
+            Checking(pos01, pos02, pos03);
+        }
+        else
+        {
+            CheckingOnStage2(pos01, pos02, pos03_bool);
+        }
+        
     }
 
     public void PointingCapacity()
@@ -629,8 +715,30 @@ public class PlayerInputManager_P : MonoBehaviour
                 dangerPos03_Check = true;
         #endregion // pos03
     }
+    
+    public void CheckingOnStage2(GameObject p01, GameObject p02, bool p03_b)
+    {
+        #region pos01
+        if (p01)
+            dangerPos01_Check = false;
+        else
+            dangerPos01_Check = true;
+        #endregion // pos01
+        #region pos02
+        if (p02)
+            dangerPos02_Check = false;
+        else
+            dangerPos02_Check = true;
+        #endregion // pos02
+        #region pos03
+        if (!p03_b)
+            dangerPos03_Check = false;
+        else
+            dangerPos03_Check = true;
+        #endregion // pos03
+    }
 
-    public void Remove_RemoveButtons(int index)
+    public int Remove_RemoveButtons(int index)
     {
         if (SceneManager.GetActiveScene().name == "004 Stage2")
         {
@@ -645,9 +753,9 @@ public class PlayerInputManager_P : MonoBehaviour
                 index = -1;
             }
         }
-        
+        return index;
     }
-
+    
     public void HitFlagFalser()
     {
         hitFlg_item1 = false;

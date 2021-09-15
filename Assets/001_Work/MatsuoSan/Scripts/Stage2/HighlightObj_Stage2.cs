@@ -24,29 +24,29 @@ public class HighlightObj_Stage2 : MonoBehaviour
         //Stage2
         if (hFlg2_1 == true)
         {
-            animator.SetBool("VaseFlg", true);
+            animator.SetBool("HitObjFlg01", true);
         }
         else
         {
-            animator.SetBool("VaseFlg", false);
+            animator.SetBool("HitObjFlg01", false);
         }
 
         if (hFlg2_2 == true)
         {
-            animator.SetBool("ChemicalFlg", true);
+            animator.SetBool("HitObjFlg02", true);
         }
         else
         {
-            animator.SetBool("ChemicalFlg", false);
+            animator.SetBool("HitObjFlg02", false);
         }
 
         if (hFlg2_3 == true)
         {
-            animator.SetBool("Door003Flg", true);
+            animator.SetBool("HitObjFlg03", true);
         }
         else
         {
-            animator.SetBool("Door003Flg", false);
+            animator.SetBool("HitObjFlg03", false);
         }
     }
 }

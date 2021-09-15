@@ -26,6 +26,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     public GameObject removeB_Chemical;
     public GameObject removeB_Door;
     public GameObject removeB_Door2;
+    public GameObject startMenu;
     public GameObject pauseMenu;
     #endregion
 
@@ -41,6 +42,8 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     private bool rFlg_Chemical = false;
     private bool rFlg_Door = false;
 
+    public bool countDownStart = false;
+
     public bool Stage2_Vase_Check = default;
     public bool Stage2_Chemical_Check = default;
     public bool Stage3_Door_Check = default;
@@ -53,6 +56,9 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
     //Audio
     public AudioSource audioData;
     public AudioSource audioAnime;
+
+    // Cat Model
+    public GameObject catModel;
 
     #endregion
     #endregion
@@ -73,7 +79,15 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
         if (!iamCat)
         {
             InitMyPlayerRay();
-            PlayerMode();
+            if (!countDownStart && OVRInput.GetDown(OVRInput.RawButton.A))
+            {
+                startMenu.SetActive(false);
+                countDownStart = true;
+            }
+            else
+            {
+                PlayerMode();
+            }
         }
         else
         {
@@ -82,8 +96,6 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
             #endregion
             CatMode();
         }
-
-
     }
 
     public void InitApp()
@@ -99,7 +111,10 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
         removeB_Door.SetActive(false);
         removeB_Door2.SetActive(false);
         pauseMenu.SetActive(false);
-        #endregion
+        startMenu.SetActive(true);
+        #endregion // Initialize UIs
+
+        catModel.SetActive(true);
 
         iamCat = false;
     }
@@ -109,7 +124,7 @@ public class PlayerInputManager_Stage2 : MonoBehaviour
         #region Close Desk
         //doorAnimation.SetBool("Touch", false);
         #endregion
-
+        catModel.SetActive(false);
         catInputManager.CatMode();
     }
 

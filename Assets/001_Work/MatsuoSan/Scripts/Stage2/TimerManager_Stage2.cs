@@ -5,23 +5,32 @@ using UnityEngine.UI;
 
 public class TimerManager_Stage2 : MonoBehaviour
 {
-    public Text timerText;
-
-    //UI Display text
+    #region Require Values
+    #region UI Display text
     public GameObject timeLimitImage_Last2m;
     public GameObject timeLimitImage_Last1m;
     public GameObject timeLimitImage_Last30s;
+    public GameObject timeEndMemo;
+    #endregion // UI Display text
 
-    //Other Scripts
+    #region Other Scripts
     public PlayerInputManager_Stage2 playerInputManagerS2;
     public CatInputManager_Stage2 catInputManager;
     public SwitchViewManager_Stage2 switchViewManager;
+    #endregion // Other Scripts
 
     // This value is the time limit.
     public float totalTime = 120f;
 
     // This Value is Initial. This number can be any non-negative number.
     int seconds = 99999;
+    #endregion // Require Values
+
+    void Start()
+    {
+        InitTimerMemo();
+        playerInputManagerS2.GetComponent<PlayerInputManager_Stage2>();
+    }
 
     void Update()
     {
@@ -38,13 +47,20 @@ public class TimerManager_Stage2 : MonoBehaviour
         }
     }
 
+    void InitTimerMemo()
+    {
+        timeLimitImage_Last2m.SetActive(false);
+        timeLimitImage_Last1m.SetActive(false);
+        timeLimitImage_Last30s.SetActive(false);
+        timeEndMemo.SetActive(false);
+    }
+
     public void RemoveTimer()
     {
         #region On Cat Mode (Remove Timer)
         seconds = 0;
-        timerText.color = new Color(1f, 0f, 0f);
         totalTime = 0;
-        #endregion
+        #endregion // On Cat Mode (Remove Timer)
     }
 
     public void CountDownTimer()
@@ -52,21 +68,19 @@ public class TimerManager_Stage2 : MonoBehaviour
         #region Player Mode (Display Timer)
         if (seconds <= 0)
         {
-            seconds = 0;
-
-            /*This setting is my idea, it can change*/
-            timerText.color = new Color(1f, 0f, 0f);
-
-            totalTime = 0;
+            RemoveTimer();
         }
         else
         {
-            totalTime -= Time.deltaTime;
+            if (playerInputManagerS2.countDownStart)
+            {
+                #region CountDownTimer
+                totalTime -= Time.deltaTime;
+                seconds = (int)totalTime;
+                #endregion // CountDownTimer
+            }
 
-            seconds = (int)totalTime;
-            timerText.text = seconds.ToString();
 
-            //*UI
             // Time limit 2:00
             if (seconds >= 115)
             {
@@ -99,17 +113,29 @@ public class TimerManager_Stage2 : MonoBehaviour
 
             if (seconds <= 0)
             {
-                //Before moving to cat mode delate removeB masaki
-                playerInputManagerS2.removeB_Vase.SetActive(false);
-                playerInputManagerS2.removeB_Chemical.SetActive(false);
-                playerInputManagerS2.removeB_Door.SetActive(false);
-                playerInputManagerS2.removeB_Door2.SetActive(false);
-
-                playerInputManagerS2.CheckRemoving();
-                switchViewManager.SwitchViewer();
+                StartCoroutine(TimerEnd());
             }
-
         }
-        #endregion
+        #endregion // Player Mode (Display Timer)
+    }
+
+
+    IEnumerator TimerEnd()
+    {
+        timeEndMemo.SetActive(true);
+        playerInputManagerS2.pauseMenu.SetActive(false);
+
+        //Before moving to cat mode delate removeB masaki
+        playerInputManagerS2.removeB_Vase.SetActive(false);
+        playerInputManagerS2.removeB_Chemical.SetActive(false);
+        playerInputManagerS2.removeB_Door.SetActive(false);
+        playerInputManagerS2.removeB_Door2.SetActive(false);
+
+        yield return new WaitForSeconds(3.5f);
+
+        timeEndMemo.SetActive(false);
+        playerInputManagerS2.CheckRemoving();
+        switchViewManager.SwitchViewer();
+
     }
 }
