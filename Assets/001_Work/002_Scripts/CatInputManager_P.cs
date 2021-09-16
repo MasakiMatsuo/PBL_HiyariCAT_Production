@@ -473,17 +473,17 @@ public class CatInputManager_P : MonoBehaviour
                     #region Debug Button NextStage
                     if (tagName == "Debug_NextStage")
                     {
-                        if (SceneManager.GetActiveScene().name == "003 Stage1")// Need to fix "scene.name" when Finalize
+                        if (SceneManager.GetActiveScene().name == "002 Stage0")// Need to fix "scene.name" when Finalize
+                        {
+                            SceneManager.LoadScene("003 Stage1");// Need to fix "scene.name" when Finalize
+                        }
+                        else if (SceneManager.GetActiveScene().name == "003 Stage1")// Need to fix "scene.name" when Finalize
                         {
                             SceneManager.LoadScene("004 Stage2");// Need to fix "scene.name" when Finalize
                         }
                         else if (SceneManager.GetActiveScene().name == "004 Stage2")// Need to fix "scene.name" when Finalize
                         {
                             SceneManager.LoadScene("005 Stage3");// Need to fix "scene.name" when Finalize
-                        }
-                        else if (SceneManager.GetActiveScene().name == "002 Stage0")// Need to fix "scene.name" when Finalize
-                        {
-                            SceneManager.LoadScene("003 Stage1");// Need to fix "scene.name" when Finalize
                         }
                     }
                     #endregion
@@ -497,6 +497,10 @@ public class CatInputManager_P : MonoBehaviour
                         if (SceneManager.GetActiveScene().name == "003 Stage1")
                         {
                             SceneManager.LoadScene("006 TourStage1_Human");
+                        }
+                        else if (SceneManager.GetActiveScene().name == "004 Stage2")
+                        {
+                            SceneManager.LoadScene("007 TourStage2_Human");
                         }
                         /* Coming soon....
                         else if (SceneManager.GetActiveScene().name == "005 Stage3")

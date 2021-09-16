@@ -16,7 +16,10 @@ public class PlayerInputManager_P : MonoBehaviour
     public LineRenderer rayObject;
     #endregion // Player Values
 
+    #region Animation and Models
     public Animator capacityAnimation;
+    public GameObject catModel;
+    #endregion // Animation and Models
 
     #region UIs
     public GameObject startMenu;
@@ -59,10 +62,6 @@ public class PlayerInputManager_P : MonoBehaviour
     public AudioSource audioRemove;
     public AudioSource audioAnime;
     #endregion // Audio
-
-    // Cat Model
-    public GameObject catModel;
-
     #endregion // Require Values
 
     void Start()
@@ -224,27 +223,9 @@ public class PlayerInputManager_P : MonoBehaviour
                 {
                     string tagName = hit.collider.tag;
                     string objName = hit.collider.name;
-                    //int objIndexOnStage2 = default;
 
-                    #region Menu Pointing
                     #region Scene Transition
-                    if (tagName == "Next00")
-                    {
-                        SceneManager.LoadScene("003 Stage1");// Need to fix "scene.name" when Finalize
-                    }
-                    else if (tagName == "Next01")
-                    {
-                        SceneManager.LoadScene("004 Stage2");// Need to fix "scene.name" when Finalize
-                    }
-                    else if (tagName == "Next02")
-                    {
-                        SceneManager.LoadScene("005 Stage3");// Need to fix "scene.name" when Finalize
-                    }
-                    else if (tagName == "Retry")
-                    {
-                        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-                    }
-                    else if (tagName == "Quit")
+                    if (tagName == "Quit")
                     {
                         SceneManager.LoadScene("009 EndScene");// Need to fix "scene.name" when Finalize
                     }
@@ -265,35 +246,7 @@ public class PlayerInputManager_P : MonoBehaviour
                             removeBs[i].SetActive(false);
                         }
                     }
-
-                    /*Remove soon "Debug Button"*/
-                    #region Debug Button NextStage
-                    else if (tagName == "Debug_NextStage")
-                    {
-                        if (SceneManager.GetActiveScene().name == "003 Stage1")// Need to fix "scene.name" when Finalize
-                        {
-                            SceneManager.LoadScene("004 Stage2");// Need to fix "scene.name" when Finalize
-                        }
-                        else if (SceneManager.GetActiveScene().name == "004 Stage2")// Need to fix "scene.name" when Finalize
-                        {
-                            SceneManager.LoadScene("005 Stage3");// Need to fix "scene.name" when Finalize
-                        }
-                        else if (SceneManager.GetActiveScene().name == "002 Stage0")// Need to fix "scene.name" when Finalize
-                        {
-                            SceneManager.LoadScene("003 Stage1");// Need to fix "scene.name" when Finalize
-                        }
-                    }
-                    #endregion // Debug Button NextStage
                     #endregion //Scene Transition
-
-                    #region Checking dangerous items & Debug Cat Mode
-                    else if (tagName == "Debug_CatMode")
-                    {
-                        CheckRemoving();
-                        switchViewManager_P.SwitchViewer();
-                    }
-                    #endregion // Checking dangerous items & Debug Cat Mode
-                    #endregion // Menu Pointing
 
                     #region Interaction of Capacity
                     if (tagName == "Capacity")
@@ -318,7 +271,7 @@ public class PlayerInputManager_P : MonoBehaviour
                     #region Print "Remove" Button for tag.name == "HeavyTarget"
                     if (tagName == "HeavyTarget")
                     {
-                        #region Stages Without Stage 2
+                        #region Remove Button ON/OFF Without Stage 2
                         if (!rFlg)
                         {
                             removeBs[0].SetActive(true); ;
@@ -329,10 +282,10 @@ public class PlayerInputManager_P : MonoBehaviour
                             removeBs[0].SetActive(false);
                             rFlg = false;
                         }
-                        #endregion // Stages Without Stage 2
+                        #endregion // Remove Button ON/OFF Without Stage 2
                     }
-                    #region Stage2
-                    
+                    #region Remove Button ON/OFF on Stage2
+
                     if (SceneManager.GetActiveScene().name == "004 Stage2")
                     {
                         if (tagName == "HeavyTarget_Vase")
@@ -380,8 +333,7 @@ public class PlayerInputManager_P : MonoBehaviour
                             }
                         }
                     }
-                    
-                    #endregion // Stage2
+                    #endregion // Remove Button ON/OFF on Stage2
                     #endregion // Print "Remove" Button for tag.name == "HeavyTarget"
 
                     if (tagName == "Remove")
@@ -400,7 +352,6 @@ public class PlayerInputManager_P : MonoBehaviour
                             _LS001.SetActive(false);
                         }
                         #endregion // Remove LightStand when STAGE 1
-                        
                         #region Remove StorageCabinet001 when STAGE3
                         if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
                         {
@@ -409,6 +360,7 @@ public class PlayerInputManager_P : MonoBehaviour
                         }
                         #endregion // Remove StorageCabinet001 when STAGE3
 
+                        #region After Remove Process
                         if (SceneManager.GetActiveScene().name != "004 Stage2")
                         {
                             //Remove Audio
@@ -416,14 +368,15 @@ public class PlayerInputManager_P : MonoBehaviour
 
                             removeBs[0].SetActive(false);
                         }
+                        #endregion // After Remove Process
                     }
 
                     #region Remove HeavyItems when STAGE 2
-
                     if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
                     {
                         GameObject obj = default;
 
+                        #region Search condition
                         if (tagName == "Remove_Vase")
                         {
                             obj = GameObject.Find("Vase001");
@@ -439,6 +392,7 @@ public class PlayerInputManager_P : MonoBehaviour
                             PointingCapacity();
                             objIndex = 2;
                         }
+                        #endregion // Search condition
                         #region Remove Vase or Chemicals
                         if (objIndex == 0 || objIndex == 1)
                         {
@@ -451,7 +405,6 @@ public class PlayerInputManager_P : MonoBehaviour
 
                         objIndex = Remove_RemoveButtons(objIndex);
                     }
-
                     #endregion // Remove HeavyItems when STAGE 2
                     #endregion // Interaction of HeavyTarget
                 }
@@ -610,10 +563,12 @@ public class PlayerInputManager_P : MonoBehaviour
 
     public void CheckRemoving()
     {
+        #region Initialize Values
         GameObject pos01 = default;
         GameObject pos02 = default;
         GameObject pos03 = default;
         bool pos03_bool = default;
+        #endregion // Initialize Values
 
         #region Stage1: Find the active objects
         if (SceneManager.GetActiveScene().name == "003 Stage1") // Need to fix "scene.name" when Finalize
@@ -623,18 +578,15 @@ public class PlayerInputManager_P : MonoBehaviour
             pos03 = GameObject.Find("Scissors001");
         }
         #endregion // Stage1: Find the active objects
-        #region /* Stage2: Find the active objects */
+        #region Stage2: Find the active objects
 
         else if (SceneManager.GetActiveScene().name == "004 Stage2") // Need to fix "scene.name" when Finalize
         {
-            #region Stage2: Checking that dangerous items have been removed.
             pos01 = GameObject.Find("Vase001");
             pos02 = GameObject.Find("Chemicals001v2");
             pos03_bool = capacityAnimation.GetBool("Touch");
-            #endregion // Stage2: Checking that dangerous items have been removed.
         }
-
-        #endregion //  /* Stage2: Find the active objects */
+        #endregion // Stage2: Find the active objects
         #region Stage3: Find the active objects
         else if (SceneManager.GetActiveScene().name == "005 Stage3") // Need to fix "scene.name" when Finalize
         {
@@ -644,6 +596,7 @@ public class PlayerInputManager_P : MonoBehaviour
         }
         #endregion // Stage3: Find the active objects
 
+        #region Checking
         if (SceneManager.GetActiveScene().name != "004 Stage2")
         {
             Checking(pos01, pos02, pos03);
@@ -652,7 +605,7 @@ public class PlayerInputManager_P : MonoBehaviour
         {
             CheckingOnStage2(pos01, pos02, pos03_bool);
         }
-        
+        #endregion // Checking
     }
 
     public void PointingCapacity()
@@ -775,5 +728,4 @@ public class PlayerInputManager_P : MonoBehaviour
 
         tutorialManager.GetComponent<TutorialManager_P>().GuidanceApp();
     }
-
 }
