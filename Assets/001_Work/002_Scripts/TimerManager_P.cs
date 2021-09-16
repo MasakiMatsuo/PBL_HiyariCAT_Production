@@ -27,6 +27,9 @@ public class TimerManager_P : MonoBehaviour
     public TeleportTargetHandler _TTH;
     #endregion // Other Scripts
 
+    //Audio CatSE
+    public AudioSource audioCat;
+
     #endregion // Require Values
 
     void Start()
@@ -122,6 +125,25 @@ public class TimerManager_P : MonoBehaviour
                 StartCoroutine(TimerEnd());
             }
             #endregion // Timer End
+
+            //Play Audio
+            if (120 > seconds && seconds >= 119)
+            {
+                audioCat.Play();
+            }
+            else if(60 >= seconds && seconds >= 59)
+            {
+                audioCat.Play();
+            }
+            else if (30 >= seconds && seconds >= 29)
+            {
+                audioCat.Play();
+            }
+            else if (seconds <= 0)
+            {
+                audioCat.Play();
+            }
+
             #endregion // Display Memo
         }
         #endregion // Player Mode (Display Timer)
