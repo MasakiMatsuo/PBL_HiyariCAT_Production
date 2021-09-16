@@ -118,6 +118,8 @@ public class ChangeTVScreen : MonoBehaviour
             controller1.SetActive(true);
             controller2.SetActive(false);
 
+            remoteText2.SetActive(true);
+
             if (!tourPIM.tFlg)
             {
                 tvText1.SetActive(true);
@@ -128,6 +130,8 @@ public class ChangeTVScreen : MonoBehaviour
         {
             controller1.SetActive(false);
             controller2.SetActive(true);
+
+            //remoteText2.SetActive(false);
 
             tvText1.SetActive(false);
         }

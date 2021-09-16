@@ -268,6 +268,34 @@ public class TourPlayerInputManager : MonoBehaviour
                     }
                     #endregion // SitOnChair
 
+                    #region SitOnSofa
+                    if (SceneManager.GetActiveScene().name == "Test TourStage3_Human")// 本番環境に移行後シーン名修正
+                    {
+                        if (!trFlgAct) {
+                            if (tagName == "Sofa_Stage3")
+                            {
+                                if (!sobFlg)
+                                {
+                                    sitOnPos1B.SetActive(true);
+                                    sitOnPos2B.SetActive(false);
+                                    sobFlg = true;
+                                }
+                                else
+                                {
+                                    sitOnPos1B.SetActive(false);
+                                    sobFlg = false;
+                                }
+                            }
+                            if (tagName == "SitOnSofa")
+                            {
+                                SittingNow();
+                                sobFlg = false;
+                                tourSVM.TourSwitchViewerOnStage1_Player_SitOnBed();
+                            }
+                        }
+                    }
+                    #endregion // SitOnSofa
+
                     #region TV
                     /*if (tagName == "TV")
                     {
@@ -301,30 +329,33 @@ public class TourPlayerInputManager : MonoBehaviour
             {
                 trFlg = false;
                 tFlg = false;
+                //trFlgAct = false;
             }
 
             foreach (var hit in hits)
             {
-                string tagName2 = hit.collider.tag;
+                string tagNameHit = hit.collider.tag;
 
                 #region TV
-                if (tagName2 == "TV")
+                if (tagNameHit == "TV")
                 {
                     if (!tFlg)
                     {
                         tFlg = true;
                     }
                 }
-                #endregion // TV
-                #region TVRemote
-                if (tagName2 == "TVRemote")
+                else if (tagNameHit == "TVRemote")
                 {
                     if (!trFlg)
                     {
                         trFlg = true;
                     }                    
+                }else
+                {
+                    tFlg = false;
+
                 }
-                #endregion // TVRemote
+                #endregion // TV
 
             }
         }
