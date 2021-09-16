@@ -10,6 +10,7 @@ language governing permissions and limitations under the license.
 using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TeleportAimVisualLaser : TeleportSupport
 {
@@ -25,6 +26,10 @@ public class TeleportAimVisualLaser : TeleportSupport
 	private readonly Action<LocomotionTeleport.AimData> _updateAimDataAction;
 	private LineRenderer _lineRenderer;
 	private Vector3[] _linePoints;
+
+	/*MN_Changed_Start*/
+	public GameObject tm_P;
+	/*MN_Changed_End*/
 
 	public TeleportAimVisualLaser()
 	{
@@ -71,15 +76,41 @@ public class TeleportAimVisualLaser : TeleportSupport
 
 	private void UpdateAimData(LocomotionTeleport.AimData obj)
 	{
-		_lineRenderer.sharedMaterial.color = obj.TargetValid ? Color.green : Color.red;
+        /*MN_Changed_Start*/
 
-		var points = obj.Points;
-        //        Debug.Log("AimVisualLaser: count: " + points.Count);
-        _lineRenderer.positionCount = points.Count;
-		//_lineRenderer.SetVertexCount(points.Count);
-		for (int i = 0; i < points.Count; i++)
-		{
-			_lineRenderer.SetPosition(i, points[i]);
+        if (SceneManager.GetActiveScene().name == "002 Stage0")
+        {
+			_lineRenderer.sharedMaterial.color = obj.TargetValid ? Color.green : Color.red;
+
+			var points = obj.Points;
+			//        Debug.Log("AimVisualLaser: count: " + points.Count);
+			_lineRenderer.positionCount = points.Count;
+			//_lineRenderer.SetVertexCount(points.Count);
+			for (int i = 0; i < points.Count; i++)
+			{
+				_lineRenderer.SetPosition(i, points[i]);
+			}
 		}
+        else
+        {
+			if (tm_P.GetComponent<TimerManager_P>().totalTime == 0)
+			{
+				_lineRenderer.gameObject.SetActive(false);
+			}
+			else
+			{
+				_lineRenderer.sharedMaterial.color = obj.TargetValid ? Color.green : Color.red;
+
+				var points = obj.Points;
+				//        Debug.Log("AimVisualLaser: count: " + points.Count);
+				_lineRenderer.positionCount = points.Count;
+				//_lineRenderer.SetVertexCount(points.Count);
+				for (int i = 0; i < points.Count; i++)
+				{
+					_lineRenderer.SetPosition(i, points[i]);
+				}
+			}
+		}
+		/*MN_Changed_End*/
 	}
 }

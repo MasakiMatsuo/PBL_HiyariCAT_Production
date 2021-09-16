@@ -24,6 +24,7 @@ public class TimerManager_P : MonoBehaviour
     #region Other Scripts
     public SwitchViewManager_P switchViewManager_P;
     public PlayerInputManager_P playerInputManager_P;
+    public TeleportTargetHandler _TTH;
     #endregion // Other Scripts
 
     #endregion // Require Values
@@ -142,6 +143,7 @@ public class TimerManager_P : MonoBehaviour
             playerInputManager_P.removeBs[0].SetActive(false);
         }
 
+        _TTH.AimCollisionLayerMask = 0;
         yield return new WaitForSeconds(3.5f);
 
         timeEndMemo.SetActive(false);

@@ -72,10 +72,7 @@ public class PlayerInputManager_P : MonoBehaviour
     void Update()
     {
         // Forced Initialize
-        if (OVRInput.Get(OVRInput.RawButton.B) && OVRInput.Get(OVRInput.RawButton.X) && OVRInput.Get(OVRInput.RawButton.Y) && OVRInput.Get(OVRInput.RawButton.LHandTrigger))
-        {
-            SceneManager.LoadScene("001 Title");
-        }
+        ReturnTitleCommand();
 
         if (!iamCat)
         {
@@ -139,6 +136,14 @@ public class PlayerInputManager_P : MonoBehaviour
         iamCat = false;
     }
 
+    public void ReturnTitleCommand()
+    {
+        if (OVRInput.Get(OVRInput.RawButton.B) && OVRInput.Get(OVRInput.RawButton.X) && OVRInput.Get(OVRInput.RawButton.Y) && OVRInput.Get(OVRInput.RawButton.LHandTrigger))
+        {
+            SceneManager.LoadScene("001 Title");
+        }
+    }
+
     public void CatMode()
     {
         #region Initialized Cat Mode
@@ -158,7 +163,6 @@ public class PlayerInputManager_P : MonoBehaviour
         catInputManager_P.InitMyCatRay();
         #endregion // Create Start Point of Ray (Cat)
 
-        locomotionManager.SetActive(false);
         catInputManager_P.CatMode();
     }
 
@@ -568,6 +572,8 @@ public class PlayerInputManager_P : MonoBehaviour
         GameObject pos02 = default;
         GameObject pos03 = default;
         bool pos03_bool = default;
+
+        locomotionManager.SetActive(false);
         #endregion // Initialize Values
 
         #region Stage1: Find the active objects
