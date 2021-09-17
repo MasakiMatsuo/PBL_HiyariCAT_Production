@@ -24,7 +24,11 @@ public class TimerManager_P : MonoBehaviour
     #region Other Scripts
     public SwitchViewManager_P switchViewManager_P;
     public PlayerInputManager_P playerInputManager_P;
+    public TeleportTargetHandler _TTH;
     #endregion // Other Scripts
+
+    //Audio CatSE
+    public AudioSource audioCat;
 
     #endregion // Require Values
 
@@ -121,6 +125,25 @@ public class TimerManager_P : MonoBehaviour
                 StartCoroutine(TimerEnd());
             }
             #endregion // Timer End
+
+            //Play Audio
+            if (120 > seconds && seconds >= 119)
+            {
+                audioCat.Play();
+            }
+            else if(60 >= seconds && seconds >= 59)
+            {
+                audioCat.Play();
+            }
+            else if (30 >= seconds && seconds >= 29)
+            {
+                audioCat.Play();
+            }
+            else if (seconds <= 0)
+            {
+                audioCat.Play();
+            }
+
             #endregion // Display Memo
         }
         #endregion // Player Mode (Display Timer)
@@ -142,6 +165,7 @@ public class TimerManager_P : MonoBehaviour
             playerInputManager_P.removeBs[0].SetActive(false);
         }
 
+        _TTH.AimCollisionLayerMask = 0;
         yield return new WaitForSeconds(3.5f);
 
         timeEndMemo.SetActive(false);
