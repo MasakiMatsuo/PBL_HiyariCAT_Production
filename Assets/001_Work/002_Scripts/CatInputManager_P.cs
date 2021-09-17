@@ -502,12 +502,12 @@ public class CatInputManager_P : MonoBehaviour
                         {
                             SceneManager.LoadScene("007 TourStage2_Human");
                         }
-                        /* Coming soon....
+                        
                         else if (SceneManager.GetActiveScene().name == "005 Stage3")
                         {
                             SceneManager.LoadScene("008 TourStage3_Human");
                         }
-                        */
+                        
                     }
 
                     else if (tagName == "Quit")

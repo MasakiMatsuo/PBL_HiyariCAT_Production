@@ -170,9 +170,9 @@ public class TourPlayerInputManager : MonoBehaviour
                             SceneManager.LoadScene("006 TourStage1_Cat");// Need to fix "scene.name" when Finalize
                         }
 
-                        if (SceneManager.GetActiveScene().name == "Test TourStage3_Human")// 本番環境に移行後シーン名修正
+                        if (SceneManager.GetActiveScene().name == "008 TourStage3_Human")// 本番環境に移行後シーン名修正
                         {
-                            SceneManager.LoadScene("Test TourStage3_Cat 1");
+                            SceneManager.LoadScene("008 TourStage3_Cat");
                         }
                     }
 
@@ -269,7 +269,7 @@ public class TourPlayerInputManager : MonoBehaviour
                     #endregion // SitOnChair
 
                     #region SitOnSofa
-                    if (SceneManager.GetActiveScene().name == "Test TourStage3_Human")// 本番環境に移行後シーン名修正
+                    if (SceneManager.GetActiveScene().name == "008 TourStage3_Human")// 本番環境に移行後シーン名修正
                     {
                         if (!trFlgAct) {
                             if (tagName == "Sofa_Stage3")
@@ -295,20 +295,6 @@ public class TourPlayerInputManager : MonoBehaviour
                         }
                     }
                     #endregion // SitOnSofa
-
-                    #region TV
-                    /*if (tagName == "TV")
-                    {
-                        if (!tFlgAct)
-                        {
-                            tFlgAct = true;
-                        }
-                        else
-                        {
-                            tFlgAct = false;
-                        }
-                    }*/
-                    #endregion // TV
 
                     #region TVRemoteActive
                     if (tagName == "TVRemote")

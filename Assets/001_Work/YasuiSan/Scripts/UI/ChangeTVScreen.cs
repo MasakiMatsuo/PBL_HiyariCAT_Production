@@ -71,20 +71,8 @@ public class ChangeTVScreen : MonoBehaviour
                     id = id < screens.Length - 1 ? id + 1 : 0;
                     s_Image.sprite = screens[id];
                 }
-
-                
             }
             
-        }
-
-        if (!tourPIM.tFlgAct)
-        {
-            //tvImage.enabled = false;
-        }
-
-        if (tourPIM.tFlg)
-        {
-            //tvText.SetActive(true);
         }
 
         if (!tourPIM.tFlg)
@@ -130,8 +118,6 @@ public class ChangeTVScreen : MonoBehaviour
         {
             controller1.SetActive(false);
             controller2.SetActive(true);
-
-            //remoteText2.SetActive(false);
 
             tvText1.SetActive(false);
         }
