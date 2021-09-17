@@ -15622,6 +15622,7 @@ MonoBehaviour:
   objIndex: -1
   audioRemove: {fileID: 1093007727}
   audioAnime: {fileID: 1458848097}
+  audioCat: {fileID: 937884304}
 --- !u!1 &1118861825
 GameObject:
   m_ObjectHideFlags: 0
@@ -33850,7 +33851,7 @@ GameObject:
   - component: {fileID: 4420103393960578354}
   m_Layer: 0
   m_Name: Cat_Lite
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40008,13 +40009,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109051822795975166}
-  m_LocalRotation: {x: 0.58181363, y: 0.2819489, z: -0.7093124, w: 0.28084466}
+  m_LocalRotation: {x: 0.769552, y: 0.35385162, z: -0.4994205, w: 0.18209328}
   m_LocalPosition: {x: 2232, y: -351, z: -1905}
   m_LocalScale: {x: 0.014839651, y: 0.01483965, z: 0.014839648}
   m_Children: []
   m_Father: {fileID: 8169314808116597701}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 133.383, y: 103.813, z: 5.876999}
+  m_LocalEulerAnglesHint: {x: 140.676, y: 55.797997, z: -27.963013}
 --- !u!23 &7293570616015740079
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41291,13 +41292,27 @@ GameObject:
   m_Component:
   - component: {fileID: 8169314808116597701}
   - component: {fileID: 8562897557389065035}
+  - component: {fileID: 8796915613245147520}
   m_Layer: 0
   m_Name: CAT
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &8796915613245147520
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8796915613245147519}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2000, y: 3000, z: 2000}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &8830550528109859237
 MeshFilter:
   m_ObjectHideFlags: 0

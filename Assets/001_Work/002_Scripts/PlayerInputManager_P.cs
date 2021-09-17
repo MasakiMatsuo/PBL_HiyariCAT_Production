@@ -61,6 +61,7 @@ public class PlayerInputManager_P : MonoBehaviour
     #region Audio
     public AudioSource audioRemove;
     public AudioSource audioAnime;
+    public AudioSource audioCat;
     #endregion // Audio
     #endregion // Require Values
 
@@ -411,6 +412,12 @@ public class PlayerInputManager_P : MonoBehaviour
                     }
                     #endregion // Remove HeavyItems when STAGE 2
                     #endregion // Interaction of HeavyTarget
+
+                    //Cat SE add Masaki
+                    if (tagName == "Cat")
+                    {
+                        audioCat.Play();
+                    }
                 }
                 #region Catching Object's gravity is false;
                 if (SceneManager.GetActiveScene().name != "004 Stage2")

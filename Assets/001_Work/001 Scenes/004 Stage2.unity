@@ -46738,6 +46738,7 @@ MonoBehaviour:
   objIndex: -1
   audioRemove: {fileID: 1778576444}
   audioAnime: {fileID: 1485777410}
+  audioCat: {fileID: 1135111592}
 --- !u!1 &8506171100799399124
 GameObject:
   m_ObjectHideFlags: 0
@@ -47102,13 +47103,27 @@ GameObject:
   m_Component:
   - component: {fileID: 8169314806485485720}
   - component: {fileID: 8562897556830740502}
+  - component: {fileID: 8796915611530187299}
   m_Layer: 0
   m_Name: CAT
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &8796915611530187299
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8796915611530187298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2500, y: 3500, z: 2000}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &8802855656111013102
 Transform:
   m_ObjectHideFlags: 0
