@@ -12,6 +12,8 @@ public class TitleAndEndSceneInputManager : MonoBehaviour
 
     void Update()
     {
+        ReturnTitleCommand();
+
         InitMyPlayerRay();
         Pointing();
     }
@@ -85,4 +87,11 @@ public class TitleAndEndSceneInputManager : MonoBehaviour
         }
     }
 
+    public void ReturnTitleCommand()
+    {
+        if (OVRInput.Get(OVRInput.RawButton.B) && OVRInput.Get(OVRInput.RawButton.X) && OVRInput.Get(OVRInput.RawButton.Y) && OVRInput.Get(OVRInput.RawButton.LHandTrigger))
+        {
+            SceneManager.LoadScene("001 Title");
+        }
+    }
 }
