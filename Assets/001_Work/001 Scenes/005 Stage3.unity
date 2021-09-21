@@ -35043,13 +35043,27 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653467334547}
   - component: {fileID: 1489190685}
+  - component: {fileID: 919132149262552362}
   m_Layer: 0
   m_Name: CAT
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &919132149262552362
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149262552361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2500, y: 3500, z: 2000}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &925556821962342126
 GameObject:
   m_ObjectHideFlags: 0
@@ -35563,6 +35577,7 @@ MonoBehaviour:
   objIndex: -1
   audioRemove: {fileID: 131348843}
   audioAnime: {fileID: 1557627967}
+  audioCat: {fileID: 284045346}
 --- !u!1 &1077699360555257400
 GameObject:
   m_ObjectHideFlags: 0
@@ -52753,7 +52768,7 @@ GameObject:
   - component: {fileID: 5441150356480051556}
   m_Layer: 0
   m_Name: Cat_Lite
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
