@@ -368,6 +368,8 @@ public class PlayerInputManager_P : MonoBehaviour
                         #region After Remove Process
                         if (SceneManager.GetActiveScene().name != "004 Stage2")
                         {
+
+
                             //Remove Audio
                             audioRemove.Play();
 
