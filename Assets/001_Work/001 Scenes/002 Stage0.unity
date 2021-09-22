@@ -5531,6 +5531,7 @@ GameObject:
   - component: {fileID: 603297408}
   - component: {fileID: 603297410}
   - component: {fileID: 603297409}
+  - component: {fileID: 603297411}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -5600,6 +5601,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603297407}
   m_CullTransparentMesh: 1
+--- !u!114 &603297411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603297407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 0.2, y: -0.4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &609766931
 GameObject:
   m_ObjectHideFlags: 0
@@ -6734,7 +6750,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.627451}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -11985,6 +12001,7 @@ GameObject:
   - component: {fileID: 1456212229}
   - component: {fileID: 1456212231}
   - component: {fileID: 1456212230}
+  - component: {fileID: 1456212232}
   m_Layer: 5
   m_Name: Text (2)
   m_TagString: Untagged
@@ -12053,6 +12070,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456212228}
   m_CullTransparentMesh: 1
+--- !u!114 &1456212232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456212228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 0.2, y: -0.2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1460468631
 GameObject:
   m_ObjectHideFlags: 0
