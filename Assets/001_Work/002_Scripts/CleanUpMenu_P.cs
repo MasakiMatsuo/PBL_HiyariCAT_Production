@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CleanUpMenu_P : MonoBehaviour
@@ -9,6 +8,8 @@ public class CleanUpMenu_P : MonoBehaviour
     public TargetScript_P[] targetScript_P;
     public GameObject cleanMenu1;
     public GameObject cleanMenu2;
+
+    public GameObject removeHeavyObj;
 
     public bool officeKnifeRemoveFlag = false;
 
@@ -22,7 +23,15 @@ public class CleanUpMenu_P : MonoBehaviour
 
     void Update()
     {
-        PrintCleanMenu();
+        if (SceneManager.GetActiveScene().name != "004 Stage2")
+        {
+            PrintCleanMenu();
+        }
+        
+        if (removeHeavyObj.GetComponent<RemoveHeavyObj>().removeHeavyObjFlag01)
+        {
+            StartCoroutine(DisplayRemoveMessage());
+        }
     }
 
     void InitCleanMenu()
@@ -126,7 +135,6 @@ public class CleanUpMenu_P : MonoBehaviour
         }
     }
 
-
     public void GenerateCM1(bool cF, int cnt)
     {
         if (cF)
@@ -165,5 +173,40 @@ public class CleanUpMenu_P : MonoBehaviour
         }
     }
 
+    public IEnumerator DisplayRemoveMessage()
+    {
+        if (SceneManager.GetActiveScene().name != "004 Stage2")
+        {
+            removeHeavyObj.GetComponent<RemoveHeavyObj>().removeMessage.SetActive(true);
+
+            yield return new WaitForSeconds(3.0f);
+            removeHeavyObj.GetComponent<RemoveHeavyObj>().removeMessage.SetActive(false);
+        }
+    }
+
+    public IEnumerator DisplayRemoveMessageOnStage2(int oIndex)
+    {
+        if (oIndex == 0)
+        {
+            cleanMenu1.SetActive(true);
+
+            yield return new WaitForSeconds(3.0f);
+            cleanMenu1.SetActive(false);
+        }
+        else if(oIndex == 1)
+        {
+            cleanMenu2.SetActive(true);
+
+            yield return new WaitForSeconds(3.0f);
+            cleanMenu2.SetActive(false);
+        }
+        else if (oIndex == 2)
+        {
+            removeHeavyObj.GetComponent<RemoveHeavyObj>().removeMessage.SetActive(true);
+
+            yield return new WaitForSeconds(3.0f);
+            removeHeavyObj.GetComponent<RemoveHeavyObj>().removeMessage.SetActive(false);
+        }
+    }
 }
 

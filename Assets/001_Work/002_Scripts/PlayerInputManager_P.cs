@@ -32,6 +32,7 @@ public class PlayerInputManager_P : MonoBehaviour
     public GameObject locomotionManager;
     public CatInputManager_P catInputManager_P;
     public SwitchViewManager_P switchViewManager_P;
+    public CleanUpMenu_P cleanUpMenu_P;
     #endregion // Other Scripts
 
     #region Flags
@@ -368,8 +369,6 @@ public class PlayerInputManager_P : MonoBehaviour
                         #region After Remove Process
                         if (SceneManager.GetActiveScene().name != "004 Stage2")
                         {
-
-
                             //Remove Audio
                             audioRemove.Play();
 
@@ -398,11 +397,13 @@ public class PlayerInputManager_P : MonoBehaviour
                         {
                             PointingCapacity();
                             objIndex = 2;
+                            StartCoroutine(cleanUpMenu_P.DisplayRemoveMessageOnStage2(objIndex));
                         }
                         #endregion // Search condition
                         #region Remove Vase or Chemicals
                         if (objIndex == 0 || objIndex == 1)
                         {
+                            StartCoroutine(cleanUpMenu_P.DisplayRemoveMessageOnStage2(objIndex));
                             //Remove Audio
                             audioRemove.Play();
 
