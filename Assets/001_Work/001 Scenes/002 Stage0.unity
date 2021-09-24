@@ -1803,7 +1803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 179997690}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bed001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3913,7 +3913,7 @@ GameObject:
   - component: {fileID: 385651616}
   m_Layer: 0
   m_Name: 01_TitleImage
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8566,7 +8566,7 @@ GameObject:
   - component: {fileID: 950220461}
   - component: {fileID: 950220460}
   - component: {fileID: 950220459}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Poster_OculusController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9156,7 +9156,7 @@ GameObject:
   - component: {fileID: 1052136818}
   - component: {fileID: 1052136817}
   - component: {fileID: 1052136816}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wood_East
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9673,7 +9673,7 @@ MonoBehaviour:
   objIndex: -1
   audioRemove: {fileID: 8970787679850068842}
   audioAnime: {fileID: 1106415031664221954}
-  audioCat: {fileID: 0}
+  audioCat: {fileID: 1150116226}
 --- !u!114 &1110597397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9792,6 +9792,133 @@ Transform:
   m_Father: {fileID: 1445682082}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1150116224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150116225}
+  - component: {fileID: 1150116226}
+  m_Layer: 0
+  m_Name: Audio_Cat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1150116225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150116224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7556197991043158803}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1150116226
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150116224}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4c88aa4c7498f9d48afaebc235ad3ec2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1150604490
 GameObject:
   m_ObjectHideFlags: 0
@@ -10472,7 +10599,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1260033749}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Closet001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11876,7 +12003,7 @@ GameObject:
   - component: {fileID: 1471822930}
   - component: {fileID: 1471822929}
   - component: {fileID: 1471822928}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wood_West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14109,7 +14236,7 @@ GameObject:
   - component: {fileID: 1766290929}
   - component: {fileID: 1766290928}
   - component: {fileID: 1766290927}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wood_North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14768,7 +14895,7 @@ GameObject:
   - component: {fileID: 1841774304}
   - component: {fileID: 1841774303}
   - component: {fileID: 1841774305}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Clorset_parts002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15085,7 +15212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1892634260}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chair001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17969,7 +18096,7 @@ GameObject:
   - component: {fileID: 2142524022}
   - component: {fileID: 2142524021}
   - component: {fileID: 2142524020}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wood_South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18410,7 +18537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 12205917682155357}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DoorFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18460,7 +18587,7 @@ GameObject:
   - component: {fileID: 12205917954870727}
   - component: {fileID: 12205917954870724}
   - component: {fileID: 12205917954870725}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DoorDFlame_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18563,7 +18690,7 @@ GameObject:
   - component: {fileID: 12205919003901089}
   - component: {fileID: 12205919003901102}
   - component: {fileID: 12205919003901103}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DoorDFlame_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18909,7 +19036,7 @@ GameObject:
   - component: {fileID: 8830550528109859237}
   - component: {fileID: 2716987909936987689}
   - component: {fileID: 144583148576458859}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Textile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18990,7 +19117,7 @@ GameObject:
   - component: {fileID: 114114974745074881}
   - component: {fileID: 3907630662289757028}
   - component: {fileID: 1287543696809813934}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CeilingLights001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19273,7 +19400,7 @@ GameObject:
   - component: {fileID: 4902085340046730599}
   - component: {fileID: 7091167948315605226}
   - component: {fileID: 1379448559907998193}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pillow_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19306,7 +19433,7 @@ GameObject:
   - component: {fileID: 5147241617268767753}
   - component: {fileID: 1317918914771271197}
   - component: {fileID: 1486638519694214785}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25032,7 +25159,7 @@ GameObject:
   - component: {fileID: 8313958280920911111}
   - component: {fileID: 2471168141076426950}
   - component: {fileID: 2579217993649233981}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25065,7 +25192,7 @@ GameObject:
   - component: {fileID: 1040489088557005294}
   - component: {fileID: 7428519470419941933}
   - component: {fileID: 2662321852019217247}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door001_part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25939,7 +26066,7 @@ GameObject:
   - component: {fileID: 6293926033074805220}
   - component: {fileID: 6578427595878054347}
   - component: {fileID: 3765177017172644720}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Duvet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25972,7 +26099,7 @@ GameObject:
   - component: {fileID: 6844509271962074296}
   - component: {fileID: 9168398190301564352}
   - component: {fileID: 3885338264684441734}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Clorset_parts001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26021,7 +26148,7 @@ GameObject:
   - component: {fileID: 437769776119932757}
   - component: {fileID: 2447620649881375647}
   - component: {fileID: 4248951030948606539}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Clorset_body001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26191,7 +26318,7 @@ GameObject:
   - component: {fileID: 3178728159913242620}
   - component: {fileID: 4936081330308452292}
   - component: {fileID: 5011476755695882952}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Matress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27384,7 +27511,7 @@ GameObject:
   - component: {fileID: 1839527202151031202}
   - component: {fileID: 1549129712889571261}
   - component: {fileID: 5296001807110645725}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sheet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28330,7 +28457,7 @@ GameObject:
   - component: {fileID: 7129662358490067768}
   - component: {fileID: 7129662358490067771}
   - component: {fileID: 7129662358490067770}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DoorDFlame_Left (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29011,6 +29138,7 @@ Transform:
   - {fileID: 8970787679850068853}
   - {fileID: 5710014543146240155}
   - {fileID: 1106415031664221953}
+  - {fileID: 1150116225}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29439,7 +29567,7 @@ GameObject:
   - component: {fileID: 5539089544298929658}
   - component: {fileID: 3010093125951306304}
   - component: {fileID: 8508689128533139620}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30716,7 +30844,7 @@ GameObject:
   - component: {fileID: 6218731765099683635}
   - component: {fileID: 2260361647086347917}
   - component: {fileID: 9192010215276215066}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pillow_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
