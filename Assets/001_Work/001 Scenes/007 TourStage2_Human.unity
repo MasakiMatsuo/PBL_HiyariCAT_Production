@@ -4753,20 +4753,6 @@ Transform:
   m_Father: {fileID: 1445682082}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1124941202
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2363870323590912837}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 691956810860007288, guid: a59dc56f2c011cf4eae9dd62cd336941, type: 3}
 --- !u!1 &1149680138
 GameObject:
   m_ObjectHideFlags: 0
@@ -6097,7 +6083,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This outside is like a Bedroom
+  m_Text: This outside is like a Living room
 --- !u!222 &1465474485
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6647,6 +6633,72 @@ Transform:
   m_Father: {fileID: 1609267670}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1572445243
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 725981363298518598}
+    m_Modifications:
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.015300239
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0015
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0067
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 41406933268219591, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+      propertyPath: m_Name
+      value: Plane
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+--- !u!4 &1572445244 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 41406933268219590, guid: 476155dba5b8e3c44ac274626184a33c, type: 3}
+  m_PrefabInstance: {fileID: 1572445243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1573543178
 GameObject:
   m_ObjectHideFlags: 0
@@ -7206,6 +7258,10 @@ PrefabInstance:
     - target: {fileID: 8264429638590910310, guid: 6d1a88ba466f98842a8bb83d0a5e2612, type: 3}
       propertyPath: m_Name
       value: StartMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264429638590910310, guid: 6d1a88ba466f98842a8bb83d0a5e2612, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8264429638590910311, guid: 6d1a88ba466f98842a8bb83d0a5e2612, type: 3}
       propertyPath: m_Pivot.x
@@ -8176,7 +8232,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This outside is like a Living room
+  m_Text: This outside is like a Bedroom
 --- !u!222 &2028401035
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9363,6 +9419,7 @@ Transform:
   - {fileID: 1437011302341982104}
   - {fileID: 8295024899848009632}
   - {fileID: 458134662027240767}
+  - {fileID: 1572445244}
   m_Father: {fileID: 3392746380270527563}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13531,15 +13588,15 @@ GameObject:
   - component: {fileID: 1437011302341982104}
   - component: {fileID: 1196546482120030486}
   - component: {fileID: 2897653699290283621}
-  - component: {fileID: 1124941202}
   - component: {fileID: 2363870323590912838}
   - component: {fileID: 2363870323590912839}
+  - component: {fileID: 2363870323590912841}
   m_Layer: 0
   m_Name: Door001_part002
   m_TagString: Door_Message3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!95 &2363870323590912838
 Animator:
@@ -13574,6 +13631,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2363870323590912838}
   inputManager: {fileID: 3307882336754859177}
+--- !u!64 &2363870323590912841
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363870323590912837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 691956810860007288, guid: a59dc56f2c011cf4eae9dd62cd336941, type: 3}
 --- !u!1 &2367668729495581243
 GameObject:
   m_ObjectHideFlags: 0
@@ -16025,7 +16096,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 51b55a0d6d3ecd64a9b5451ed0484392, type: 2}
+  - {fileID: 2100000, guid: 5db84436c4a5fb74a911ec09fc0d473f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20808,7 +20879,7 @@ GameObject:
   - component: {fileID: 4053962781819788281}
   - component: {fileID: 7595557161488344632}
   - component: {fileID: 7559491757519582915}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door003
   m_TagString: Capacity
   m_Icon: {fileID: 0}

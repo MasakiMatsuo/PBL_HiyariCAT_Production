@@ -292,6 +292,13 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
                 }
             }
 
+            if (hits.Length == 0)
+            {
+                hitFlgD2_1 = false;
+                hitFlgD2_2 = false;
+                hitFlgD2_3 = false;
+            }
+
             //Å¶UI Highlight Object
             foreach (var hit in hits)
             {
@@ -304,23 +311,30 @@ public class TourPlayerInputManager_Stage2 : MonoBehaviour
                     {
                         hitFlgD2_1 = true;
                     }
-                }
-
-                if (lightTagName == "Door_Message2")
+                }else if (lightTagName == "Door_Message2")
                 {
                     if (lightObjNam == "Door001_part")
                     {
                         hitFlgD2_2 = true;
                     }
                 }
-                if (lightTagName == "Door_Message3")
+
+                else if (lightTagName == "Door_Message3")
                 {
                     if (lightObjNam == "Door001_part002")
                     {
                         hitFlgD2_3 = true;
                     }
                 }
+                else
+                {
+                    /*hitFlgD2_1 = false;
+                    hitFlgD2_2 = false;
+                    hitFlgD2_3 = false;*/
+                }
             }
+
+            
         }
         // When the RHandTrigger is released
         else
