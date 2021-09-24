@@ -6,10 +6,15 @@ using UnityEngine.UI;
 public class ChangeTVScreen : MonoBehaviour
 {
     private Image s_Image;
-    //public List<Image> screens = new List<Image>();
     public Sprite[] screens;
     private int id = 0;
     public Image tvImage;
+
+    public GameObject tvFlameR;
+    public GameObject tvFlameL;
+    public GameObject tvBackground;
+    public GameObject tvTxet;
+    public GameObject tvPad;
 
     public GameObject remoteText1;
     public GameObject remoteText2;
@@ -29,16 +34,19 @@ public class ChangeTVScreen : MonoBehaviour
     {
         sflag = false;
         s_Image = GetComponent<Image>();
+
         tvImage.enabled = false;
+
+        tvFlameR.SetActive(false);
+        tvFlameL.SetActive(false);
+        tvBackground.SetActive(false);
+        tvTxet.SetActive(false);
+        tvPad.SetActive(false);
 
         remoteText1.SetActive(true);
         remoteText2.SetActive(false);
         tvText1.SetActive(false);
         tvText2.SetActive(false);
-
-        //controller2.SetActive(false);
-
-
     }
 
     void ChangeScreens()
@@ -56,20 +64,45 @@ public class ChangeTVScreen : MonoBehaviour
                     if (!sflag)
                     {
                         tvImage.enabled = true;
+                        tvBackground.SetActive(true);
+                        tvTxet.SetActive(true);
+                        tvPad.SetActive(true);
+                        tvFlameR.SetActive(true);
                         sflag = true;
                     }
                     else
                     {
                         tvImage.enabled = false;
+                        tvBackground.SetActive(false);
+                        tvTxet.SetActive(false);
+                        tvPad.SetActive(false);
+                        tvFlameR.SetActive(false);
+                        tvFlameL.SetActive(false);
                         sflag = false;
                     }
-
                 }
 
                 if (OVRInput.GetDown(OVRInput.RawButton.A))
                 {
-                    id = id < screens.Length - 1 ? id + 1 : 0;
-                    s_Image.sprite = screens[id];
+                    if (sflag)
+                    {
+                        id = id < screens.Length - 1 ? id + 1 : 0;
+                        s_Image.sprite = screens[id];
+
+                        if (rflag)
+                        {
+                            rflag = false;
+                         
+                            tvFlameR.SetActive(true);
+                            tvFlameL.SetActive(false);
+                        }else if (!rflag)
+                        {
+                            rflag = true;
+                            
+                            tvFlameR.SetActive(false);
+                            tvFlameL.SetActive(true);
+                        }
+                    }
                 }
             }
             
@@ -80,6 +113,11 @@ public class ChangeTVScreen : MonoBehaviour
             if (OVRInput.GetDown(OVRInput.RawButton.B))
             {
                 tvImage.enabled = false;
+                tvFlameR.SetActive(false);
+                tvFlameL.SetActive(false);
+                tvBackground.SetActive(false);
+                tvTxet.SetActive(false);
+                tvPad.SetActive(false);
             }
 
             tvText2.SetActive(false);
