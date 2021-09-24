@@ -12,6 +12,7 @@ public class CleanUpMenu_P : MonoBehaviour
     public GameObject removeHeavyObj;
 
     public bool officeKnifeRemoveFlag = false;
+    public bool removeHeavyObjMessageDone = false;
 
     float life_time = 3.0f;
     float time = 0.0f;
@@ -31,6 +32,11 @@ public class CleanUpMenu_P : MonoBehaviour
         if (removeHeavyObj.GetComponent<RemoveHeavyObj>().removeHeavyObjFlag01)
         {
             StartCoroutine(DisplayRemoveMessage());
+        }
+
+        if (removeHeavyObjMessageDone)
+        {
+            removeHeavyObj.GetComponent<RemoveHeavyObj>().removeMessage.SetActive(false);
         }
     }
 
@@ -182,6 +188,7 @@ public class CleanUpMenu_P : MonoBehaviour
             yield return new WaitForSeconds(3.0f);
             removeHeavyObj.GetComponent<RemoveHeavyObj>().removeMessage.SetActive(false);
         }
+        removeHeavyObjMessageDone = true;
     }
 
     public IEnumerator DisplayRemoveMessageOnStage2(int oIndex)
