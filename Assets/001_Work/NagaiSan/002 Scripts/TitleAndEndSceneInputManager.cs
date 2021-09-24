@@ -10,6 +10,8 @@ public class TitleAndEndSceneInputManager : MonoBehaviour
     public LineRenderer rayObject;
     #endregion
 
+    public AudioSource audioCat;
+
     void Update()
     {
         ReturnTitleCommand();
@@ -77,6 +79,11 @@ public class TitleAndEndSceneInputManager : MonoBehaviour
                         Application.Quit();
                     }
                     #endregion
+                    
+                    if (tagName == "Cat")
+                    {
+                        audioCat.Play();
+                    }
                 }
             }
         }

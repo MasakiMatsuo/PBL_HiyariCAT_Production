@@ -39,7 +39,7 @@ public class RemoveMassage : MonoBehaviour
                 loopCount = false;
             }
         }
-
+        
         //Stage2
         if (SceneManager.GetActiveScene().name == "004 Stage2")
         {
@@ -75,7 +75,7 @@ public class RemoveMassage : MonoBehaviour
                 loopCount = false;
             }
         }
-
+        
         //Stage3
         if (SceneManager.GetActiveScene().name == "005 Stage3")
         {
@@ -96,7 +96,5 @@ public class RemoveMassage : MonoBehaviour
                 loopCount = false;
             }
         }
-
-
     }
 }
