@@ -43,6 +43,8 @@ public class TourPlayerInputManager : MonoBehaviour
     private bool mFlg3 = false;
 
     #endregion
+
+    public AudioSource audioAnime;
     #endregion
 
     void Start()
@@ -366,12 +368,20 @@ public class TourPlayerInputManager : MonoBehaviour
         if (!nowTransDeskCap)
         {
             capacityAnimation.SetBool("Touch", true);
+            if (SceneManager.GetActiveScene().name == "006 TourStage1_Human" || SceneManager.GetActiveScene().name == "008 TourStage3_Human")
+            {
+                audioAnime.Play();
+            }
         }
         else
         {
             capacityAnimation.SetBool("Touch", false);
+            if (SceneManager.GetActiveScene().name == "006 TourStage1_Human" || SceneManager.GetActiveScene().name == "008 TourStage3_Human")
+            {
+                audioAnime.Play();
+            }
         }
-        #endregion
+        #endregion // Open / Close Desk (with Decision Area)
     }
 
     public void ReturnToPosition()
