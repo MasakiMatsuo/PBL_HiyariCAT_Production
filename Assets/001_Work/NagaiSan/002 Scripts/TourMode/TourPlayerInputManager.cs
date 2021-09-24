@@ -44,7 +44,7 @@ public class TourPlayerInputManager : MonoBehaviour
 
     #endregion
 
-    public AudioSource audioAnime;
+    public GameObject audioAnime;
     #endregion
 
     void Start()
@@ -370,7 +370,7 @@ public class TourPlayerInputManager : MonoBehaviour
             capacityAnimation.SetBool("Touch", true);
             if (SceneManager.GetActiveScene().name == "006 TourStage1_Human" || SceneManager.GetActiveScene().name == "008 TourStage3_Human")
             {
-                audioAnime.Play();
+                audioAnime.GetComponent<AudioSource>().Play();
             }
         }
         else
@@ -378,7 +378,7 @@ public class TourPlayerInputManager : MonoBehaviour
             capacityAnimation.SetBool("Touch", false);
             if (SceneManager.GetActiveScene().name == "006 TourStage1_Human" || SceneManager.GetActiveScene().name == "008 TourStage3_Human")
             {
-                audioAnime.Play();
+                audioAnime.GetComponent<AudioSource>().Play();
             }
         }
         #endregion // Open / Close Desk (with Decision Area)
