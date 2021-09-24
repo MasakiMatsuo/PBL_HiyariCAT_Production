@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField]
-    private Image menu;
+    private GameObject menu;
 
     void Update()
     {
@@ -20,7 +20,7 @@ public class MenuManager : MonoBehaviour
         if (OVRInput.Get(OVRInput.RawButton.A))
         {
             /*Button.Two‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚Ìˆ—*/
-            menu.enabled = false;
+            menu.SetActive(false);
         }
     }
 }
